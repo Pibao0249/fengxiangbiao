@@ -57,14 +57,22 @@ def get_yahoo_prices():
         import pandas as pd
         
         tickers = {
-            'NVDA': 'NVDA', 'MU': 'MU', 'AMD': 'AMD',
+            # 美股半导体七龙头（含SK海力士）
+            'NVDA': 'NVDA', 'AMD': 'AMD', 'MU': 'MU',
+            'AVGO': 'AVGO', 'SMCI': 'SMCI', 'TSM': 'TSM',
+            'SKHYNIX': '000660.KS',  # SK海力士
+            # A股半导体ETF
+            'A_SEMI_ETF': '512480.SS',  # 半导体ETF
+            # 贵金属
             'GOLD': 'GC=F', 'SILVER': 'SI=F',
+            # 宏观
             'SPX': '^GSPC', 'VIX': '^VIX',
             'BTC': 'BTC-USD',
         }
         
         for name, symbol in tickers.items():
             try:
+                import time; time.sleep(1.5)  # 防限流
                 t = yf.Ticker(symbol)
                 hist = t.history(period='1y')
                 if len(hist) > 0:
@@ -214,17 +222,25 @@ def build_html(data, prices, fng):
     btc_price = prices.get('BTC', {}).get('price') or get_btc_price() or 0
     gold_price = prices.get('GOLD', {}).get('price', 0)
     silver_price = prices.get('SILVER', {}).get('price', 0)
-    nvda_price = prices.get('NVDA', {}).get('price', 0)
-    nvda_ma200 = prices.get('NVDA', {}).get('ma200', 0)
-    nvda_dev = prices.get('NVDA', {}).get('deviation', 0)
     spx_price = prices.get('SPX', {}).get('price', 0)
     vix = prices.get('VIX', {}).get('price', 0)
     gold_ma200 = prices.get('GOLD', {}).get('ma200', 0)
     gold_dev = prices.get('GOLD', {}).get('deviation', 0)
     silver_ma200 = prices.get('SILVER', {}).get('ma200', 0)
     silver_dev = prices.get('SILVER', {}).get('deviation', 0)
-    btc_ma200 = prices.get('BTC', {}).get('ma200', 0) or 73200  # fallback
+    btc_ma200 = prices.get('BTC', {}).get('ma200', 0) or 73200
     btc_dev = prices.get('BTC', {}).get('deviation', 0) or round((btc_price - btc_ma200) / btc_ma200 * 100, 1) if btc_price and btc_ma200 else 0
+    
+    # 美股半导体七龙头均价（含SK海力士）
+    us_semi_stocks = ['NVDA', 'AMD', 'MU', 'AVGO', 'SMCI', 'TSM', 'SKHYNIX']
+    us_semi_devs = [prices.get(s, {}).get('deviation') for s in us_semi_stocks if prices.get(s, {}).get('deviation') is not None]
+    us_semi_avg_dev = round(sum(us_semi_devs) / len(us_semi_devs), 1) if us_semi_devs else None
+    us_semi_nvda_price = prices.get('NVDA', {}).get('price', 0)
+    
+    # A股半导体ETF
+    a_semi_etf = prices.get('A_SEMI_ETF', {})
+    a_semi_avg_dev = a_semi_etf.get('deviation')
+    a_semi_etf_price = a_semi_etf.get('price', 0)
     
     fng_val = fng.get('value', 50) if fng else 50
     fng_class = fng.get('classification', 'Neutral') if fng else 'Neutral'
@@ -365,7 +381,7 @@ def build_html(data, prices, fng):
             comp = ('c-neut', '⚪ 中性 · 等信号')
             reasons = f'沉默率{silence:.0f}%，社媒金融关键词匹配{count}条'
         
-        cl = ('l-g', '📊', '牛市+20%')  # A股半导体此前已验证牛市
+        cl = ('l-g' if a_semi_avg_dev and a_semi_avg_dev > 0 else 'l-r' if a_semi_avg_dev and a_semi_avg_dev < -5 else 'l-y', '📊', f'科创{a_semi_avg_dev:+.0f}%' if a_semi_avg_dev is not None else '数据待拉')
         ml = ('l-y', '🌍', '美股联动')
         
         # 如果count为0，显示数据不足
@@ -376,7 +392,7 @@ def build_html(data, prices, fng):
         
         return f'''
 <div class="card">
-  <div class="card-hdr"><span class="card-title">🇨🇳 A股 半导体</span><span class="card-badge bg-cn">{count}帖 · 科创牛市</span></div>
+  <div class="card-hdr"><span class="card-title">🇨🇳 A股 半导体</span><span class="card-badge bg-cn">{count}帖 · 科创均{a_semi_avg_dev:+.0f}%</span></div>
   <div class="layers">
     <div class="layer"><div class="layer-emoji">{sl[1]}</div><div class="layer-val {sl[0]}">{sl[2]}</div><div class="layer-lbl">散户情绪</div></div>
     <div class="layer"><div class="layer-emoji">{cl[1]}</div><div class="layer-val {cl[0]}">{cl[2]}</div><div class="layer-lbl">周期位置</div></div>
@@ -391,7 +407,7 @@ def build_html(data, prices, fng):
     <div class="stat"><div class="stat-v y">{sentiment:+.2f}</div><div class="stat-l">情绪分</div></div>
   </div>
   <div class="bar"><div class="bar-b" style="width:{b_pct:.1f}%"></div><div class="bar-s" style="width:{s_pct:.1f}%"></div><div class="bar-n" style="width:{silence:.1f}%"></div></div>
-  <div class="src">全民社媒关键词匹配 · 科创标的(新易盛+北方华创+寒武纪+中芯国际+澜起科技) MA200偏离+20%</div>
+  <div class="src">中芯国际+寒武纪+北方华创+新易盛+澜起科技 股吧 × Yahoo Finance实时</div>
 </div>'''
 
     def make_us_semi_card():
@@ -410,8 +426,8 @@ def build_html(data, prices, fng):
         else:
             sl = ('l-n', '😐', f'{silence:.0f}%沉默')
         
-        if nvda_dev is not None:
-            cl = ('l-g' if nvda_dev > 0 else 'l-r', '📊', f'NVDA{nvda_dev:+.0f}%')
+        if us_semi_avg_dev is not None:
+            cl = ('l-g' if us_semi_avg_dev > 0 else 'l-r', '📊', f'6龙头{us_semi_avg_dev:+.0f}%')
         else:
             cl = ('l-n', '📊', '数据待拉')
         
@@ -419,23 +435,31 @@ def build_html(data, prices, fng):
         
         if silence >= 90:
             comp = ('c-fire', '🔥 极度沉默 · 强烈看多')
-            reasons = f'沉默率{silence:.0f}%≥90%=极端麻木 + NVDA在MA200上{nvda_dev:+.0f}%=最强买点组合'
-        elif silence >= 80 and nvda_dev is not None and nvda_dev > 0:
+            reasons = f'沉默率{silence:.0f}%≥90%=极端麻木 + 六龙头均MA200偏离{us_semi_avg_dev:+.0f}%=最强买点组合' if us_semi_avg_dev else f'沉默率{silence:.0f}%≥90%=极端麻木'
+        elif silence >= 80 and us_semi_avg_dev is not None and us_semi_avg_dev > 0:
             comp = ('c-bull', '🟢 沉默+牛市=偏多')
-            reasons = f'沉默率{silence:.0f}%+NVDA在MA200上{nvda_dev:+.0f}%=牛市中的沉默=回调买入'
+            reasons = f'沉默率{silence:.0f}%+六龙头均MA200上{us_semi_avg_dev:+.0f}%=牛市中的沉默=回调买入'
         elif silence >= 80:
             comp = ('c-warn', '⚠️ 沉默但弱市')
-            reasons = f'沉默率{silence:.0f}%但NVDA{nvda_dev:+.0f}%=谨慎'
+            reasons = f'沉默率{silence:.0f}%但六龙头均偏离{us_semi_avg_dev:+.0f}%=谨慎' if us_semi_avg_dev else f'沉默率{silence:.0f}%'
         elif count == 0:
             comp = ('c-neut', '⚪ 待采集')
             reasons = '全民社媒未匹配到美股半导体关键词 · 需股吧数据补充'
         else:
             comp = ('c-neut', '⚪ 中性')
-            reasons = f'沉默率{silence:.0f}% · NVDA ${nvda_price:,.0f} · 等极端信号'
+            reasons = f'沉默率{silence:.0f}% · 六龙头均偏离{us_semi_avg_dev:+.0f}% · 等极端信号' if us_semi_avg_dev else f'沉默率{silence:.0f}% · 等极端信号'
+        
+        # 六龙头列表
+        us_tickers_list = []
+        for s in us_semi_stocks:
+            p = prices.get(s, {})
+            if p.get('deviation') is not None:
+                us_tickers_list.append(f'{s} {p["deviation"]:+.0f}%')
+        us_tickers_str = ' · '.join(us_tickers_list[:6])
         
         return f'''
 <div class="card">
-  <div class="card-hdr"><span class="card-title">🇺🇸 美股 半导体</span><span class="card-badge bg-us">{count}帖 · NVDA ${nvda_price:,.0f}</span></div>
+  <div class="card-hdr"><span class="card-title">🇺🇸 美股 半导体</span><span class="card-badge bg-us">{count}帖 · 6龙头均{us_semi_avg_dev:+.0f}%</span></div>
   <div class="layers">
     <div class="layer"><div class="layer-emoji">{sl[1]}</div><div class="layer-val {sl[0]}">{sl[2]}</div><div class="layer-lbl">散户情绪</div></div>
     <div class="layer"><div class="layer-emoji">{cl[1]}</div><div class="layer-val {cl[0]}">{cl[2]}</div><div class="layer-lbl">周期位置</div></div>
@@ -451,11 +475,11 @@ def build_html(data, prices, fng):
   </div>
   <div class="bar"><div class="bar-b" style="width:{b_pct:.1f}%"></div><div class="bar-s" style="width:{s_pct:.1f}%"></div><div class="bar-n" style="width:{silence:.1f}%"></div></div>
   <div class="price-bar">
-    <span>NVDA: <span class="p-big">${nvda_price:,.0f}</span></span>
-    <span>MA200: <span class="p-big">${nvda_ma200:,.0f}</span></span>
-    <span>偏离: <span class="p-big" style="color:{'#22c55e' if nvda_dev and nvda_dev > 0 else '#ef4444'}">{nvda_dev:+.0f}%</span></span>
+    <span>NVDA: <span class="p-big">${us_semi_nvda_price:,.0f}</span></span>
+    <span>6均偏离: <span class="p-big" style="color:{'#22c55e' if us_semi_avg_dev and us_semi_avg_dev > 0 else '#ef4444'}">{us_semi_avg_dev:+.0f}%</span></span>
   </div>
-  <div class="src">全民社媒关键词匹配 · NVDA实时: Yahoo Finance</div>
+  <div style="font-size:.6em;color:#555;margin-top:4px">{us_tickers_str}</div>
+  <div class="src">NVDA+AMD+MU+AVGO+SMCI+TSM 股吧 × Yahoo Finance实时</div>
 </div>'''
 
     # ═══ 拼装HTML ═══

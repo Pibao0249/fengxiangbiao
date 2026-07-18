@@ -1,0 +1,76 @@
+{
+  "time": "2026-07-19T00:01:12.493437",
+  "sources": {
+    "baidu": {
+      "count": 51,
+      "status": "ok"
+    },
+    "weibo": {
+      "count": 50,
+      "status": "ok"
+    },
+    "bilibili": {
+      "count": 50,
+      "status": "ok"
+    },
+    "fng": {
+      "status": "ok",
+      "value": 25
+    },
+    "guba": {
+      "status": "ok",
+      "count": 0
+    }
+  },
+  "sectors": {
+    "gold": {
+      "count": 0,
+      "bullish": 0,
+      "bearish": 0,
+      "neutral": 0,
+      "silence_rate": 0,
+      "carnival_rate": 0,
+      "sentiment": 0,
+      "data_source": "social"
+    },
+    "btc": {
+      "count": 0,
+      "bullish": 0,
+      "bearish": 0,
+      "neutral": 0,
+      "silence_rate": 0,
+      "carnival_rate": 0,
+      "sentiment": 0,
+      "data_source": "social"
+    },
+    "a_semi": {
+      "count": 0,
+      "bullish": 0,
+      "bearish": 0,
+      "neutral": 0,
+      "silence_rate": 0,
+      "carnival_rate": 0,
+      "sentiment": 0,
+      "data_source": "social"
+    },
+    "us_semi": {
+      "count": 0,
+      "bullish": 0,
+      "bearish": 0,
+      "neutral": 0,
+      "silence_rate": 0,
+      "carnival_rate": 0,
+      "sentiment": 0,
+      "data_source": "social"
+    }
+  },
+  "summary": {
+    "total_social": 151,
+    "sources_ok": 5,
+    "sources_total": 5,
+    "fng": {
+      "value": 25,
+      "classification": "Extreme Fear"
+    }
+  }
+}
