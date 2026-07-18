@@ -545,6 +545,12 @@ def main():
     
     print(f'\n✅ 仪表盘: {path}')
     print(f'   file://{path}')
+    
+    # 同时输出到根目录 index.html 供 GitHub Pages
+    root_index = os.path.join(os.path.dirname(DATA_DIR), 'index.html')
+    with open(root_index, 'w') as f:
+        f.write(html)
+    print(f'✅ Pages入口: {root_index}')
 
 if __name__ == '__main__':
     main()

@@ -202,19 +202,92 @@ def collect_fng():
     }
 
 # ═══════════════════════════════════════════
-# 5. 股吧本地文件
+# 5. 股吧 curl (Android UA绕过滑块)
 # ═══════════════════════════════════════════
-def collect_guba_local():
-    """读取Ryan本地Chrome抓取的股吧数据"""
-    path = os.path.join(DATA_DIR, 'guba_local.json')
-    if not os.path.exists(path):
-        return None
+GUBA_ANDROID_UA = 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Mobile Safari/537.36'
+
+GUBA_BOARDS = {
+    'gold': [
+        ('BK0731', '黄金概念吧'),
+        ('BK0732', '贵金属吧'),
+    ],
+    'a_semi': [
+        ('BK1036', '半导体吧'),
+    ],
+    'us_semi': [
+        ('us_NVDA', 'NVDA吧'),
+        ('us_AMD', 'AMD吧'),
+        ('us_MU', '美光吧'),
+        ('us_AVGO', '博通吧'),
+        ('us_SMCI', 'SMCI吧'),
+        ('us_TSM', '台积电吧'),
+    ],
+}
+
+def collect_guba():
+    """curl抓取股吧各板块帖子，Android UA绕过滑块"""
+    import subprocess
+    results = {}
+    for sector_key, boards in GUBA_BOARDS.items():
+        all_posts = []
+        for code, name in boards:
+            url = f'https://guba.eastmoney.com/list,{code}.html'
+            try:
+                r = subprocess.run([
+                    'curl', '-s', '--max-time', '15',
+                    '-H', f'User-Agent: {GUBA_ANDROID_UA}',
+                    url
+                ], capture_output=True, text=True, timeout=20)
+                html = r.stdout
+            except:
+                print(f'    {name}({code}): 网络失败')
+                continue
+            
+            if len(html) < 5000:
+                print(f'    {name}({code}): 响应过短({len(html)}B, 滑块?)')
+                continue
+            
+            m = re.search(r'article_list\s*=\s*(\{.*?\});', html, re.DOTALL)
+            if not m:
+                print(f'    {name}({code}): 未找到article_list(滑块?)')
+                continue
+            
+            try:
+                data = json.loads(m.group(1))
+                posts = data.get('re', [])
+            except:
+                print(f'    {name}({code}): JSON解析失败')
+                continue
+            
+            for p in posts:
+                title = p.get('post_title', '')
+                all_posts.append({
+                    'title': title,
+                    'click': p.get('post_click_count', 0),
+                    'comment': p.get('post_comment_count', 0),
+                    'time': p.get('post_publish_time', ''),
+                    'sentiment': score(title),
+                })
+            
+            print(f'    {name}({code}): {len(posts)}条')
+        
+        b = sum(1 for p in all_posts if p['sentiment'] > 0)
+        s = sum(1 for p in all_posts if p['sentiment'] < 0)
+        n = sum(1 for p in all_posts if p['sentiment'] == 0)
+        total = len(all_posts)
+        
+        results[sector_key] = {
+            'count': total,
+            'bullish': b, 'bearish': s, 'neutral': n,
+            'silence_rate': round(n / max(total, 1) * 100, 1),
+            'carnival_rate': round(b / max(total, 1) * 100, 1),
+            'sentiment': round(sum(p['sentiment'] for p in all_posts) / max(total, 1), 2),
+            'source': 'guba_curl',
+            'sample_posts': [p for p in all_posts if p['sentiment'] != 0][:5],
+        }
     
-    try:
-        with open(path) as f:
-            return json.load(f)
-    except:
-        return None
+    print(f'  股吧总计: {sum(r["count"] for r in results.values())}条帖子')
+    return results
 
 # ═══════════════════════════════════════════
 # 主流程
@@ -269,44 +342,42 @@ if __name__ == '__main__':
         result['sources']['fng'] = {'status': 'fail'}
         print('  Crypto F&G: FAIL')
     
-    # 5. 股吧本地
-    guba = collect_guba_local()
+    # 5. 股吧 curl
+    print('\n  股吧采集:')
+    guba = collect_guba()
     if guba:
-        result['sources']['guba'] = {'status': 'ok', 'sectors': list(guba.keys())}
-        print(f'  股吧本地: {len(guba)}个板块')
+        result['sources']['guba'] = {'status': 'ok', 'count': sum(r['count'] for r in guba.values())}
     else:
         result['sources']['guba'] = {'status': 'missing'}
-        print('  股吧本地: 无数据')
+        print('  股吧: 无数据')
     
     # ═══ 合并全民社媒，按赛道分析 ═══
     all_social = baidu_items + weibo_items + bili_items
     print(f'\n  全平台社媒: {len(all_social)}条')
     
-    sectors = {'gold': [], 'btc': [], 'a_semi': [], 'us_semi': [], 'other': []}
+    # 社媒作为参考
+    social_sectors = {'gold': [], 'btc': [], 'a_semi': [], 'us_semi': [], 'other': []}
     for item in all_social:
         sec = item.get('sector', 'other')
-        if sec in sectors:
-            sectors[sec].append(item)
+        if sec in social_sectors:
+            social_sectors[sec].append(item)
         else:
-            sectors['other'].append(item)
+            social_sectors['other'].append(item)
     
-    for sec in ['gold', 'btc', 'a_semi', 'us_semi', 'other']:
-        analysis = analyze_sector(sectors[sec])
-        result['sectors'][sec] = analysis
-        if sec != 'other':
-            tag = {'gold': '🥇金银', 'btc': '₿BTC', 'a_semi': '🇨🇳A股半导', 'us_semi': '🇺🇸美股半导'}[sec]
-            print(f'  {tag}: {analysis["count"]}条 沉默{analysis["silence_rate"]:.0f}% 狂欢{analysis["carnival_rate"]:.0f}% 情绪{analysis["sentiment"]:+.2f}')
-    
-    # ═══ 合并股吧数据（如果有） ═══
-    if guba:
-        print(f'\n  ⚠️ 股吧本地数据覆盖社媒分析')
-        for sec_key, guba_data in guba.items():
-            if sec_key in result['sectors']:
-                # 股吧数据优先，但保留社媒作为参考
-                result['sectors'][sec_key] = {
-                    **result['sectors'][sec_key],
-                    'guba_override': guba_data,
-                }
+    # ═══ 最终赛道数据：股吧优先，社媒补充 ═══
+    result['sectors'] = {}
+    for sec in ['gold', 'btc', 'a_semi', 'us_semi']:
+        if guba and sec in guba and guba[sec]['count'] > 0:
+            result['sectors'][sec] = guba[sec]
+            result['sectors'][sec]['social_backup'] = analyze_sector(social_sectors[sec])
+            result['sectors'][sec]['data_source'] = 'guba'
+        else:
+            result['sectors'][sec] = analyze_sector(social_sectors[sec])
+            result['sectors'][sec]['data_source'] = 'social'
+        
+        tag = {'gold': '🥇金银', 'btc': '₿BTC', 'a_semi': '🇨🇳A股半导', 'us_semi': '🇺🇸美股半导'}[sec]
+        s = result['sectors'][sec]
+        print(f'  {tag}: {s["count"]}条 [{s["data_source"]}] 沉默{s["silence_rate"]:.0f}% 狂欢{s["carnival_rate"]:.0f}% 情绪{s["sentiment"]:+.2f}')
     
     # ═══ 生成摘要 ═══
     result['summary'] = {
