@@ -61,8 +61,8 @@ def get_yahoo_prices():
             'NVDA': 'NVDA', 'AMD': 'AMD', 'MU': 'MU',
             'AVGO': 'AVGO', 'SMCI': 'SMCI', 'TSM': 'TSM',
             'SKHYNIX': '000660.KS',  # SK海力士
-            # A股科创50ETF
-            'A_SEMI_ETF': '588000.SS',  # 科创50ETF
+            # A股半导体ETF
+            'A_SEMI_ETF': '512480.SS',  # 半导体ETF（中证全指半导体）
             # 美股半导体指数
             'SOX': '^SOX',  # 费城半导体指数
             # 贵金属
@@ -239,7 +239,7 @@ def build_html(data, prices, fng, consensus):
     us_semi_avg_dev = round(sum(us_semi_devs) / len(us_semi_devs), 1) if us_semi_devs else None
     us_semi_nvda_price = prices.get('NVDA', {}).get('price', 0)
     
-    # A股科创50ETF
+    # A股半导体ETF
     a_semi_etf = prices.get('A_SEMI_ETF', {})
     a_semi_avg_dev = a_semi_etf.get('deviation')
     a_semi_etf_price = a_semi_etf.get('price', 0)
@@ -314,17 +314,17 @@ def build_html(data, prices, fng, consensus):
         # 综合
         if silence >= 80 and (gold_dev is not None and gold_dev < -5):
             comp = ('c-fire', '🔥 三重共振 · 强烈看多')
-            reasons = f'沉默率{silence:.0f}%+深度熊市+地缘利好=最强买入信号 · 金${gold_price:,.0f} 银${silver_price:.2f}'
+            reasons = f'沉默率{silence:.0f}%+深度熊市+地缘利好=最强买入信号 · 金${gold_price:,.0f} 银${silver_price:,.0f}'
         elif silence >= 75:
             comp = ('c-bull', '🟢 沉默买点 · 偏多')
-            reasons = f'沉默率{silence:.0f}%接近买点阈值 · 金${gold_price:,.0f} 银${silver_price:.2f}'
+            reasons = f'沉默率{silence:.0f}%接近买点阈值 · 金${gold_price:,.0f} 银${silver_price:,.0f}'
         else:
             comp = ('c-neut', '⚪ 中性 · 等极端信号')
-            reasons = f'沉默率{silence:.0f}%未达阈值 · 金${gold_price:,.0f} 银${silver_price:.2f}'
+            reasons = f'沉默率{silence:.0f}%未达阈值 · 金${gold_price:,.0f} 银${silver_price:,.0f}'
         
         return f'''
 <div class="card">
-  <div class="card-hdr"><span class="card-title">🥇 黄金 / 白银</span><span class="card-badge bg-gold">{count}帖 · 金${gold_price:,.0f} · 银${silver_price:.2f}</span></div>
+  <div class="card-hdr"><span class="card-title">🥇 黄金 / 白银</span><span class="card-badge bg-gold">{count}帖 · 金${gold_price:,.0f} · 银${silver_price:,.0f}</span></div>
   <div class="layers">
     <div class="layer"><div class="layer-emoji">{sl[1]}</div><div class="layer-val {sl[0]}">{sl[2]}</div><div class="layer-lbl">散户情绪</div></div>
     <div class="layer"><div class="layer-emoji">{cl[1]}</div><div class="layer-val {cl[0]}">{cl[2]}</div><div class="layer-lbl">周期位置</div></div>
@@ -412,7 +412,7 @@ def build_html(data, prices, fng, consensus):
             comp = ('c-neut', '⚪ 中性 · 等信号')
             reasons = f'沉默率{silence:.0f}%，社媒金融关键词匹配{count}条'
         
-        cl = ('l-g' if a_semi_avg_dev and a_semi_avg_dev > 0 else 'l-r' if a_semi_avg_dev and a_semi_avg_dev < -5 else 'l-y', '📊', f'科创{a_semi_avg_dev:+.0f}%' if a_semi_avg_dev is not None else '数据待拉')
+        cl = ('l-g' if a_semi_avg_dev and a_semi_avg_dev > 0 else 'l-r' if a_semi_avg_dev and a_semi_avg_dev < -5 else 'l-y', '📊', f'半导体{a_semi_avg_dev:+.0f}%' if a_semi_avg_dev is not None else '数据待拉')
         ml = ('l-y', '🌍', '美股联动')
         
         # 如果count为0，显示数据不足
@@ -423,7 +423,7 @@ def build_html(data, prices, fng, consensus):
         
         return f'''
 <div class="card">
-  <div class="card-hdr"><span class="card-title">🇨🇳 A股 半导体</span><span class="card-badge bg-cn">{count}帖 · 科创50ETF</span></div>
+  <div class="card-hdr"><span class="card-title">🇨🇳 A股 半导体</span><span class="card-badge bg-cn">{count}帖 · 半导体ETF ¥{a_semi_etf_price:.2f}</span></div>
   <div class="layers">
     <div class="layer"><div class="layer-emoji">{sl[1]}</div><div class="layer-val {sl[0]}">{sl[2]}</div><div class="layer-lbl">散户情绪</div></div>
     <div class="layer"><div class="layer-emoji">{cl[1]}</div><div class="layer-val {cl[0]}">{cl[2]}</div><div class="layer-lbl">周期位置</div></div>
@@ -440,10 +440,10 @@ def build_html(data, prices, fng, consensus):
   </div>
   <div class="bar"><div class="bar-b" style="width:{b_pct:.1f}%"></div><div class="bar-s" style="width:{s_pct:.1f}%"></div><div class="bar-n" style="width:{silence:.1f}%"></div></div>
   <div class="price-bar">
-    <span>科创50ETF: <span class="p-big">¥{a_semi_etf_price:,.0f}</span></span>
+    <span>半导体ETF: <span class="p-big">¥{a_semi_etf_price:.2f}</span></span>
     <span>MA200偏离: <span class="p-big" style="color:{'#22c55e' if a_semi_avg_dev and a_semi_avg_dev > 0 else '#ef4444'}">{a_semi_avg_dev:+.0f}%</span></span>
   </div>
-  <div class="src">科创50ETF 588000 · 股吧BK1036</div>
+  <div class="src">半导体ETF 512480 · 股吧BK1036</div>
 </div>'''
 
     def make_us_semi_card():
@@ -536,7 +536,7 @@ def build_html(data, prices, fng, consensus):
 <div class="header">
   <h1>🌪️ 疯向标</h1>
   <div class="sub">趋势拐点发现器 · 情绪×周期×宏观</div>
-  <div class="meta">📅 {now.strftime('%Y-%m-%d %a')} · {now.strftime('%H:%M')} CST · BTC ${btc_price:,.0f} · 金${gold_price:,.0f} · 银{silver_price:.2f} · VIX {vix:.1f}</div>
+  <div class="meta">📅 {now.strftime('%Y-%m-%d %a')} · {now.strftime('%H:%M')} CST · BTC ${btc_price:,.0f} · 金${gold_price:,.0f} · 银 · VIX {vix:.1f}</div>
 </div>
 
 {guba_html}
