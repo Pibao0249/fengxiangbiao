@@ -61,8 +61,10 @@ def get_yahoo_prices():
             'NVDA': 'NVDA', 'AMD': 'AMD', 'MU': 'MU',
             'AVGO': 'AVGO', 'SMCI': 'SMCI', 'TSM': 'TSM',
             'SKHYNIX': '000660.KS',  # SK海力士
-            # A股半导体ETF
-            'A_SEMI_ETF': '512480.SS',  # 半导体ETF
+            # A股科创50ETF
+            'A_SEMI_ETF': '588000.SS',  # 科创50ETF
+            # 美股半导体指数
+            'SOX': '^SOX',  # 费城半导体指数
             # 贵金属
             'GOLD': 'GC=F', 'SILVER': 'SI=F',
             # 宏观
@@ -237,10 +239,14 @@ def build_html(data, prices, fng, consensus):
     us_semi_avg_dev = round(sum(us_semi_devs) / len(us_semi_devs), 1) if us_semi_devs else None
     us_semi_nvda_price = prices.get('NVDA', {}).get('price', 0)
     
-    # A股半导体ETF
+    # A股科创50ETF
     a_semi_etf = prices.get('A_SEMI_ETF', {})
     a_semi_avg_dev = a_semi_etf.get('deviation')
     a_semi_etf_price = a_semi_etf.get('price', 0)
+    
+    # SOX指数
+    sox_price = prices.get('SOX', {}).get('price', 0)
+    sox_dev = prices.get('SOX', {}).get('deviation')
     
     fng_val = fng.get('value', 50) if fng else 50
     fng_class = fng.get('classification', 'Neutral') if fng else 'Neutral'
@@ -266,9 +272,13 @@ def build_html(data, prices, fng, consensus):
         platforms = c.get('platforms', {})
         parts = []
         for pname, pdata in platforms.items():
+            if pdata.get('count', 0) < 5:  # 最少5条才参与共识
+                continue
             s = pdata.get('silence', 0)
             emoji = {'guba': '📋', 'xueqiu': '❄️', 'weibo': '📢', 'baidu': '🔍'}.get(pname, '📡')
             parts.append(f'{emoji}{s:.0f}%')
+        if len(parts) < 2:
+            return ''
         return f'<div style="font-size:.65em;color:#888;margin-top:4px;text-align:center">{c["level"]} | {" · ".join(parts)}</div>'
     
     # ═══ 构建各赛道卡片 ═══
@@ -413,7 +423,7 @@ def build_html(data, prices, fng, consensus):
         
         return f'''
 <div class="card">
-  <div class="card-hdr"><span class="card-title">🇨🇳 A股 半导体</span><span class="card-badge bg-cn">{count}帖 · 半导体ETF</span></div>
+  <div class="card-hdr"><span class="card-title">🇨🇳 A股 半导体</span><span class="card-badge bg-cn">{count}帖 · 科创50ETF</span></div>
   <div class="layers">
     <div class="layer"><div class="layer-emoji">{sl[1]}</div><div class="layer-val {sl[0]}">{sl[2]}</div><div class="layer-lbl">散户情绪</div></div>
     <div class="layer"><div class="layer-emoji">{cl[1]}</div><div class="layer-val {cl[0]}">{cl[2]}</div><div class="layer-lbl">周期位置</div></div>
@@ -430,10 +440,10 @@ def build_html(data, prices, fng, consensus):
   </div>
   <div class="bar"><div class="bar-b" style="width:{b_pct:.1f}%"></div><div class="bar-s" style="width:{s_pct:.1f}%"></div><div class="bar-n" style="width:{silence:.1f}%"></div></div>
   <div class="price-bar">
-    <span>半导体ETF: <span class="p-big">¥{a_semi_etf_price:,.0f}</span></span>
+    <span>科创50ETF: <span class="p-big">¥{a_semi_etf_price:,.0f}</span></span>
     <span>MA200偏离: <span class="p-big" style="color:{'#22c55e' if a_semi_avg_dev and a_semi_avg_dev > 0 else '#ef4444'}">{a_semi_avg_dev:+.0f}%</span></span>
   </div>
-  <div class="src">半导体ETF 512480 · 股吧BK1036</div>
+  <div class="src">科创50ETF 588000 · 股吧BK1036</div>
 </div>'''
 
     def make_us_semi_card():
@@ -457,7 +467,7 @@ def build_html(data, prices, fng, consensus):
         else:
             cl = ('l-n', '📊', '数据待拉')
         
-        ml = ('l-y', '🌍', 'SOX谨慎')
+        ml = ('l-g' if sox_dev and sox_dev > 0 else 'l-r', '🌍', f'SOX{sox_dev:+.0f}%' if sox_dev else 'SOX')
         
         if silence >= 90:
             comp = ('c-fire', '🔥 极度沉默 · 强烈看多')
@@ -485,7 +495,7 @@ def build_html(data, prices, fng, consensus):
         
         return f'''
 <div class="card">
-  <div class="card-hdr"><span class="card-title">🇺🇸 美股 半导体</span><span class="card-badge bg-us">{count}帖 · 7龙头均{us_semi_avg_dev:+.0f}%</span></div>
+  <div class="card-hdr"><span class="card-title">🇺🇸 美股 半导体</span><span class="card-badge bg-us">{count}帖 · SOX ${sox_price:,.0f} · 7均{us_semi_avg_dev:+.0f}%</span></div>
   <div class="layers">
     <div class="layer"><div class="layer-emoji">{sl[1]}</div><div class="layer-val {sl[0]}">{sl[2]}</div><div class="layer-lbl">散户情绪</div></div>
     <div class="layer"><div class="layer-emoji">{cl[1]}</div><div class="layer-val {cl[0]}">{cl[2]}</div><div class="layer-lbl">周期位置</div></div>
@@ -502,7 +512,7 @@ def build_html(data, prices, fng, consensus):
   </div>
   <div class="bar"><div class="bar-b" style="width:{b_pct:.1f}%"></div><div class="bar-s" style="width:{s_pct:.1f}%"></div><div class="bar-n" style="width:{silence:.1f}%"></div></div>
   <div class="price-bar">
-    <span>NVDA: <span class="p-big">${us_semi_nvda_price:,.0f}</span></span>
+    <span>SOX: <span class="p-big">${sox_price:,.0f}</span></span>
     <span>7均偏离: <span class="p-big" style="color:{'#22c55e' if us_semi_avg_dev and us_semi_avg_dev > 0 else '#ef4444'}">{us_semi_avg_dev:+.0f}%</span></span>
   </div>
   <div style="font-size:.6em;color:#555;margin-top:4px">{us_tickers_str}</div>
