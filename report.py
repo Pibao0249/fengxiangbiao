@@ -392,7 +392,7 @@ def build_html(data, prices, fng):
         
         return f'''
 <div class="card">
-  <div class="card-hdr"><span class="card-title">🇨🇳 A股 半导体</span><span class="card-badge bg-cn">{count}帖 · 科创均{a_semi_avg_dev:+.0f}%</span></div>
+  <div class="card-hdr"><span class="card-title">🇨🇳 A股 半导体</span><span class="card-badge bg-cn">{count}帖 · 半导体ETF</span></div>
   <div class="layers">
     <div class="layer"><div class="layer-emoji">{sl[1]}</div><div class="layer-val {sl[0]}">{sl[2]}</div><div class="layer-lbl">散户情绪</div></div>
     <div class="layer"><div class="layer-emoji">{cl[1]}</div><div class="layer-val {cl[0]}">{cl[2]}</div><div class="layer-lbl">周期位置</div></div>
@@ -407,7 +407,11 @@ def build_html(data, prices, fng):
     <div class="stat"><div class="stat-v y">{sentiment:+.2f}</div><div class="stat-l">情绪分</div></div>
   </div>
   <div class="bar"><div class="bar-b" style="width:{b_pct:.1f}%"></div><div class="bar-s" style="width:{s_pct:.1f}%"></div><div class="bar-n" style="width:{silence:.1f}%"></div></div>
-  <div class="src">中芯国际+寒武纪+北方华创+新易盛+澜起科技 股吧 × Yahoo Finance实时</div>
+  <div class="price-bar">
+    <span>半导体ETF: <span class="p-big">¥{a_semi_etf_price:,.0f}</span></span>
+    <span>MA200偏离: <span class="p-big" style="color:{'#22c55e' if a_semi_avg_dev and a_semi_avg_dev > 0 else '#ef4444'}">{a_semi_avg_dev:+.0f}%</span></span>
+  </div>
+  <div class="src">半导体ETF 512480 · 股吧BK1036</div>
 </div>'''
 
     def make_us_semi_card():
@@ -427,7 +431,7 @@ def build_html(data, prices, fng):
             sl = ('l-n', '😐', f'{silence:.0f}%沉默')
         
         if us_semi_avg_dev is not None:
-            cl = ('l-g' if us_semi_avg_dev > 0 else 'l-r', '📊', f'6龙头{us_semi_avg_dev:+.0f}%')
+            cl = ('l-g' if us_semi_avg_dev > 0 else 'l-r', '📊', f'7龙头{us_semi_avg_dev:+.0f}%')
         else:
             cl = ('l-n', '📊', '数据待拉')
         
@@ -435,21 +439,21 @@ def build_html(data, prices, fng):
         
         if silence >= 90:
             comp = ('c-fire', '🔥 极度沉默 · 强烈看多')
-            reasons = f'沉默率{silence:.0f}%≥90%=极端麻木 + 六龙头均MA200偏离{us_semi_avg_dev:+.0f}%=最强买点组合' if us_semi_avg_dev else f'沉默率{silence:.0f}%≥90%=极端麻木'
+            reasons = f'沉默率{silence:.0f}%≥90%=极端麻木 + 七龙头均MA200偏离{us_semi_avg_dev:+.0f}%=最强买点组合' if us_semi_avg_dev else f'沉默率{silence:.0f}%≥90%=极端麻木'
         elif silence >= 80 and us_semi_avg_dev is not None and us_semi_avg_dev > 0:
             comp = ('c-bull', '🟢 沉默+牛市=偏多')
-            reasons = f'沉默率{silence:.0f}%+六龙头均MA200上{us_semi_avg_dev:+.0f}%=牛市中的沉默=回调买入'
+            reasons = f'沉默率{silence:.0f}%+七龙头均MA200上{us_semi_avg_dev:+.0f}%=牛市中的沉默=回调买入'
         elif silence >= 80:
             comp = ('c-warn', '⚠️ 沉默但弱市')
-            reasons = f'沉默率{silence:.0f}%但六龙头均偏离{us_semi_avg_dev:+.0f}%=谨慎' if us_semi_avg_dev else f'沉默率{silence:.0f}%'
+            reasons = f'沉默率{silence:.0f}%但七龙头均偏离{us_semi_avg_dev:+.0f}%=谨慎' if us_semi_avg_dev else f'沉默率{silence:.0f}%'
         elif count == 0:
             comp = ('c-neut', '⚪ 待采集')
             reasons = '全民社媒未匹配到美股半导体关键词 · 需股吧数据补充'
         else:
             comp = ('c-neut', '⚪ 中性')
-            reasons = f'沉默率{silence:.0f}% · 六龙头均偏离{us_semi_avg_dev:+.0f}% · 等极端信号' if us_semi_avg_dev else f'沉默率{silence:.0f}% · 等极端信号'
+            reasons = f'沉默率{silence:.0f}% · 七龙头均偏离{us_semi_avg_dev:+.0f}% · 等极端信号' if us_semi_avg_dev else f'沉默率{silence:.0f}% · 等极端信号'
         
-        # 六龙头列表
+        # 七龙头列表
         us_tickers_list = []
         for s in us_semi_stocks:
             p = prices.get(s, {})
@@ -459,7 +463,7 @@ def build_html(data, prices, fng):
         
         return f'''
 <div class="card">
-  <div class="card-hdr"><span class="card-title">🇺🇸 美股 半导体</span><span class="card-badge bg-us">{count}帖 · 6龙头均{us_semi_avg_dev:+.0f}%</span></div>
+  <div class="card-hdr"><span class="card-title">🇺🇸 美股 半导体</span><span class="card-badge bg-us">{count}帖 · 7龙头均{us_semi_avg_dev:+.0f}%</span></div>
   <div class="layers">
     <div class="layer"><div class="layer-emoji">{sl[1]}</div><div class="layer-val {sl[0]}">{sl[2]}</div><div class="layer-lbl">散户情绪</div></div>
     <div class="layer"><div class="layer-emoji">{cl[1]}</div><div class="layer-val {cl[0]}">{cl[2]}</div><div class="layer-lbl">周期位置</div></div>
@@ -476,10 +480,10 @@ def build_html(data, prices, fng):
   <div class="bar"><div class="bar-b" style="width:{b_pct:.1f}%"></div><div class="bar-s" style="width:{s_pct:.1f}%"></div><div class="bar-n" style="width:{silence:.1f}%"></div></div>
   <div class="price-bar">
     <span>NVDA: <span class="p-big">${us_semi_nvda_price:,.0f}</span></span>
-    <span>6均偏离: <span class="p-big" style="color:{'#22c55e' if us_semi_avg_dev and us_semi_avg_dev > 0 else '#ef4444'}">{us_semi_avg_dev:+.0f}%</span></span>
+    <span>7均偏离: <span class="p-big" style="color:{'#22c55e' if us_semi_avg_dev and us_semi_avg_dev > 0 else '#ef4444'}">{us_semi_avg_dev:+.0f}%</span></span>
   </div>
   <div style="font-size:.6em;color:#555;margin-top:4px">{us_tickers_str}</div>
-  <div class="src">NVDA+AMD+MU+AVGO+SMCI+TSM 股吧 × Yahoo Finance实时</div>
+  <div class="src">NVDA+AMD+MU+AVGO+SMCI+TSM+SK海力士 股吧 × Yahoo Finance实时</div>
 </div>'''
 
     # ═══ 拼装HTML ═══
