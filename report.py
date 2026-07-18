@@ -417,7 +417,10 @@ def build_html(data, prices, fng):
         
         ml = ('l-y', '🌍', 'SOX谨慎')
         
-        if silence >= 80 and nvda_dev is not None and nvda_dev > 0:
+        if silence >= 90:
+            comp = ('c-fire', '🔥 极度沉默 · 强烈看多')
+            reasons = f'沉默率{silence:.0f}%≥90%=极端麻木 + NVDA在MA200上{nvda_dev:+.0f}%=最强买点组合'
+        elif silence >= 80 and nvda_dev is not None and nvda_dev > 0:
             comp = ('c-bull', '🟢 沉默+牛市=偏多')
             reasons = f'沉默率{silence:.0f}%+NVDA在MA200上{nvda_dev:+.0f}%=牛市中的沉默=回调买入'
         elif silence >= 80:
