@@ -1,5 +1,5 @@
 {
-  "time": "2026-07-19T00:01:12.493437",
+  "time": "2026-07-19T00:08:37.971688",
   "sources": {
     "baidu": {
       "count": 51,
@@ -17,6 +17,10 @@
       "status": "ok",
       "value": 25
     },
+    "xueqiu": {
+      "status": "ok",
+      "count": 20
+    },
     "guba": {
       "status": "ok",
       "count": 0
@@ -24,13 +28,13 @@
   },
   "sectors": {
     "gold": {
-      "count": 0,
+      "count": 1,
       "bullish": 0,
       "bearish": 0,
-      "neutral": 0,
-      "silence_rate": 0,
-      "carnival_rate": 0,
-      "sentiment": 0,
+      "neutral": 1,
+      "silence_rate": 100.0,
+      "carnival_rate": 0.0,
+      "sentiment": 0.0,
       "data_source": "social"
     },
     "btc": {
@@ -44,13 +48,13 @@
       "data_source": "social"
     },
     "a_semi": {
-      "count": 0,
-      "bullish": 0,
+      "count": 6,
+      "bullish": 2,
       "bearish": 0,
-      "neutral": 0,
-      "silence_rate": 0,
-      "carnival_rate": 0,
-      "sentiment": 0,
+      "neutral": 4,
+      "silence_rate": 66.7,
+      "carnival_rate": 33.3,
+      "sentiment": 0.33,
       "data_source": "social"
     },
     "us_semi": {
@@ -65,12 +69,41 @@
     }
   },
   "summary": {
-    "total_social": 151,
-    "sources_ok": 5,
-    "sources_total": 5,
+    "total_social": 171,
+    "sources_ok": 6,
+    "sources_total": 6,
     "fng": {
       "value": 25,
       "classification": "Extreme Fear"
+    }
+  },
+  "consensus": {
+    "gold": {
+      "platforms": {
+        "xueqiu": {
+          "silence": 100.0,
+          "count": 1,
+          "sentiment": 0.0
+        }
+      },
+      "level": "⚪ 数据不足",
+      "platform_count": 1
+    },
+    "a_semi": {
+      "platforms": {
+        "xueqiu": {
+          "silence": 66.7,
+          "count": 6,
+          "sentiment": 0.33
+        }
+      },
+      "level": "⚪ 数据不足",
+      "platform_count": 1
+    },
+    "us_semi": {
+      "platforms": {},
+      "level": "⚪ 数据不足",
+      "platform_count": 0
     }
   }
 }

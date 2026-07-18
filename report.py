@@ -207,7 +207,7 @@ body{background:#0a0a0f;color:#e0e0e0;font-family:-apple-system,"PingFang SC","M
 .footer{text-align:center;color:#444;font-size:.65em;margin-top:25px;padding-top:15px;border-top:1px solid #1e1e2e}
 .footer a{color:#666}'''
 
-def build_html(data, prices, fng):
+def build_html(data, prices, fng, consensus):
     now = datetime.now()
     sectors = data.get('sectors', {})
     sources = data.get('sources', {})
@@ -245,11 +245,31 @@ def build_html(data, prices, fng):
     fng_val = fng.get('value', 50) if fng else 50
     fng_class = fng.get('classification', 'Neutral') if fng else 'Neutral'
     
-    # 股吧状态
+    # 股吧状态 + 多平台
+    xq_ok = sources.get('xueqiu', {}).get('status') == 'ok'
+    platform_list = []
+    if guba_status == 'ok': platform_list.append('股吧')
+    if xq_ok: platform_list.append('雪球')
+    platform_list.extend(['微博', '百度', 'B站'])
+    platform_str = '+'.join(platform_list)
+    
     if guba_status == 'ok':
-        guba_html = '<div class="guba-ok guba-status">📋 股吧数据已接入 · 散户情绪信号增强</div>'
+        guba_html = f'<div class="guba-ok guba-status">📋 {platform_str} 全平台接入 · 跨平台交叉验证生效</div>'
     else:
-        guba_html = '<div class="guba-miss guba-status">⚠️ 股吧数据待抓取 · 当前仅展示全民社媒情绪 · <a href="#" style="color:#eab308">如何抓取</a></div>'
+        guba_html = f'<div class="guba-miss guba-status">⚠️ 股吧限流中 · {platform_str} 在线 · 信号降级为社媒参考</div>'
+    
+    # ═══ 共识度辅助函数 ═══
+    def make_consensus_line(sec_key):
+        c = consensus.get(sec_key, {})
+        if not c or c.get('platform_count', 0) < 2:
+            return ''
+        platforms = c.get('platforms', {})
+        parts = []
+        for pname, pdata in platforms.items():
+            s = pdata.get('silence', 0)
+            emoji = {'guba': '📋', 'xueqiu': '❄️', 'weibo': '📢', 'baidu': '🔍'}.get(pname, '📡')
+            parts.append(f'{emoji}{s:.0f}%')
+        return f'<div style="font-size:.65em;color:#888;margin-top:4px;text-align:center">{c["level"]} | {" · ".join(parts)}</div>'
     
     # ═══ 构建各赛道卡片 ═══
     
@@ -302,6 +322,7 @@ def build_html(data, prices, fng):
   </div>
   <div class="composite {comp[0]}">{comp[1]}</div>
   <div class="reasons">{reasons}</div>
+  {make_consensus_line('gold')}
   <div class="row">
     <div class="stat"><div class="stat-v n">{silence:.0f}%</div><div class="stat-l">沉默率</div></div>
     <div class="stat"><div class="stat-v g">{b_pct:.0f}%</div><div class="stat-l">看多</div></div>
@@ -400,6 +421,7 @@ def build_html(data, prices, fng):
   </div>
   <div class="composite {comp[0]}">{comp[1]}</div>
   <div class="reasons">{reasons}</div>
+  {make_consensus_line('a_semi')}
   <div class="row">
     <div class="stat"><div class="stat-v n">{silence:.0f}%</div><div class="stat-l">沉默率</div></div>
     <div class="stat"><div class="stat-v g">{b_pct:.0f}%</div><div class="stat-l">看多</div></div>
@@ -471,6 +493,7 @@ def build_html(data, prices, fng):
   </div>
   <div class="composite {comp[0]}">{comp[1]}</div>
   <div class="reasons">{reasons}</div>
+  {make_consensus_line('us_semi')}
   <div class="row">
     <div class="stat"><div class="stat-v n">{silence:.0f}%</div><div class="stat-l">沉默率</div></div>
     <div class="stat"><div class="stat-v g">{b_pct:.0f}%</div><div class="stat-l">看多</div></div>
@@ -568,7 +591,7 @@ def main():
     
     fng = data.get('sources', {}).get('fng', {})
     
-    html = build_html(data, prices, fng)
+    html = build_html(data, prices, fng, data.get('consensus', {}))
     
     path = os.path.join(DATA_DIR, 'fengxiangbiao.html')
     with open(path, 'w') as f:

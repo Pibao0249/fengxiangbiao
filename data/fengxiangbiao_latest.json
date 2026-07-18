@@ -1,5 +1,5 @@
 {
-  "time": "2026-07-18T23:43:52.018381",
+  "time": "2026-07-19T00:08:37.971688",
   "sources": {
     "baidu": {
       "count": 51,
@@ -20,6 +20,10 @@
     "guba": {
       "status": "ok",
       "count": 720
+    },
+    "xueqiu": {
+      "status": "ok",
+      "count": 20
     }
   },
   "sectors": {
@@ -212,6 +216,54 @@
     "fng": {
       "value": 25,
       "classification": "Extreme Fear"
+    }
+  },
+  "consensus": {
+    "gold": {
+      "platforms": {
+        "xueqiu": {
+          "silence": 100.0,
+          "count": 1,
+          "sentiment": 0.0
+        },
+        "guba": {
+          "silence": 85.0,
+          "carnival": 11.9,
+          "sentiment": 0.09,
+          "count": 160
+        }
+      },
+      "level": "🤝 高共识·沉默",
+      "platform_count": 2
+    },
+    "a_semi": {
+      "platforms": {
+        "xueqiu": {
+          "silence": 66.7,
+          "count": 6,
+          "sentiment": 0.33
+        },
+        "guba": {
+          "silence": 72.5,
+          "carnival": 12.5,
+          "sentiment": -0.05,
+          "count": 80
+        }
+      },
+      "level": "🟡 中等共识",
+      "platform_count": 2
+    },
+    "us_semi": {
+      "platforms": {
+        "guba": {
+          "silence": 91.2,
+          "carnival": 5.0,
+          "sentiment": 0.03,
+          "count": 480
+        }
+      },
+      "level": "⚪ 数据不足",
+      "platform_count": 1
     }
   }
 }

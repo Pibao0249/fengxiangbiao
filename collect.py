@@ -202,6 +202,54 @@ def collect_fng():
     }
 
 # ═══════════════════════════════════════════
+# 4.5 雪球
+# ═══════════════════════════════════════════
+def collect_xueqiu():
+    cookie_path = os.path.join(DATA_DIR, '.xueqiu_cookie')
+    if not os.path.exists(cookie_path):
+        return None
+    with open(cookie_path) as f:
+        cookie = f.read().strip()
+    if not cookie:
+        return None
+    
+    url = 'https://xueqiu.com/v4/statuses/public_timeline_by_category.json?since_id=-1&max_id=-1&category=-1&count=30'
+    html = fetch_direct(url, headers={
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36',
+        'Cookie': cookie,
+        'Referer': 'https://xueqiu.com/',
+    }, timeout=15)
+    if not html: return None
+    
+    try:
+        data = json.loads(html)
+    except:
+        return None
+    
+    items = []
+    for item in data.get('list', []):
+        try:
+            d = json.loads(item.get('data', '{}'))
+        except:
+            continue
+        title = d.get('title', '') or d.get('text', '')
+        desc = d.get('description', '') or ''
+        text = title + ' ' + desc
+        if not text.strip():
+            continue
+        items.append({
+            'title': title[:100],
+            'desc': desc[:150],
+            'user': d.get('user', {}).get('screen_name', ''),
+            'reply': d.get('reply_count', 0),
+            'sentiment': score(text),
+            'sector': classify_sector(text),
+            'source': 'xueqiu',
+        })
+    
+    return items
+
+# ═══════════════════════════════════════════
 # 5. 股吧 curl (Android UA绕过滑块)
 # ═══════════════════════════════════════════
 GUBA_ANDROID_UA = 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Mobile Safari/537.36'
@@ -342,6 +390,16 @@ if __name__ == '__main__':
         result['sources']['fng'] = {'status': 'fail'}
         print('  Crypto F&G: FAIL')
     
+    # 4.5 雪球
+    xueqiu_items = collect_xueqiu()
+    if xueqiu_items:
+        result['sources']['xueqiu'] = {'status': 'ok', 'count': len(xueqiu_items)}
+        print(f'  雪球: {len(xueqiu_items)}条')
+    else:
+        result['sources']['xueqiu'] = {'status': 'fail'}
+        print('  雪球: FAIL')
+        xueqiu_items = []
+    
     # 5. 股吧 curl
     print('\n  股吧采集:')
     guba = collect_guba()
@@ -352,7 +410,7 @@ if __name__ == '__main__':
         print('  股吧: 无数据')
     
     # ═══ 合并全民社媒，按赛道分析 ═══
-    all_social = baidu_items + weibo_items + bili_items
+    all_social = baidu_items + weibo_items + bili_items + xueqiu_items
     print(f'\n  全平台社媒: {len(all_social)}条')
     
     # 社媒作为参考
@@ -364,7 +422,61 @@ if __name__ == '__main__':
         else:
             social_sectors['other'].append(item)
     
-    # ═══ 最终赛道数据：股吧优先，社媒补充 ═══
+    # ═══ 跨平台共识 ═══
+    # 对每个赛道，计算各平台的情绪
+    result['consensus'] = {}
+    for sec in ['gold', 'a_semi', 'us_semi']:
+        platforms = {}
+        # 股吧
+        if guba and sec in guba and guba[sec]['count'] > 0:
+            platforms['guba'] = {
+                'silence': guba[sec]['silence_rate'],
+                'carnival': guba[sec]['carnival_rate'],
+                'sentiment': guba[sec]['sentiment'],
+                'count': guba[sec]['count'],
+            }
+        
+        # 微博
+        weibo_sec = [i for i in weibo_items if i.get('sector') == sec]
+        if weibo_sec:
+            a = analyze_sector(weibo_sec)
+            platforms['weibo'] = {'silence': a['silence_rate'], 'count': a['count'], 'sentiment': a['sentiment']}
+        
+        # 百度
+        baidu_sec = [i for i in baidu_items if i.get('sector') == sec]
+        if baidu_sec:
+            a = analyze_sector(baidu_sec)
+            platforms['baidu'] = {'silence': a['silence_rate'], 'count': a['count'], 'sentiment': a['sentiment']}
+        
+        # 雪球
+        xq_sec = [i for i in xueqiu_items if i.get('sector') == sec]
+        if xq_sec:
+            a = analyze_sector(xq_sec)
+            platforms['xueqiu'] = {'silence': a['silence_rate'], 'count': a['count'], 'sentiment': a['sentiment']}
+        
+        # 共识度：各平台沉默率是否同向（都高或都低）
+        if len(platforms) >= 2:
+            silences = [p['silence'] for p in platforms.values()]
+            all_high = all(s >= 75 for s in silences)
+            all_low = all(s < 60 for s in silences)
+            if all_high:
+                consensus = '🤝 高共识·沉默'
+            elif all_low:
+                consensus = '🤝 高共识·活跃'
+            elif max(silences) - min(silences) < 15:
+                consensus = '🟡 中等共识'
+            else:
+                consensus = '🔴 分歧'
+        else:
+            consensus = '⚪ 数据不足'
+        
+        result['consensus'][sec] = {
+            'platforms': platforms,
+            'level': consensus,
+            'platform_count': len(platforms),
+        }
+    
+    # ═══ 最终赛道数据：股吧优先 ═══
     result['sectors'] = {}
     for sec in ['gold', 'btc', 'a_semi', 'us_semi']:
         if guba and sec in guba and guba[sec]['count'] > 0:
@@ -377,7 +489,8 @@ if __name__ == '__main__':
         
         tag = {'gold': '🥇金银', 'btc': '₿BTC', 'a_semi': '🇨🇳A股半导', 'us_semi': '🇺🇸美股半导'}[sec]
         s = result['sectors'][sec]
-        print(f'  {tag}: {s["count"]}条 [{s["data_source"]}] 沉默{s["silence_rate"]:.0f}% 狂欢{s["carnival_rate"]:.0f}% 情绪{s["sentiment"]:+.2f}')
+        c = result['consensus'].get(sec, {})
+        print(f'  {tag}: {s["count"]}条 [{s["data_source"]}] 沉默{s["silence_rate"]:.0f}% | 共识: {c.get("level","?")}')
     
     # ═══ 生成摘要 ═══
     result['summary'] = {
