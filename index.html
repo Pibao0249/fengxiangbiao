@@ -8,48 +8,58 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { background: #0a0a0f; color: #e0e0e0; font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; min-height: 100vh; padding: 30px 20px; }
 .container { max-width: 1000px; margin: 0 auto; }
+
 .header { text-align: center; margin-bottom: 30px; }
 .header h1 { font-size: 2em; background: linear-gradient(135deg, #ff6b35, #f7c948, #ff6b35); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 .header .sub { color: #888; font-size: 0.85em; margin-top: 4px; }
 .header .meta { color: #555; font-size: 0.75em; margin-top: 8px; }
 
-.tracks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 20px; }
-@media (max-width: 768px) { .tracks { grid-template-columns: 1fr; } }
+.tracks { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+@media (max-width: 640px) { .tracks { grid-template-columns: 1fr; } }
 
 .card { background: #13131a; border: 1px solid #1e1e2e; border-radius: 16px; padding: 20px; }
-.card-icon { font-size: 2em; text-align: center; margin-bottom: 8px; }
-.card-title { text-align: center; font-size: 1em; font-weight: 700; margin-bottom: 12px; }
+.card-icon { font-size: 1.6em; margin-bottom: 2px; }
+.card-hdr { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+.card-title { font-size: 0.95em; font-weight: 700; }
+.card-badge { font-size: 0.65em; padding: 2px 8px; border-radius: 10px; }
+.badge-gold { background: rgba(255,215,0,0.15); color: #ffd700; }
+.badge-crypto { background: rgba(247,147,26,0.15); color: #f7931a; }
+.badge-cn { background: rgba(255,107,53,0.15); color: #ff6b35; }
+.badge-us { background: rgba(59,130,246,0.15); color: #3b82f6; }
 
-.signal { text-align: center; padding: 10px; border-radius: 10px; font-size: 1.1em; font-weight: 700; margin-bottom: 12px; }
-.signal-buy { background: rgba(34,197,94,0.15); color: #22c55e; }
-.signal-lean { background: rgba(234,179,8,0.15); color: #eab308; }
-.signal-sell { background: rgba(239,68,68,0.15); color: #ef4444; }
-.signal-neutral { background: rgba(100,100,120,0.15); color: #888; }
+.signal { text-align: center; padding: 10px; border-radius: 10px; font-size: 1em; font-weight: 700; margin-bottom: 12px; }
+.sig-buy { background: rgba(34,197,94,0.15); color: #22c55e; }
+.sig-lean { background: rgba(234,179,8,0.15); color: #eab308; }
+.sig-sell { background: rgba(239,68,68,0.15); color: #ef4444; }
+.sig-neutral { background: rgba(100,100,120,0.15); color: #888; }
 
-.sig-row { display: flex; justify-content: space-around; margin-bottom: 10px; }
-.sig-item { text-align: center; }
-.sig-val { font-size: 1.5em; font-weight: 700; }
-.sig-label { font-size: 0.7em; color: #666; }
-.c-green { color: #22c55e; } .c-red { color: #ef4444; } .c-gray { color: #888; } .c-yellow { color: #eab308; }
+.row { display: flex; justify-content: space-around; margin-bottom: 8px; }
+.stat { text-align: center; }
+.stat-v { font-size: 1.3em; font-weight: 700; }
+.stat-l { font-size: 0.65em; color: #666; }
+.g { color: #22c55e; } .r { color: #ef4444; } .y { color: #eab308; } .n { color: #888; }
 
-.bar { height: 6px; background: #1a1a25; border-radius: 3px; margin: 12px 0; display: flex; overflow: hidden; }
+.bar { height: 5px; background: #1a1a25; border-radius: 3px; margin: 10px 0; display: flex; overflow: hidden; }
 .bar-b { background: #22c55e; height: 100%; }
 .bar-s { background: #ef4444; height: 100%; }
 .bar-n { background: #333; height: 100%; }
 
-.post { display: flex; gap: 6px; padding: 6px 0; border-bottom: 1px solid #1a1a22; font-size: 0.78em; }
+.post { display: flex; gap: 5px; padding: 5px 0; border-bottom: 1px solid #1a1a22; font-size: 0.72em; }
 .post:last-child { border: none; }
-.post-emoji { font-size: 1em; flex-shrink: 0; }
-.post-text { color: #bbb; line-height: 1.3; }
-.post-meta { color: #555; font-size: 0.85em; }
+.post-e { font-size: 0.9em; flex-shrink: 0; }
+.post-t { color: #bbb; line-height: 1.3; }
+.post-m { color: #555; font-size: 0.85em; }
 
-.fng-wrap { text-align: center; padding: 10px 0; }
-.fng-meter { width: 100%; height: 20px; background: linear-gradient(to right, #22c55e, #eab308, #ef4444); border-radius: 10px; position: relative; margin: 10px 0; }
-.fng-dot { width: 14px; height: 14px; background: white; border-radius: 50%; position: absolute; top: 3px; box-shadow: 0 0 8px rgba(255,255,255,0.5); }
-.fng-labels { display: flex; justify-content: space-between; font-size: 0.65em; color: #555; }
+.fng-wrap { text-align: center; }
 .fng-val { font-size: 2.5em; font-weight: 700; }
+.fng-meter { width: 100%; height: 16px; background: linear-gradient(to right, #22c55e, #eab308, #ef4444); border-radius: 8px; position: relative; margin: 8px 0; }
+.fng-dot { width: 12px; height: 12px; background: white; border-radius: 50%; position: absolute; top: 2px; box-shadow: 0 0 8px rgba(255,255,255,0.5); }
+.fng-lbl { display: flex; justify-content: space-between; font-size: 0.6em; color: #555; }
 
-.footer { text-align: center; color: #444; font-size: 0.7em; margin-top: 30px; padding-top: 15px; border-top: 1px solid #1e1e2e; }
+.source { font-size: 0.7em; color: #555; margin-top: 6px; }
+.source span { color: #666; }
+
+.footer { text-align: center; color: #444; font-size: 0.7em; margin-top: 25px; padding-top: 15px; border-top: 1px solid #1e1e2e; }
 .footer a { color: #666; }
 </style>
 </head>
@@ -58,66 +68,93 @@ body { background: #0a0a0f; color: #e0e0e0; font-family: -apple-system, "PingFan
 
 <div class="header">
   <h1>🌪️ 疯向标</h1>
-  <div class="sub">逆向交易信号 · 三赛道情绪追踪</div>
-  <div class="meta">📅 2026-07-18 周六 · 🕐 21:00 CST · 📊 百度热搜+股吧+Crypto F&G</div>
+  <div class="sub">逆向交易信号 · 散户情绪仪表盘</div>
+  <div class="meta">📅 2026-07-18 周六 · 🕐 21:00 CST · 📊 股吧 + Crypto F&G</div>
 </div>
 
 <div class="tracks">
 
   <!-- 🥇 黄金白银 -->
   <div class="card">
-    <div class="card-icon">🥇</div>
-    <div class="card-title">黄金 / 白银</div>
-    <div class="signal signal-buy">🟢 沉默率85% · 强烈买入</div>
-    <div class="sig-row">
-      <div class="sig-item"><div class="sig-val c-gray">85.0%</div><div class="sig-label">沉默率</div></div>
-      <div class="sig-item"><div class="sig-val c-green">11.9%</div><div class="sig-label">看多</div></div>
-      <div class="sig-item"><div class="sig-val c-red">3.1%</div><div class="sig-label">看空</div></div>
-      <div class="sig-item"><div class="sig-val c-yellow">160</div><div class="sig-label">帖子</div></div>
+    <div class="card-hdr">
+      <div><span class="card-icon">🥇</span><span class="card-title">黄金 / 白银</span></div>
+      <span class="card-badge badge-gold">贵金属</span>
+    </div>
+    <div class="signal sig-buy">🟢 沉默率 85% · 强烈买入</div>
+    <div class="row">
+      <div class="stat"><div class="stat-v n">85.0%</div><div class="stat-l">沉默率</div></div>
+      <div class="stat"><div class="stat-v g">11.9%</div><div class="stat-l">看多</div></div>
+      <div class="stat"><div class="stat-v r">3.1%</div><div class="stat-l">看空</div></div>
+      <div class="stat"><div class="stat-v y">160</div><div class="stat-l">帖子</div></div>
     </div>
     <div class="bar"><div class="bar-b" style="width:11.9%"></div><div class="bar-s" style="width:3.1%"></div><div class="bar-n" style="width:85%"></div></div>
-    <div class="post"><span class="post-emoji">😀</span><div><div class="post-text">贵金属板块调整4个多月了逻辑上该反弹了</div><div class="post-meta">752阅 · 5评</div></div></div>
-    <div class="post"><span class="post-emoji">😱</span><div><div class="post-text">今晚期货黄金大跌，明天板块肯定也凉了</div><div class="post-meta">70阅 · 2评</div></div></div>
-    <div class="post"><span class="post-emoji">🤔</span><div><div class="post-text">黄金短期在3960至4023区间震荡</div><div class="post-meta">24阅 · 0评</div></div></div>
+    <div class="post"><span class="post-e">😀</span><div><div class="post-t">贵金属板块调整4个多月了逻辑上该反弹了</div><div class="post-m">752阅</div></div></div>
+    <div class="post"><span class="post-e">😱</span><div><div class="post-t">今晚期货黄金大跌，明天板块肯定也凉了</div><div class="post-m">70阅</div></div></div>
+    <div class="post"><span class="post-e">🤔</span><div><div class="post-t">黄金短期在3960至4023区间震荡</div><div class="post-m">24阅</div></div></div>
+    <div class="source"><span>黄金概念吧 + 贵金属吧</span></div>
   </div>
 
-  <!-- ₿ 加密货币 -->
+  <!-- ₿ BTC -->
   <div class="card">
-    <div class="card-icon">₿</div>
-    <div class="card-title">BTC / 加密货币</div>
-    <div class="signal signal-buy">🟢 极度恐惧 · 逆向买入</div>
+    <div class="card-hdr">
+      <div><span class="card-icon">₿</span><span class="card-title">BTC / 加密货币</span></div>
+      <span class="card-badge badge-crypto">F&G指数</span>
+    </div>
+    <div class="signal sig-buy">🟢 极度恐惧 25 · 逆向买入</div>
     <div class="fng-wrap">
-      <div class="fng-val c-green">25</div>
+      <div class="fng-val g">25</div>
       <div style="color:#888;font-size:0.8em;">Extreme Fear</div>
       <div class="fng-meter"><div class="fng-dot" style="left:25%"></div></div>
-      <div class="fng-labels"><span>0 极度恐惧</span><span>50 中性</span><span>100 极度贪婪</span></div>
+      <div class="fng-lbl"><span>0 恐惧</span><span>50 中性</span><span>100 贪婪</span></div>
     </div>
-    <div style="font-size:0.8em;color:#888;text-align:center;margin-top:8px;">
-      数据: alternative.me · 巴菲特金句: "别人恐惧我贪婪"
-    </div>
+    <div class="source"><span>alternative.me · "别人恐惧我贪婪"</span></div>
   </div>
 
-  <!-- 🔥 最热板块 -->
+  <!-- 🇨🇳 A股半导体 -->
   <div class="card">
-    <div class="card-icon">🔥</div>
-    <div class="card-title">最热板块<small style="color:#888;font-weight:400">（百度热搜自动检测）</small></div>
-    <div style="text-align:center;padding:12px;">
-      <div style="font-size:1.3em;font-weight:700;color:#ff6b35;">🥇 黄金 / 白银</div>
-      <div style="color:#888;font-size:0.75em;margin-top:4px;">当前最热 · 更多数据周一开盘后更新</div>
+    <div class="card-hdr">
+      <div><span class="card-icon">🇨🇳</span><span class="card-title">A股 半导体</span></div>
+      <span class="card-badge badge-cn">BK1036</span>
     </div>
-    <div style="margin-top:10px;font-size:0.75em;color:#666;">
-      <div style="display:flex;justify-content:space-between;padding:4px 0;"><span>AI/半导体</span><span>检测中</span></div>
-      <div style="display:flex;justify-content:space-between;padding:4px 0;"><span>黄金/白银</span><span>✅ 当前</span></div>
-      <div style="display:flex;justify-content:space-between;padding:4px 0;"><span>加密/BTC</span><span>检测中</span></div>
-      <div style="display:flex;justify-content:space-between;padding:4px 0;"><span>新能源</span><span>检测中</span></div>
+    <div class="signal sig-neutral">⚪ 沉默率 72.5% · 无极端信号</div>
+    <div class="row">
+      <div class="stat"><div class="stat-v n">72.5%</div><div class="stat-l">沉默率</div></div>
+      <div class="stat"><div class="stat-v g">12.5%</div><div class="stat-l">看多</div></div>
+      <div class="stat"><div class="stat-v r">15.0%</div><div class="stat-l">看空</div></div>
+      <div class="stat"><div class="stat-v y">80</div><div class="stat-l">帖子</div></div>
     </div>
+    <div class="bar"><div class="bar-b" style="width:12.5%"></div><div class="bar-s" style="width:15%"></div><div class="bar-n" style="width:72.5%"></div></div>
+    <div class="post"><span class="post-e">😱</span><div><div class="post-t">7月17日A股大崩：行情已经彻底坏掉，普通散户建议暂时全面离场</div><div class="post-m">1.0万阅</div></div></div>
+    <div class="post"><span class="post-e">😐</span><div><div class="post-t">只要我不卖，我可不亏</div><div class="post-m">21阅</div></div></div>
+    <div class="post"><span class="post-e">😱</span><div><div class="post-t">做空的大大开心，只是跟小散无关</div><div class="post-m">21阅</div></div></div>
+    <div class="source"><span>半导体行业吧</span></div>
+  </div>
+
+  <!-- 🇺🇸 美股半导体 -->
+  <div class="card">
+    <div class="card-hdr">
+      <div><span class="card-icon">🇺🇸</span><span class="card-title">美股 半导体</span></div>
+      <span class="card-badge badge-us">NVDA</span>
+    </div>
+    <div class="signal sig-lean">🟡 沉默率 84.6% · 偏买入</div>
+    <div class="row">
+      <div class="stat"><div class="stat-v n">84.6%</div><div class="stat-l">沉默率</div></div>
+      <div class="stat"><div class="stat-v g">3.8%</div><div class="stat-l">看多</div></div>
+      <div class="stat"><div class="stat-v r">11.5%</div><div class="stat-l">看空</div></div>
+      <div class="stat"><div class="stat-v y">78</div><div class="stat-l">帖子</div></div>
+    </div>
+    <div class="bar"><div class="bar-b" style="width:3.8%"></div><div class="bar-s" style="width:11.5%"></div><div class="bar-n" style="width:84.7%"></div></div>
+    <div class="post"><span class="post-e">😱</span><div><div class="post-t">储存神话泡沫破裂！Ai叙事还能继续相信吗？</div><div class="post-m">10.6万阅</div></div></div>
+    <div class="post"><span class="post-e">📉</span><div><div class="post-t">费城半导体指数入熊之际：Kimi时刻刷屏华尔街</div><div class="post-m">8.2万阅</div></div></div>
+    <div class="post"><span class="post-e">😱</span><div><div class="post-t">泡沫破裂，进入下跌周期，反垄断调查结果也快出来了</div><div class="post-m">389阅</div></div></div>
+    <div class="source"><span>英伟达吧</span></div>
   </div>
 
 </div>
 
 <div class="footer">
-  疯向标 v2 · 数据源: 东方财富股吧 + Crypto F&G + 百度热搜 · 每日收盘后自动更新 · 仅供参考不构成投资建议<br>
-  <a href="https://github.com/Pibao0249/fengxiangbiao">GitHub</a>
+  疯向标 v3 · 四赛道：黄金白银 + BTC + A股半导体 + 美股半导体 · 每日更新 · 仅供参考不构成投资建议<br>
+  <a href="https://github.com/Pibao0249/fengxiangbiao">GitHub</a> · 数据源：东方财富股吧 + Crypto Fear & Greed Index
 </div>
 
 </div>
