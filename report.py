@@ -108,13 +108,13 @@ def analyze_signal(sector_data, fng, prices, guba_override=None):
     cycle_reasons = []
     sentiment_reasons = []
     
-    # 散户情绪层
+    # 散户情绪层（基于关键词匹配，非"不关注"）
     if silence >= 85 and sentiment <= 0:
-        sent_layer = ('l-g', '😶', f'{silence:.0f}%沉默', '散户情绪', '强买信号')
-        sentiment_reasons.append(f'沉默率{silence:.0f}%≥85%=极度麻木')
+        sent_layer = ('l-g', '😶', f'{silence:.0f}%中性', '散户情绪', '极度观望')
+        sentiment_reasons.append(f'中性率{silence:.0f}%≥85%=无人喊单（非不关注，是无方向）')
     elif silence >= 75:
-        sent_layer = ('l-y', '😐', f'{silence:.0f}%沉默', '散户情绪', '偏买')
-        sentiment_reasons.append(f'沉默率{silence:.0f}%≥75%=偏麻木')
+        sent_layer = ('l-y', '😐', f'{silence:.0f}%中性', '散户情绪', '偏观望')
+        sentiment_reasons.append(f'中性率{silence:.0f}%≥75%=讨论偏平淡')
     elif carnival >= 20:
         sent_layer = ('l-r', '🎉', f'{carnival:.0f}%狂欢', '散户情绪', '卖点')
         sentiment_reasons.append(f'狂欢率{carnival:.0f}%≥20%=FOMO')
@@ -122,8 +122,8 @@ def analyze_signal(sector_data, fng, prices, guba_override=None):
         sent_layer = ('l-y', '🤔', f'{carnival:.0f}%偏多', '散户情绪', '警惕')
         sentiment_reasons.append(f'狂欢率{carnival:.0f}%≥10%=偏乐观')
     else:
-        sent_layer = ('l-n', '😐', f'{silence:.0f}%沉默', '散户情绪', '中性')
-        sentiment_reasons.append(f'沉默率{silence:.0f}%=正常区间')
+        sent_layer = ('l-n', '😐', f'{silence:.0f}%中性', '散户情绪', '中性')
+        sentiment_reasons.append(f'中性率{silence:.0f}%=正常区间')
     
     # BTC特殊处理：用F&G代替社媒情绪
     if fng:
