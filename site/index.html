@@ -3,13 +3,15 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>疯向标 · 趋势拐点发现器</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
+<style>*{margin:0;padding:0;box-sizing:border-box}
 body{background:#0a0a0f;color:#e0e0e0;font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;min-height:100vh;padding:30px 20px}
 .container{max-width:1000px;margin:0 auto}
 .header{text-align:center;margin-bottom:24px}
 .header h1{font-size:2em;background:linear-gradient(135deg,#ff6b35,#f7c948);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .header .sub{color:#888;font-size:.8em}.header .meta{color:#555;font-size:.7em;margin-top:6px}
+.guba-status{text-align:center;padding:6px;border-radius:8px;margin-bottom:16px;font-size:.7em}
+.guba-ok{background:rgba(34,197,94,.1);color:#22c55e;border:1px solid rgba(34,197,94,.2)}
+.guba-miss{background:rgba(234,179,8,.1);color:#eab308;border:1px solid rgba(234,179,8,.2)}
 .macro-bar{background:#13131a;border:1px solid #1e1e2e;border-radius:12px;padding:12px 20px;margin-bottom:20px;display:flex;justify-content:space-around;flex-wrap:wrap;gap:12px;font-size:.78em}
 .macro-item{text-align:center}.macro-val{font-weight:700}.macro-lbl{color:#666;font-size:.85em}
 .tracks{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
@@ -22,8 +24,7 @@ body{background:#0a0a0f;color:#e0e0e0;font-family:-apple-system,"PingFang SC","M
 .bg-cn{background:rgba(255,107,53,.12);color:#ff6b35}.bg-us{background:rgba(59,130,246,.12);color:#3b82f6}
 .layers{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:12px}
 .layer{background:#1a1a25;border-radius:8px;padding:8px;text-align:center}
-.layer-emoji{font-size:1.2em}.layer-val{font-size:.8em;font-weight:700;margin:2px 0}
-.layer-lbl{font-size:.6em;color:#666}
+.layer-emoji{font-size:1.2em}.layer-val{font-size:.8em;font-weight:700;margin:2px 0}.layer-lbl{font-size:.6em;color:#666}
 .l-g{color:#22c55e}.l-r{color:#ef4444}.l-y{color:#eab308}.l-n{color:#888}
 .composite{text-align:center;padding:10px;border-radius:10px;font-size:1.1em;font-weight:700;margin-bottom:12px}
 .c-fire{background:rgba(34,197,94,.2);color:#22c55e;border:1px solid rgba(34,197,94,.3)}
@@ -36,8 +37,8 @@ body{background:#0a0a0f;color:#e0e0e0;font-family:-apple-system,"PingFang SC","M
 .g{color:#22c55e}.r{color:#ef4444}.y{color:#eab308}.n{color:#888}
 .bar{height:4px;background:#1a1a25;border-radius:2px;margin:8px 0;display:flex;overflow:hidden}
 .bar-b{background:#22c55e;height:100%}.bar-s{background:#ef4444;height:100%}.bar-n{background:#333;height:100%}
-.post{display:flex;gap:4px;padding:4px 0;border-bottom:1px solid #1a1a22;font-size:.68em}
-.post:last-child{border:none}.post-e{font-size:.85em;flex-shrink:0}.post-t{color:#bbb;line-height:1.3}.post-m{color:#555;font-size:.8em}
+.price-bar{display:flex;justify-content:space-between;font-size:.72em;margin:6px 0;color:#888}
+.price-bar .p-big{color:#ccc;font-weight:700}
 .fng-wrap{text-align:center}.fng-val{font-size:2.2em;font-weight:700}
 .fng-meter{width:100%;height:14px;background:linear-gradient(to right,#22c55e,#eab308,#ef4444);border-radius:7px;position:relative;margin:6px 0}
 .fng-dot{width:10px;height:10px;background:white;border-radius:50%;position:absolute;top:2px;box-shadow:0 0 6px rgba(255,255,255,.5)}
@@ -45,118 +46,149 @@ body{background:#0a0a0f;color:#e0e0e0;font-family:-apple-system,"PingFang SC","M
 .reasons{font-size:.65em;color:#666;margin-top:4px;line-height:1.4}
 .reasons span{color:#888}
 .src{font-size:.65em;color:#555;margin-top:6px}
-.price-bar{display:flex;justify-content:space-between;font-size:.72em;margin:6px 0;color:#888}
-.price-bar .p-big{color:#ccc;font-weight:700}
+.temp-card{background:#13131a;border:1px solid #1e1e2e;border-radius:16px;padding:20px;margin-bottom:20px}
+.temp-title{font-size:.9em;font-weight:700;margin-bottom:12px;color:#ccc}
+.temp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;text-align:center}
+@media(max-width:640px){.temp-grid{grid-template-columns:repeat(2,1fr)}}
+.temp-item{background:#1a1a25;border-radius:10px;padding:12px}
+.temp-val{font-size:1.4em;font-weight:700}.temp-lbl{font-size:.6em;color:#666;margin-top:2px}
 .footer{text-align:center;color:#444;font-size:.65em;margin-top:25px;padding-top:15px;border-top:1px solid #1e1e2e}
-.footer a{color:#666}
-</style>
+.footer a{color:#666}</style>
 </head>
 <body>
 <div class="container">
 <div class="header">
   <h1>🌪️ 疯向标</h1>
-  <div class="sub">趋势拐点发现器 · 情绪×周期×宏观</div>
-  <div class="meta">📅 2026-07-18 周六 · 21:00 CST · BTC $64,147 · 金$4,023 · 银$56.24 · VIX 18.8</div>
+  <div class="sub">散户情绪天气预报 · 纯属娱乐不构成投资建议</div>
+  <div class="meta">📅 2026-07-22 Wed · 13:55 CST · BTC $65,922 · 金$4,136 · 银 · VIX 17.1</div>
 </div>
+
+<div class="guba-ok guba-status">📋 股吧+雪球+微博+百度+B站 全平台接入 · 跨平台交叉验证生效</div>
+
 <div class="macro-bar">
-  <div class="macro-item"><div class="macro-val" style="color:#eab308">🌡️ VIX 18.8</div><div class="macro-lbl">平静</div></div>
+  <div class="macro-item"><div class="macro-val" style="color:#eab308">🌡️ VIX 17.1</div><div class="macro-lbl">平静</div></div>
   <div class="macro-item"><div class="macro-val" style="color:#3b82f6">📉 CPI 3.5%↓</div><div class="macro-lbl">通胀降温</div></div>
-  <div class="macro-item"><div class="macro-val" style="color:#ef4444">⚔️ 美伊冲突</div><div class="macro-lbl">第7天</div></div>
-  <div class="macro-item"><div class="macro-val" style="color:#22c55e">📊 BTC熊市</div><div class="macro-lbl">MA200下12%</div></div>
+  <div class="macro-item"><div class="macro-val" style="color:#f7931a">😱 F&G 33</div><div class="macro-lbl">Neutral</div></div>
+  <div class="macro-item"><div class="macro-val" style="color:#ef4444">📢 关注度100%</div><div class="macro-lbl">偏高·韭菜扎堆了</div></div>
   <div class="macro-item"><div class="macro-val" style="color:#a78bfa">📅 7/30</div><div class="macro-lbl">Q2 GDP</div></div>
-  <div class="macro-item"><div class="macro-val" style="color:#f7931a">😱 F&G 25</div><div class="macro-lbl">极度恐惧</div></div>
+</div>
+
+<div class="temp-card">
+  <div class="temp-title">🌡️ 全民社媒温度计 · 720条热搜</div>
+  <div class="temp-grid">
+    <div class="temp-item"><div class="temp-val" style="color:#22c55e">160</div><div class="temp-lbl">🥇 金银相关</div></div>
+    <div class="temp-item"><div class="temp-val" style="color:#f7931a">33</div><div class="temp-lbl">₿ BTC F&G</div></div>
+    <div class="temp-item"><div class="temp-val" style="color:#ff6b35">80</div><div class="temp-lbl">🇨🇳 A股半导</div></div>
+    <div class="temp-item"><div class="temp-val" style="color:#3b82f6">480</div><div class="temp-lbl">🇺🇸 美股半导</div></div>
+  </div>
+  <div style="font-size:.55em;color:#555;margin-top:8px;text-align:center">
+    百度51条 + 微博51条 + B站50条 · 金融关键词匹配720条 · 散户关注度100.0%
+  </div>
 </div>
 
 <div class="tracks">
 
-<!-- 🥇 黄金白银 -->
 <div class="card">
-  <div class="card-hdr"><span class="card-title">🥇 黄金 / 白银</span><span class="card-badge bg-gold">160帖 · 金$4,023 · 银$56.24</span></div>
+  <div class="card-hdr"><span class="card-title">🥇 黄金 / 白银</span><span class="card-badge bg-gold">160帖 · 金$4,136 · 银$60</span></div>
   <div class="layers">
-    <div class="layer"><div class="layer-emoji">😶</div><div class="layer-val l-g">85%沉默</div><div class="layer-lbl">散户情绪</div></div>
-    <div class="layer"><div class="layer-emoji">📊</div><div class="layer-val l-r">金-10%银-19%</div><div class="layer-lbl">周期位置</div></div>
+    <div class="layer"><div class="layer-emoji">😶</div><div class="layer-val l-g">81%沉默</div><div class="layer-lbl">散户情绪</div></div>
+    <div class="layer"><div class="layer-emoji">📊</div><div class="layer-val l-y">金-8%银-14%</div><div class="layer-lbl">周期位置</div></div>
     <div class="layer"><div class="layer-emoji">🌍</div><div class="layer-val l-g">地缘利好</div><div class="layer-lbl">宏观环境</div></div>
   </div>
-  <div class="composite c-fire">🔥 三重共振 · 强烈看多</div>
-  <div class="reasons">理由: <span>沉默率85%+深度熊市=最强信号</span> + <span>白银-19%远超MA200下方</span> + <span>美伊冲突利好贵金属</span> + <span>金$4013银$56</span></div>
+  <div class="composite c-fire">🔥 三重共振 · 别人恐惧我贪婪</div>
+  <div class="reasons">沉默率81%+深度熊市+地缘利好=历史规律说这时候该看看 · 金$4,136 银$60</div>
+  
   <div class="row">
-    <div class="stat"><div class="stat-v n">85.0%</div><div class="stat-l">沉默率</div></div>
-    <div class="stat"><div class="stat-v g">11.9%</div><div class="stat-l">看多</div></div>
-    <div class="stat"><div class="stat-v r">3.1%</div><div class="stat-l">看空</div></div>
-    <div class="stat"><div class="stat-v y">+0.09</div><div class="stat-l">情绪分</div></div>
+    <div class="stat"><div class="stat-v n">81%</div><div class="stat-l">沉默率</div></div>
+    <div class="stat"><div class="stat-v g">16%</div><div class="stat-l">喊涨</div></div>
+    <div class="stat"><div class="stat-v r">3%</div><div class="stat-l">喊跌</div></div>
+    <div class="stat"><div class="stat-v y">+0.14</div><div class="stat-l">情绪分</div></div>
   </div>
-  <div class="bar"><div class="bar-b" style="width:11.9%"></div><div class="bar-s" style="width:3.1%"></div><div class="bar-n" style="width:85%"></div></div>
-  <div class="src">黄金概念吧 + 贵金属吧 · 实时价格来源: Yahoo Finance</div>
+  <div class="bar"><div class="bar-b" style="width:15.6%"></div><div class="bar-s" style="width:3.1%"></div><div class="bar-n" style="width:81.2%"></div></div>
+  <div class="price-bar">
+    <span>金: <span class="p-big">$4,136</span></span>
+    <span>MA200: <span class="p-big">$4,477</span></span>
+    <span>偏离: <span class="p-big" style="color:#22c55e">-8%</span></span>
+  </div>
+  <div class="src">全民社媒(百度+微博+B站)关键词匹配 · 实时价格: Yahoo Finance</div>
 </div>
 
-<!-- ₿ BTC -->
 <div class="card">
-  <div class="card-hdr"><span class="card-title">₿ BTC / 加密货币</span><span class="card-badge bg-btc">$64,147 · MA200下12.4%</span></div>
+  <div class="card-hdr"><span class="card-title">₿ BTC / 加密货币</span><span class="card-badge bg-btc">$65,922 · MA200下10%</span></div>
   <div class="layers">
-    <div class="layer"><div class="layer-emoji">😱</div><div class="layer-val l-g">F&G 25</div><div class="layer-lbl">极度恐惧</div></div>
-    <div class="layer"><div class="layer-emoji">📊</div><div class="layer-val l-r">熊市-12%</div><div class="layer-lbl">周期位置</div></div>
+    <div class="layer"><div class="layer-emoji">😰</div><div class="layer-val l-y">F&G 33</div><div class="layer-lbl">极度恐惧</div></div>
+    <div class="layer"><div class="layer-emoji">📊</div><div class="layer-val l-y">熊市-10%</div><div class="layer-lbl">周期位置</div></div>
     <div class="layer"><div class="layer-emoji">🌍</div><div class="layer-val l-g">CPI↓利好</div><div class="layer-lbl">宏观环境</div></div>
   </div>
-  <div class="composite c-fire">🔥 恐慌熊市 · 逆向买入</div>
-  <div class="reasons">理由: <span>F&G=25极度恐惧 + BTC低于MA200 12.4%深度熊市</span> + <span>恐慌+熊市=历史胜率最高组合</span> + <span>参考: VIX>35时14天胜率100%</span></div>
+  <div class="composite c-bull">🟢 瑟瑟发抖 · 有点意思</div>
+  <div class="reasons">F&G=33恐惧区间 + BTC$65,922</div>
   <div class="price-bar">
-    <span>BTC: <span class="p-big">$64,147</span></span>
-    <span>MA50: <span class="p-big">$63,586</span></span>
-    <span>MA200: <span class="p-big">$73,200</span></span>
+    <span>BTC: <span class="p-big">$65,922</span></span>
+    <span>MA200: <span class="p-big">$72,807</span></span>
+    <span>偏离: <span class="p-big" style="color:#888">-10%</span></span>
   </div>
   <div class="fng-wrap">
-    <div class="fng-val g">25</div>
-    <div class="fng-meter"><div class="fng-dot" style="left:25%"></div></div>
+    <div class="fng-val" style="color:#eab308">33</div>
+    <div class="fng-meter"><div class="fng-dot" style="left:33%"></div></div>
     <div class="fng-lbl"><span>0 恐惧</span><span>50</span><span>100 贪婪</span></div>
   </div>
-  <div class="src">Binance实时 + alternative.me · 历史: F&G<30时BTC 30天胜率62%</div>
+  <div class="src">Crypto Fear & Greed · Binance实时价格</div>
 </div>
 
-<!-- 🇨🇳 A股半导体 -->
 <div class="card">
-  <div class="card-hdr"><span class="card-title">🇨🇳 A股 半导体</span><span class="card-badge bg-cn">BK1036 · 80帖</span></div>
+  <div class="card-hdr"><span class="card-title">🇨🇳 A股 半导体</span><span class="card-badge bg-cn">80帖 · 半导体ETF ¥1.16</span></div>
   <div class="layers">
-    <div class="layer"><div class="layer-emoji">😐</div><div class="layer-val l-n">73%沉默</div><div class="layer-lbl">散户情绪</div></div>
-    <div class="layer"><div class="layer-emoji">📊</div><div class="layer-val l-g">牛市+20%</div><div class="layer-lbl">周期位置</div></div>
+    <div class="layer"><div class="layer-emoji">😐</div><div class="layer-val l-y">84%沉默</div><div class="layer-lbl">散户情绪</div></div>
+    <div class="layer"><div class="layer-emoji">📊</div><div class="layer-val l-r">半导体-29%</div><div class="layer-lbl">周期位置</div></div>
     <div class="layer"><div class="layer-emoji">🌍</div><div class="layer-val l-y">美股联动</div><div class="layer-lbl">宏观环境</div></div>
   </div>
-  <div class="composite c-neut">⚪ 中性 · 牛市中途安静</div>
-  <div class="reasons">理由: <span>沉默率73%在牛市属正常</span> + <span>寒武纪+21%/新易盛+40%远超MA200</span> + <span>A股半导体跟美股AI链高度共振</span> + <span>等情绪极端化才有信号</span></div>
+  <div class="composite c-bull">🟢 没人聊 · 留意下</div>
+  <div class="reasons">沉默率84%+社媒讨论少=散户不关注A股半导体</div>
+  <div style="font-size:.65em;color:#888;margin-top:4px;text-align:center">🔴 分歧 | 📋84% · ❄️50%</div>
   <div class="row">
-    <div class="stat"><div class="stat-v n">72.5%</div><div class="stat-l">沉默率</div></div>
-    <div class="stat"><div class="stat-v g">12.5%</div><div class="stat-l">看多</div></div>
-    <div class="stat"><div class="stat-v r">15.0%</div><div class="stat-l">看空</div></div>
-    <div class="stat"><div class="stat-v y">-0.05</div><div class="stat-l">情绪分</div></div>
+    <div class="stat"><div class="stat-v n">84%</div><div class="stat-l">沉默率</div></div>
+    <div class="stat"><div class="stat-v g">10%</div><div class="stat-l">喊涨</div></div>
+    <div class="stat"><div class="stat-v r">6%</div><div class="stat-l">喊跌</div></div>
+    <div class="stat"><div class="stat-v y">+0.05</div><div class="stat-l">情绪分</div></div>
   </div>
-  <div class="bar"><div class="bar-b" style="width:12.5%"></div><div class="bar-s" style="width:15%"></div><div class="bar-n" style="width:72.5%"></div></div>
-  <div class="src">半导体行业吧 · 独立行情，A股半导体跟美股半导体走势脱钩</div>
+  <div class="bar"><div class="bar-b" style="width:10.0%"></div><div class="bar-s" style="width:6.2%"></div><div class="bar-n" style="width:83.8%"></div></div>
+  <div class="price-bar">
+    <span>半导体ETF: <span class="p-big">¥1.16</span></span>
+    <span>MA200偏离: <span class="p-big" style="color:#ef4444">-29%</span></span>
+  </div>
+  <div class="src">半导体ETF 512480 · 股吧BK1036</div>
 </div>
 
-<!-- 🇺🇸 美股半导体 -->
 <div class="card">
-  <div class="card-hdr"><span class="card-title">🇺🇸 美股 半导体</span><span class="card-badge bg-us">7只龙头 · 539帖</span></div>
+  <div class="card-hdr"><span class="card-title">🇺🇸 美股 半导体</span><span class="card-badge bg-us">480帖 · SOX $12,356 · 7均+37%</span></div>
   <div class="layers">
-    <div class="layer"><div class="layer-emoji">😶</div><div class="layer-val l-y">78%沉默</div><div class="layer-lbl">散户情绪</div></div>
-    <div class="layer"><div class="layer-emoji">📊</div><div class="layer-val l-g">NVDA+6%</div><div class="layer-lbl">周期位置</div></div>
-    <div class="layer"><div class="layer-emoji">🌍</div><div class="layer-val l-y">SOX近熊</div><div class="layer-lbl">宏观环境</div></div>
+    <div class="layer"><div class="layer-emoji">😶</div><div class="layer-val l-g">91%沉默</div><div class="layer-lbl">散户情绪</div></div>
+    <div class="layer"><div class="layer-emoji">📊</div><div class="layer-val l-g">7龙头+37%</div><div class="layer-lbl">周期位置</div></div>
+    <div class="layer"><div class="layer-emoji">🌍</div><div class="layer-val l-g">SOX+37%</div><div class="layer-lbl">宏观环境</div></div>
   </div>
-  <div class="composite c-warn">⚠️ 谨慎偏多 · NVDA坚挺但SOX进入技术性熊市</div>
-  <div class="reasons">理由: <span>沉默率78%偏买但非极端</span> + <span>NVDA+5.5%仍在MA200上方</span> + <span>SOX周跌9.9%进入技术性熊市</span> + <span>贸易战+美伊冲突尾风险</span></div>
+  <div class="composite c-fire">🔥 鸦雀无声… 你细品</div>
+  <div class="reasons">沉默率91%≥90%=极端麻木 + 七龙头均MA200偏离+37%=这种组合历史上挺有意思</div>
+  
   <div class="row">
-    <div class="stat"><div class="stat-v n">78.1%</div><div class="stat-l">沉默率</div></div>
-    <div class="stat"><div class="stat-v g">8.2%</div><div class="stat-l">看多</div></div>
-    <div class="stat"><div class="stat-v r">13.7%</div><div class="stat-l">看空</div></div>
-    <div class="stat"><div class="stat-v y">-0.08</div><div class="stat-l">情绪分</div></div>
+    <div class="stat"><div class="stat-v n">91%</div><div class="stat-l">沉默率</div></div>
+    <div class="stat"><div class="stat-v g">5%</div><div class="stat-l">喊涨</div></div>
+    <div class="stat"><div class="stat-v r">4%</div><div class="stat-l">喊跌</div></div>
+    <div class="stat"><div class="stat-v y">+0.03</div><div class="stat-l">情绪分</div></div>
   </div>
-  <div class="bar"><div class="bar-b" style="width:8.2%"></div><div class="bar-s" style="width:13.7%"></div><div class="bar-n" style="width:78.1%"></div></div>
-  <div class="src">NVDA+AMD+AVGO+MU+TSM+SMCI+SK海力士 · SOX周跌9.9%进入技术性熊市</div>
+  <div class="bar"><div class="bar-b" style="width:5.0%"></div><div class="bar-s" style="width:3.8%"></div><div class="bar-n" style="width:91.2%"></div></div>
+  <div class="price-bar">
+    <span>SOX: <span class="p-big">$12,356</span></span>
+    <span>7均偏离: <span class="p-big" style="color:#22c55e">+37%</span></span>
+  </div>
+  <div style="font-size:.6em;color:#555;margin-top:4px">NVDA +8% · AMD +81% · MU +98% · AVGO +6% · SMCI -25% · TSM +21%</div>
+  <div class="src">NVDA+AMD+MU+AVGO+SMCI+TSM+SK海力士 股吧 × Yahoo Finance实时</div>
 </div>
-
 </div>
 
 <div class="footer">
-  疯向标 v4 · 情绪×周期×宏观 · 趋势拐点发现器 · 不是即时交易信号，是天气预报警<br>
-  <a href="https://github.com/Pibao0249/fengxiangbiao">GitHub</a> · BTC数据: Binance实时 · 贵金属/VIX: Yahoo Finance · 情绪: 东方财富股吧
+  疯向标 v2 · 情绪×周期×宏观 · 趋势拐点发现器 · 纯属娱乐 · 不是投资建议 · 别看了就冲 · DYOR<br>
+  <a href="https://github.com/Pibao0249/fengxiangbiao">GitHub</a> · BTC: Binance实时 · F&G: alternative.me · 贵金属/NVDA/VIX: Yahoo Finance · 社媒: 百度+微博+B站热搜<br>
+  数据三档: ✅实时 ⚠️缓存 ❌缺失 · 禁止假数据
 </div>
 </div>
 </body>
