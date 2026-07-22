@@ -2,7 +2,7 @@
 """
 疯向标 v2 — HTML仪表盘生成器
 四赛道三层信号: 散户情绪 × 周期位置 × 宏观环境
-数据源: 全民社媒(百度+微博+B站) + Crypto F&G + 股吧本地(可选) + 实时价格
+数据源: 全民社媒(百度+微博+B站) + Crypto F&G + X/Twitter中文 + 实时价格
 输出: data/fengxiangbiao.html
 """
 import json, os, ssl, urllib.request
@@ -242,7 +242,7 @@ def build_html(data, prices, fng, consensus):
     # A股半导体ETF
     a_semi_etf = prices.get('A_SEMI_ETF', {})
     a_semi_avg_dev = a_semi_etf.get('deviation')
-    a_semi_etf_price = a_semi_etf.get('price', 0)
+    a_semi_etf_price = a_semi_etf.get('price') or 0
     
     # SOX指数
     sox_price = prices.get('SOX', {}).get('price', 0)
@@ -441,7 +441,7 @@ def build_html(data, prices, fng, consensus):
   <div class="bar"><div class="bar-b" style="width:{b_pct:.1f}%"></div><div class="bar-s" style="width:{s_pct:.1f}%"></div><div class="bar-n" style="width:{silence:.1f}%"></div></div>
   <div class="price-bar">
     <span>半导体ETF: <span class="p-big">¥{a_semi_etf_price:.2f}</span></span>
-    <span>MA200偏离: <span class="p-big" style="color:{'#22c55e' if a_semi_avg_dev and a_semi_avg_dev > 0 else '#ef4444'}">{a_semi_avg_dev:+.0f}%</span></span>
+    <span>MA200偏离: <span class="p-big" style="color:{'#22c55e' if a_semi_avg_dev and a_semi_avg_dev > 0 else '#ef4444'}">{f'{a_semi_avg_dev:+.0f}%' if a_semi_avg_dev is not None else 'N/A'}</span></span>
   </div>
   <div class="src">半导体ETF 512480 · 股吧BK1036</div>
 </div>'''
@@ -571,7 +571,7 @@ def build_html(data, prices, fng, consensus):
 
 <div class="footer">
   疯向标 v2 · 情绪×周期×宏观 · 趋势拐点发现器 · 纯属娱乐 · 不是投资建议 · 别看了就冲 · DYOR<br>
-  <a href="https://github.com/Pibao0249/fengxiangbiao">GitHub</a> · BTC: Binance实时 · F&G: alternative.me · 贵金属/NVDA/VIX: Yahoo Finance · 社媒: 百度+微博+B站热搜<br>
+  <a href="https://github.com/Pibao0249/fengxiangbiao">GitHub</a> · BTC: Binance实时 · F&G: alternative.me · 贵金属/NVDA/VIX: Yahoo Finance · 社媒: 百度+微博+B站热搜 · X/Twitter中文<br>
   数据三档: ✅实时 ⚠️缓存 ❌缺失 · 禁止假数据
 </div>
 </div>
@@ -610,9 +610,13 @@ def main():
     print(f'\n✅ 仪表盘: {path}')
     print(f'   file://{path}')
     
-    # 同时输出到根目录 index.html 供 GitHub Pages
+    # 输出到根目录 index.html（GitHub Pages 主入口）
     root_index = os.path.join(os.path.dirname(DATA_DIR), 'index.html')
     with open(root_index, 'w') as f:
+        f.write(html)
+    # 同时输出到 site/ 备用
+    site_index = os.path.join(os.path.dirname(DATA_DIR), 'site', 'index.html')
+    with open(site_index, 'w') as f:
         f.write(html)
     print(f'✅ Pages入口: {root_index}')
 
