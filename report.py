@@ -294,11 +294,11 @@ def build_html(data, prices, fng, consensus):
         
         # 情绪层
         if silence >= 80:
-            sl = ('l-g', '😶', f'{silence:.0f}%沉默')
+            sl = ('l-g', '😶', f'{silence:.0f}%中性')
         elif silence >= 60:
-            sl = ('l-y', '😐', f'{silence:.0f}%沉默')
+            sl = ('l-y', '😐', f'{silence:.0f}%中性')
         else:
-            sl = ('l-n', '😐', f'{silence:.0f}%沉默')
+            sl = ('l-n', '😐', f'{silence:.0f}%中性')
         
         # 周期层
         if gold_dev is not None and gold_dev < -5:
@@ -314,13 +314,13 @@ def build_html(data, prices, fng, consensus):
         # 综合
         if silence >= 80 and (gold_dev is not None and gold_dev < -5):
             comp = ('c-fire', '🔥 三重共振 · 别人恐惧我贪婪')
-            reasons = f'沉默率{silence:.0f}%+深度熊市+地缘利好=历史规律说这时候该看看 · 金${gold_price:,.0f} 银${silver_price:,.0f}'
+            reasons = f'中性率{silence:.0f}%+深度熊市+地缘利好=历史规律说这时候该看看 · 金${gold_price:,.0f} 银${silver_price:,.0f}'
         elif silence >= 75:
             comp = ('c-bull', '🟢 没人聊了 · 有点意思')
-            reasons = f'沉默率{silence:.0f}%接近关注区间 · 金${gold_price:,.0f} 银${silver_price:,.0f}'
+            reasons = f'中性率{silence:.0f}%接近关注区间 · 金${gold_price:,.0f} 银${silver_price:,.0f}'
         else:
             comp = ('c-neut', '⚪ 平平无奇 · 再蹲蹲')
-            reasons = f'沉默率{silence:.0f}%未达阈值 · 金${gold_price:,.0f} 银${silver_price:,.0f}'
+            reasons = f'中性率{silence:.0f}%未达阈值 · 金${gold_price:,.0f} 银${silver_price:,.0f}'
         
         return f'''
 <div class="card">
@@ -334,7 +334,7 @@ def build_html(data, prices, fng, consensus):
   <div class="reasons">{reasons}</div>
   {make_consensus_line('gold')}
   <div class="row">
-    <div class="stat"><div class="stat-v n">{silence:.0f}%</div><div class="stat-l">沉默率</div></div>
+    <div class="stat"><div class="stat-v n">{silence:.0f}%</div><div class="stat-l">中性率</div></div>
     <div class="stat"><div class="stat-v g">{b_pct:.0f}%</div><div class="stat-l">喊涨</div></div>
     <div class="stat"><div class="stat-v r">{s_pct:.0f}%</div><div class="stat-l">喊跌</div></div>
     <div class="stat"><div class="stat-v y">{sentiment:+.2f}</div><div class="stat-l">情绪分</div></div>
@@ -404,13 +404,13 @@ def build_html(data, prices, fng, consensus):
         s_pct = s.get('bearish', 0) / max(count, 1) * 100
         
         if silence >= 75:
-            sl = ('l-y', '😐', f'{silence:.0f}%沉默')
+            sl = ('l-y', '😐', f'{silence:.0f}%中性')
             comp = ('c-bull', '🟢 没人聊 · 留意下')
-            reasons = f'沉默率{silence:.0f}%+社媒讨论少=散户不关注A股半导体'
+            reasons = f'中性率{silence:.0f}%+社媒讨论少=非不关注，是无方向'
         else:
-            sl = ('l-n', '😐', f'{silence:.0f}%沉默')
+            sl = ('l-n', '😐', f'{silence:.0f}%中性')
             comp = ('c-neut', '⚪ 风平浪静 · 再蹲蹲')
-            reasons = f'沉默率{silence:.0f}%，社媒金融关键词匹配{count}条'
+            reasons = f'中性率{silence:.0f}%，社媒金融关键词匹配{count}条'
         
         cl = ('l-g' if a_semi_avg_dev and a_semi_avg_dev > 0 else 'l-r' if a_semi_avg_dev and a_semi_avg_dev < -5 else 'l-y', '📊', f'半导体{a_semi_avg_dev:+.0f}%' if a_semi_avg_dev is not None else '数据待拉')
         ml = ('l-y', '🌍', '美股联动')
@@ -433,7 +433,7 @@ def build_html(data, prices, fng, consensus):
   <div class="reasons">{reasons}</div>
   {make_consensus_line('a_semi')}
   <div class="row">
-    <div class="stat"><div class="stat-v n">{silence:.0f}%</div><div class="stat-l">沉默率</div></div>
+    <div class="stat"><div class="stat-v n">{silence:.0f}%</div><div class="stat-l">中性率</div></div>
     <div class="stat"><div class="stat-v g">{b_pct:.0f}%</div><div class="stat-l">喊涨</div></div>
     <div class="stat"><div class="stat-v r">{s_pct:.0f}%</div><div class="stat-l">喊跌</div></div>
     <div class="stat"><div class="stat-v y">{sentiment:+.2f}</div><div class="stat-l">情绪分</div></div>
@@ -456,11 +456,11 @@ def build_html(data, prices, fng, consensus):
         s_pct = s.get('bearish', 0) / max(count, 1) * 100
         
         if silence >= 80:
-            sl = ('l-g', '😶', f'{silence:.0f}%沉默')
+            sl = ('l-g', '😶', f'{silence:.0f}%中性')
         elif silence >= 65:
-            sl = ('l-y', '😐', f'{silence:.0f}%沉默')
+            sl = ('l-y', '😐', f'{silence:.0f}%中性')
         else:
-            sl = ('l-n', '😐', f'{silence:.0f}%沉默')
+            sl = ('l-n', '😐', f'{silence:.0f}%中性')
         
         if us_semi_avg_dev is not None:
             cl = ('l-g' if us_semi_avg_dev > 0 else 'l-r', '📊', f'7龙头{us_semi_avg_dev:+.0f}%')
@@ -471,19 +471,19 @@ def build_html(data, prices, fng, consensus):
         
         if silence >= 90:
             comp = ('c-fire', '🔥 鸦雀无声… 你细品')
-            reasons = f'沉默率{silence:.0f}%≥90%=极端麻木 + 七龙头均MA200偏离{us_semi_avg_dev:+.0f}%=这种组合历史上挺有意思' if us_semi_avg_dev else f'沉默率{silence:.0f}%≥90%=极端麻木'
+            reasons = f'中性率{silence:.0f}%≥90%=极度观望 + 七龙头均MA200偏离{us_semi_avg_dev:+.0f}%=这种组合历史上挺有意思' if us_semi_avg_dev else f'中性率{silence:.0f}%≥90%=极度观望'
         elif silence >= 80 and us_semi_avg_dev is not None and us_semi_avg_dev > 0:
             comp = ('c-bull', '🟢 没人聊+趋势好=挺有意思')
-            reasons = f'沉默率{silence:.0f}%+七龙头均MA200上{us_semi_avg_dev:+.0f}%=牛市中的沉默=回调可以看看'
+            reasons = f'中性率{silence:.0f}%+七龙头均MA200上{us_semi_avg_dev:+.0f}%=牛市中的观望=回调可以看看'
         elif silence >= 80:
             comp = ('c-warn', '⚠️ 安静但行情弱…悠着点')
-            reasons = f'沉默率{silence:.0f}%但七龙头均偏离{us_semi_avg_dev:+.0f}%=谨慎' if us_semi_avg_dev else f'沉默率{silence:.0f}%'
+            reasons = f'中性率{silence:.0f}%但七龙头均偏离{us_semi_avg_dev:+.0f}%=谨慎' if us_semi_avg_dev else f'中性率{silence:.0f}%'
         elif count == 0:
             comp = ('c-neut', '⚪ 待采集')
             reasons = '全民社媒未匹配到美股半导体关键词 · 需股吧数据补充'
         else:
             comp = ('c-neut', '⚪ 中性')
-            reasons = f'沉默率{silence:.0f}% · 七龙头均偏离{us_semi_avg_dev:+.0f}% · 等极端信号' if us_semi_avg_dev else f'沉默率{silence:.0f}% · 等极端信号'
+            reasons = f'中性率{silence:.0f}% · 七龙头均偏离{us_semi_avg_dev:+.0f}% · 等极端信号' if us_semi_avg_dev else f'中性率{silence:.0f}% · 等极端信号'
         
         # 七龙头列表
         us_tickers_list = []
@@ -505,7 +505,7 @@ def build_html(data, prices, fng, consensus):
   <div class="reasons">{reasons}</div>
   {make_consensus_line('us_semi')}
   <div class="row">
-    <div class="stat"><div class="stat-v n">{silence:.0f}%</div><div class="stat-l">沉默率</div></div>
+    <div class="stat"><div class="stat-v n">{silence:.0f}%</div><div class="stat-l">中性率</div></div>
     <div class="stat"><div class="stat-v g">{b_pct:.0f}%</div><div class="stat-l">喊涨</div></div>
     <div class="stat"><div class="stat-v r">{s_pct:.0f}%</div><div class="stat-l">喊跌</div></div>
     <div class="stat"><div class="stat-v y">{sentiment:+.2f}</div><div class="stat-l">情绪分</div></div>
