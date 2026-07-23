@@ -1,0 +1,296 @@
+{
+  "BTC": {
+    "count": 100,
+    "avg_sentiment": 0.015,
+    "mood": "😐 中性",
+    "headlines": [
+      {
+        "topic": "BTC",
+        "title": "Can Bitcoin Crash to $20K in 2026? What Could Trigger a Historic Crypto Market Collapse - Bitcoin Foundation",
+        "date": "Thu, 04 Jun 2026 07:00:00 GMT",
+        "source": "Bitcoin Foundation",
+        "sentiment": -0.9001
+      },
+      {
+        "topic": "BTC",
+        "title": "Bitcoin Hits 20-Month Low, Ethereum, Dogecoin, XRP Also Decline: Analyst Identifies 'Genuine Battleground' For Beleaguered BTC Amid 'Extreme Fear' - Yahoo Finance",
+        "date": "Wed, 24 Jun 2026 07:00:00 GMT",
+        "source": "Yahoo Finance",
+        "sentiment": -0.8439
+      },
+      {
+        "topic": "BTC",
+        "title": "Bitcoin Bear Market Losses Put BTC’s Bottom Case to Test - Bitcoin Foundation",
+        "date": "Mon, 08 Jun 2026 07:00:00 GMT",
+        "source": "Bitcoin Foundation",
+        "sentiment": -0.7717
+      },
+      {
+        "topic": "BTC",
+        "title": "Bitcoin, Ethereum, XRP, Dogecoin Slide as Trump Warns Iran Strikes Could Get 'Much Worse': Analyst Flags Major 'Wall' BTC Bulls Must Break - Yahoo Finance",
+        "date": "Wed, 08 Jul 2026 07:00:00 GMT",
+        "source": "Yahoo Finance",
+        "sentiment": -0.7184
+      },
+      {
+        "topic": "BTC",
+        "title": "Bitcoin, Ethereum, XRP, Dogecoin Slide as 'Extreme Fear' Persists: Analyst Notes Half of BTC Circulating Network Now Sitting 'Underwater' - Yahoo Finance",
+        "date": "Tue, 30 Jun 2026 07:00:00 GMT",
+        "source": "Yahoo Finance",
+        "sentiment": -0.6478
+      },
+      {
+        "topic": "BTC",
+        "title": "Bitcoin: After 900 hours of sell pressure and a ‘dead cat’ warning, is BTC’s bottom in? - AMBCrypto",
+        "date": "Thu, 23 Jul 2026 14:00:47 GMT",
+        "source": "AMBCrypto",
+        "sentiment": -0.6249
+      },
+      {
+        "topic": "BTC",
+        "title": "Bitcoin ETFs Set for Worst Month With $4 Billion in Outflows - Bloomberg.com",
+        "date": "Mon, 29 Jun 2026 07:00:00 GMT",
+        "source": "Bloomberg.com",
+        "sentiment": -0.6249
+      },
+      {
+        "topic": "BTC",
+        "title": "Why Is Crypto Down Today? BTC Price Nears $61K as Investors Fear Another Major Sell-Off - Bitcoin Foundation",
+        "date": "Wed, 10 Jun 2026 07:00:00 GMT",
+        "source": "Bitcoin Foundation",
+        "sentiment": -0.6124
+      },
+      {
+        "topic": "BTC",
+        "title": "CryptoQuant: Bitcoin Structural Demand Weakens to 2026 Low - Bitcoin Foundation",
+        "date": "Mon, 25 May 2026 07:00:00 GMT",
+        "source": "Bitcoin Foundation",
+        "sentiment": -0.5994
+      },
+      {
+        "topic": "BTC",
+        "title": "Bitcoin is weathering its ugliest week in months as narrative fades and liquidity rotates - CNBC",
+        "date": "Thu, 04 Jun 2026 07:00:00 GMT",
+        "source": "CNBC",
+        "sentiment": -0.5859
+      },
+      {
+        "topic": "BTC",
+        "title": "Bitcoin Bear Market Over? Not Quite. Analyst Says $83,000 Is The Real Test - Benzinga",
+        "date": "Wed, 22 Jul 2026 14:20:42 GMT",
+        "source": "Benzinga",
+        "sentiment": -0.5423
+      },
+      {
+        "topic": "BTC",
+        "title": "Bitcoin, Ethereum, XRP, Dogecoin Rally as 'Extreme Fear' Persists: Analyst Expects a 'Quick' Move Upward for BTC After 'Shallow' Correction - Yahoo Finance",
+        "date": "Sun, 05 Jul 2026 07:00:00 GMT",
+        "source": "Yahoo Finance",
+        "sentiment": -0.5095
+      },
+      {
+        "topic": "BTC",
+        "title": "Crypto Slide Worsens As Bitcoin Falls 6% To $67,000 - Yahoo Finance",
+        "date": "Tue, 02 Jun 2026 07:00:00 GMT",
+        "source": "Yahoo Finance",
+        "sentiment": -0.4767
+      },
+      {
+        "topic": "BTC",
+        "title": "Bitcoin, XRP Snubbed As S&P Unveils Revenue-Focused Crypto Index - Benzinga",
+        "date": "Wed, 22 Jul 2026 12:38:51 GMT",
+        "source": "Benzinga",
+        "sentiment": -0.4588
+      },
+      {
+        "topic": "BTC",
+        "title": "Bitcoin, Ethereum, XRP, Dogecoin Spring Back Even As Iran And Israel Exchange Strikes: Analyst Sees Increasing Possibility Of BTC Bottom - Yahoo Finance",
+        "date": "Sun, 07 Jun 2026 07:00:00 GMT",
+        "source": "Yahoo Finance",
+        "sentiment": -0.4588
+      },
+      {
+        "topic": "BTC",
+        "title": "Bitcoin Sell-Off Fears Rise as BlackRock and Winklevoss Twins Move 7,000 BTC - Yahoo Finance",
+        "date": "Wed, 03 Jun 2026 07:00:00 GMT",
+        "source": "Yahoo Finance",
+        "sentiment": -0.4215
+      },
+      {
+        "topic": "BTC",
+        "title": "Bitcoin, Ethereum, XRP Fall, But Dogecoin Gains Ahead Of Crypto Act Markup In Senate: This Analyst Is Bracing For More BTC Pain Ahead - Yahoo Finance",
+        "date": "Wed, 13 May 2026 07:00:00 GMT",
+        "source": "Yahoo Finance",
+        "sentiment": -0.4152
+      },
+      {
+        "topic": "BTC",
+        "title": "Elon Musk's Tesla Held on to Bitcoin Stockpile in Q2 Despite $112 Million in Paper Losses - Yahoo Finance",
+        "date": "Thu, 23 Jul 2026 02:44:00 GMT",
+        "source": "Yahoo Finance",
+        "sentiment": -0.4019
+      },
+      {
+        "topic": "BTC",
+        "title": "Bitcoin is a Bubble? Anthony Pompliano Will Host His 'Crazy Uncle' Peter Schiff to Give Him the 'Intellec - Benzinga",
+        "date": "Thu, 23 Jul 2026 06:35:15 GMT",
+        "source": "Benzinga",
+        "sentiment": -0.34
+      },
+      {
+        "topic": "BTC",
+        "title": "Bitcoin, Ethereum, XRP, Dogecoin Slide as 'Fear' Sentiment Prevails: Analyst Says BTC's 'Clear Breakthrou - Benzinga",
+        "date": "Fri, 17 Jul 2026 01:56:15 GMT",
+        "source": "Benzinga",
+        "sentiment": -0.34
+      }
+    ]
+  },
+  "AI_SEMI": {
+    "count": 70,
+    "avg_sentiment": 0.182,
+    "mood": "😐 中性",
+    "headlines": [
+      {
+        "topic": "AI_SEMI",
+        "title": "A 'seismic' Nvidia shift, AI chip shortages and how it's threatening to hike gadget prices - CNBC",
+        "date": "Tue, 02 Dec 2025 08:00:00 GMT",
+        "source": "CNBC",
+        "sentiment": -0.6124
+      },
+      {
+        "topic": "AI_SEMI",
+        "title": "Meet the Monster Stock That Continues to Crush the Market - The Motley Fool",
+        "date": "Sun, 15 Mar 2026 07:00:00 GMT",
+        "source": "The Motley Fool",
+        "sentiment": -0.5423
+      },
+      {
+        "topic": "AI_SEMI",
+        "title": "Did NVIDIA Crash Memory Stocks Like Micron and SanDisk Yesterday? - 24/7 Wall St.",
+        "date": "Wed, 04 Mar 2026 08:00:00 GMT",
+        "source": "24/7 Wall St.",
+        "sentiment": -0.5423
+      },
+      {
+        "topic": "AI_SEMI",
+        "title": "Micron Investors Just Got Terrible News From Nvidia - Vocal",
+        "date": "Wed, 18 Mar 2026 07:00:00 GMT",
+        "source": "Vocal",
+        "sentiment": -0.4767
+      },
+      {
+        "topic": "AI_SEMI",
+        "title": "Is Micron the New Nvidia? - The Motley Fool",
+        "date": "Sun, 08 Feb 2026 08:00:00 GMT",
+        "source": "The Motley Fool",
+        "sentiment": -0.4404
+      },
+      {
+        "topic": "AI_SEMI",
+        "title": "Prediction: 1 Hypergrowth Stock That Will Run Circles Around Nvidia Through 2030 - The Motley Fool",
+        "date": "Fri, 26 Dec 2025 08:00:00 GMT",
+        "source": "The Motley Fool",
+        "sentiment": -0.4404
+      },
+      {
+        "topic": "AI_SEMI",
+        "title": "Memory Stocks Crushed AI Chip Stocks in 2025: Why the Supercycle Is Just Getting Started - Kavout | AI",
+        "date": "Thu, 08 Jan 2026 10:45:34 GMT",
+        "source": "Kavout | AI",
+        "sentiment": -0.4215
+      },
+      {
+        "topic": "AI_SEMI",
+        "title": "MU and DELL: 2 AI Infrastructure Stocks Crushing NVDA in 2026 - TradingView",
+        "date": "Wed, 10 Jun 2026 07:00:00 GMT",
+        "source": "TradingView",
+        "sentiment": -0.3612
+      },
+      {
+        "topic": "AI_SEMI",
+        "title": "Micron and SK Hynix Cross $1 Trillion Valuations as Chip Shortage Fuels AI Boom - 24/7 Wall St.",
+        "date": "Tue, 02 Jun 2026 07:00:00 GMT",
+        "source": "24/7 Wall St.",
+        "sentiment": -0.25
+      },
+      {
+        "topic": "AI_SEMI",
+        "title": "Forget Nvidia: Micron Is Up 330% in a Year and Still Looks Cheap - 24/7 Wall St.",
+        "date": "Wed, 25 Feb 2026 08:00:00 GMT",
+        "source": "24/7 Wall St.",
+        "sentiment": -0.2263
+      },
+      {
+        "topic": "AI_SEMI",
+        "title": "Forget Nvidia - This Chip Stock Could Deliver Explosive Returns by 2030 - TradingKey",
+        "date": "Sun, 04 Jan 2026 08:00:00 GMT",
+        "source": "TradingKey",
+        "sentiment": -0.2263
+      },
+      {
+        "topic": "AI_SEMI",
+        "title": "Google reveals algorithms to address AI memory challenges; memory and storage stocks drop (GOOG:NASDAQ) - Seeking Alpha",
+        "date": "Wed, 25 Mar 2026 07:00:00 GMT",
+        "source": "Seeking Alpha",
+        "sentiment": -0.2023
+      },
+      {
+        "topic": "AI_SEMI",
+        "title": "Meet the Monster Stock That Continues to Crush the Market - The Globe and Mail",
+        "date": "Sun, 15 Mar 2026 07:00:00 GMT",
+        "source": "The Globe and Mail",
+        "sentiment": -0.1531
+      },
+      {
+        "topic": "AI_SEMI",
+        "title": "Is Micron the Next Nvidia? Why the 2026 \"Memory Crunch\" Makes MU Stock a Top AI Buy - TradingKey",
+        "date": "Sun, 10 May 2026 07:00:00 GMT",
+        "source": "TradingKey",
+        "sentiment": -0.128
+      },
+      {
+        "topic": "AI_SEMI",
+        "title": "The Overlooked AI Chip Stock That Could Outperform Nvidia in 2026 - Yahoo Finance",
+        "date": "Tue, 20 Jan 2026 08:00:00 GMT",
+        "source": "Yahoo Finance",
+        "sentiment": -0.0258
+      },
+      {
+        "topic": "AI_SEMI",
+        "title": "Micron Is the Memory Toll Booth Behind NVIDIA’s AI GPU Boom - techi.com",
+        "date": "Fri, 08 May 2026 07:00:00 GMT",
+        "source": "techi.com",
+        "sentiment": 0.0
+      },
+      {
+        "topic": "AI_SEMI",
+        "title": "SanDisk Did In Months What Nvidia Took 9 Years To Pull Off - Micron Technology (NASDAQ:MU), NVIDIA (NASDA - Benzinga",
+        "date": "Fri, 08 May 2026 07:00:00 GMT",
+        "source": "Benzinga",
+        "sentiment": 0.0
+      },
+      {
+        "topic": "AI_SEMI",
+        "title": "Is Micron the New Nvidia? - The Globe and Mail",
+        "date": "Sat, 04 Apr 2026 07:00:00 GMT",
+        "source": "The Globe and Mail",
+        "sentiment": 0.0
+      },
+      {
+        "topic": "AI_SEMI",
+        "title": "[20 Semiconductor Memory Stocks from Japan and the US] Poten... - Moomoo",
+        "date": "Fri, 09 Jan 2026 08:00:00 GMT",
+        "source": "Moomoo",
+        "sentiment": 0.0
+      },
+      {
+        "topic": "AI_SEMI",
+        "title": "Memory Price Tsunami Swamps Apple as Tim Cook Hikes Prices 20% - 24/7 Wall St.",
+        "date": "Thu, 25 Jun 2026 07:00:00 GMT",
+        "source": "24/7 Wall St.",
+        "sentiment": 0.0
+      }
+    ]
+  }
+}
