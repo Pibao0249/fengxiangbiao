@@ -1,12 +1,12 @@
 {
-  "time": "2026-07-19T00:08:37.971688",
+  "time": "2026-07-19T09:05:04.619699",
   "sources": {
     "baidu": {
       "count": 51,
       "status": "ok"
     },
     "weibo": {
-      "count": 50,
+      "count": 52,
       "status": "ok"
     },
     "bilibili": {
@@ -15,7 +15,7 @@
     },
     "fng": {
       "status": "ok",
-      "value": 25
+      "value": 28
     },
     "xueqiu": {
       "status": "ok",
@@ -69,12 +69,12 @@
     }
   },
   "summary": {
-    "total_social": 171,
+    "total_social": 173,
     "sources_ok": 6,
     "sources_total": 6,
     "fng": {
-      "value": 25,
-      "classification": "Extreme Fear"
+      "value": 28,
+      "classification": "Fear"
     }
   },
   "consensus": {
