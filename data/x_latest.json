@@ -1,31 +1,31 @@
 {
-  "collected_at": "2026-07-24T04:46:00.829269+08:00",
+  "collected_at": "2026-07-25T04:45:53.725885+08:00",
   "sectors": {
     "gold": {
       "name": "黄金白银",
-      "latest_hour": 301,
-      "total_7d": 63696,
-      "hourly_avg": 376.9,
-      "anomaly": false,
-      "anomaly_direction": "normal",
-      "anomaly_ratio": 1.0,
+      "latest_hour": 180,
+      "total_7d": 70525,
+      "hourly_avg": 417.3,
+      "anomaly": true,
+      "anomaly_direction": "low",
+      "anomaly_ratio": 0.6,
       "emotion": null
     },
     "btc": {
       "name": "BTC",
-      "latest_hour": 219,
-      "total_7d": 89244,
-      "hourly_avg": 528.1,
-      "anomaly": false,
-      "anomaly_direction": "normal",
-      "anomaly_ratio": 1.0,
+      "latest_hour": 2467,
+      "total_7d": 132398,
+      "hourly_avg": 783.4,
+      "anomaly": true,
+      "anomaly_direction": "high",
+      "anomaly_ratio": 11.39,
       "emotion": null
     },
     "a_semi": {
       "name": "A股半导体",
-      "latest_hour": 76,
-      "total_7d": 49864,
-      "hourly_avg": 295.1,
+      "latest_hour": 95,
+      "total_7d": 48851,
+      "hourly_avg": 289.1,
       "anomaly": false,
       "anomaly_direction": "normal",
       "anomaly_ratio": 1.0,
@@ -33,12 +33,12 @@
     },
     "us_semi": {
       "name": "美股半导体",
-      "latest_hour": 61,
-      "total_7d": 26163,
-      "hourly_avg": 154.8,
+      "latest_hour": 49,
+      "total_7d": 25163,
+      "hourly_avg": 148.9,
       "anomaly": false,
       "anomaly_direction": "normal",
-      "anomaly_ratio": 1.0,
+      "anomaly_ratio": 0.88,
       "emotion": null
     }
   }
