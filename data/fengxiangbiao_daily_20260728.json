@@ -1,5 +1,5 @@
 {
-  "time": "2026-07-28T06:04:39.508332",
+  "time": "2026-07-28T22:14:08.445676",
   "sources": {
     "baidu": {
       "count": 51,
@@ -15,7 +15,7 @@
     },
     "fng": {
       "status": "ok",
-      "value": 30
+      "value": 29
     },
     "xueqiu": {
       "status": "ok",
@@ -23,18 +23,18 @@
     },
     "guba": {
       "status": "ok",
-      "count": 720
+      "count": 722
     }
   },
   "sectors": {
     "gold": {
       "count": 160,
-      "bullish": 22,
-      "bearish": 6,
+      "bullish": 21,
+      "bearish": 7,
       "neutral": 132,
       "silence_rate": 82.5,
-      "carnival_rate": 13.8,
-      "sentiment": 0.11,
+      "carnival_rate": 13.1,
+      "sentiment": 0.09,
       "source": "guba_curl",
       "sample_posts": [
         {
@@ -53,7 +53,7 @@
         },
         {
           "title": "2026年6月，新疆科研团队在橡胶草产业化上取得里程碑式突破，首次实现从“草”到",
-          "click": 63,
+          "click": 64,
           "comment": 0,
           "time": "2026-07-01 11:31:05",
           "sentiment": 1
@@ -74,13 +74,13 @@
         }
       ],
       "social_backup": {
-        "count": 0,
+        "count": 1,
         "bullish": 0,
         "bearish": 0,
-        "neutral": 0,
-        "silence_rate": 0,
-        "carnival_rate": 0,
-        "sentiment": 0
+        "neutral": 1,
+        "silence_rate": 100.0,
+        "carnival_rate": 0.0,
+        "sentiment": 0.0
       },
       "data_source": "guba"
     },
@@ -95,59 +95,59 @@
       "data_source": "social"
     },
     "a_semi": {
-      "count": 80,
-      "bullish": 13,
-      "bearish": 2,
-      "neutral": 65,
-      "silence_rate": 81.2,
-      "carnival_rate": 16.2,
-      "sentiment": 0.12,
+      "count": 82,
+      "bullish": 9,
+      "bearish": 10,
+      "neutral": 63,
+      "silence_rate": 76.8,
+      "carnival_rate": 11.0,
+      "sentiment": -0.01,
       "source": "guba_curl",
       "sample_posts": [
         {
-          "title": "《三重炸弹同时引爆！闪迪雪崩，AI存储牛市尾声警报拉响！》",
-          "click": 1923,
-          "comment": 2,
-          "time": "2026-07-27 23:52:32",
+          "title": "3800点最后一战！周三是反弹还是继续下跌？答案来了",
+          "click": 1433,
+          "comment": 20,
+          "time": "2026-07-28 19:55:12",
           "sentiment": 1
         },
         {
-          "title": "该抄底的抄底，该两融的两融。这是你此生唯一翻盘的机会。",
-          "click": 91,
-          "comment": 16,
-          "time": "2026-07-20 09:24:17",
-          "sentiment": 1
+          "title": "明天半导体板块又要暴跌10%，不服的来找我",
+          "click": 1,
+          "comment": 0,
+          "time": "2026-07-28 22:12:39",
+          "sentiment": -1
         },
         {
-          "title": "长鑫明天带领半导体板块继续大涨。",
+          "title": "很多人说现在半导体就是出货，他们错了！这根本不是出货，这TM是踩踏！",
+          "click": 5,
+          "comment": 0,
+          "time": "2026-07-28 22:04:33",
+          "sentiment": -2
+        },
+        {
+          "title": "想多了，好不容易把散户忽悠进来接盘，会这么快给你解套？只要还在找利好就不会止跌，",
           "click": 12,
           "comment": 0,
-          "time": "2026-07-27 22:48:47",
+          "time": "2026-07-28 21:52:37",
           "sentiment": 1
         },
         {
-          "title": "咱们散户能看懂的小分时反弹主力看不懂吗？还补仓。。反弹趁机落袋跑。啥叫月线级别回",
-          "click": 85,
-          "comment": 2,
-          "time": "2026-07-24 09:55:41",
-          "sentiment": 1
-        },
-        {
-          "title": "股票型ETF单周净流入创历史新高。机构在借道ETF抄底科技。散户恐慌的时候，聪明",
-          "click": 33,
+          "title": "我觉得三千点大概率能反弹到",
+          "click": 22,
           "comment": 0,
-          "time": "2026-07-27 21:08:39",
+          "time": "2026-07-28 20:48:25",
           "sentiment": 1
         }
       ],
       "social_backup": {
-        "count": 6,
-        "bullish": 2,
+        "count": 7,
+        "bullish": 3,
         "bearish": 0,
         "neutral": 4,
-        "silence_rate": 66.7,
-        "carnival_rate": 33.3,
-        "sentiment": 0.67
+        "silence_rate": 57.1,
+        "carnival_rate": 42.9,
+        "sentiment": 0.57
       },
       "data_source": "guba"
     },
@@ -204,7 +204,7 @@
         "neutral": 3,
         "silence_rate": 75.0,
         "carnival_rate": 25.0,
-        "sentiment": 0.25
+        "sentiment": 0.5
       },
       "data_source": "guba"
     }
@@ -214,7 +214,7 @@
     "sources_ok": 6,
     "sources_total": 6,
     "fng": {
-      "value": 30,
+      "value": 29,
       "classification": "Fear"
     }
   },
@@ -223,30 +223,35 @@
       "platforms": {
         "guba": {
           "silence": 82.5,
-          "carnival": 13.8,
-          "sentiment": 0.11,
+          "carnival": 13.1,
+          "sentiment": 0.09,
           "count": 160
+        },
+        "baidu": {
+          "silence": 100.0,
+          "count": 1,
+          "sentiment": 0.0
         }
       },
-      "level": "⚪ 数据不足",
-      "platform_count": 1
+      "level": "🤝 高共识·沉默",
+      "platform_count": 2
     },
     "a_semi": {
       "platforms": {
         "guba": {
-          "silence": 81.2,
-          "carnival": 16.2,
-          "sentiment": 0.12,
-          "count": 80
+          "silence": 76.8,
+          "carnival": 11.0,
+          "sentiment": -0.01,
+          "count": 82
         },
-        "weibo": {
-          "silence": 100.0,
-          "count": 1,
-          "sentiment": 0.0
+        "baidu": {
+          "silence": 75.0,
+          "count": 4,
+          "sentiment": 0.25
         },
         "xueqiu": {
-          "silence": 50.0,
-          "count": 4,
+          "silence": 33.3,
+          "count": 3,
           "sentiment": 1.0
         }
       },
@@ -261,19 +266,24 @@
           "sentiment": 0.03,
           "count": 480
         },
-        "weibo": {
-          "silence": 100.0,
-          "count": 1,
-          "sentiment": 0.0
-        },
         "baidu": {
-          "silence": 66.7,
-          "count": 3,
-          "sentiment": 0.33
+          "silence": 50.0,
+          "count": 2,
+          "sentiment": 1.0
+        },
+        "xueqiu": {
+          "silence": 100.0,
+          "count": 2,
+          "sentiment": 0.0
         }
       },
       "level": "🔴 分歧",
       "platform_count": 3
     }
+  },
+  "wwi": {
+    "wwi": 0.2147,
+    "phase": "bear",
+    "block_height": 959978
   }
 }

@@ -1,7 +1,7 @@
 {
   "BTC": {
     "count": 100,
-    "avg_sentiment": -0.046,
+    "avg_sentiment": -0.037,
     "mood": "😐 中性",
     "headlines": [
       {
@@ -20,17 +20,17 @@
       },
       {
         "topic": "BTC",
+        "title": "Anthony Pompliano Says Bitcoin Sellers Are 'Starting To Be Exhausted' As BTC Plunges Below $70,000 After Late Monday Crash - Yahoo Finance",
+        "date": "Tue, 02 Jun 2026 07:00:00 GMT",
+        "source": "Yahoo Finance",
+        "sentiment": -0.8176
+      },
+      {
+        "topic": "BTC",
         "title": "Bitcoin Bear Market Losses Put BTC’s Bottom Case to Test - Bitcoin Foundation",
         "date": "Mon, 08 Jun 2026 07:00:00 GMT",
         "source": "Bitcoin Foundation",
         "sentiment": -0.7717
-      },
-      {
-        "topic": "BTC",
-        "title": "Cardano (ADA) Founder Charles Hoskinson Issues Critical Warning for Bitcoin (BTC): “If It Cannot Adapt, It Could Lose Its Leadership!” - Cryptonews.net",
-        "date": "Mon, 27 Jul 2026 12:54:57 GMT",
-        "source": "Cryptonews.net",
-        "sentiment": -0.7712
       },
       {
         "topic": "BTC",
@@ -41,8 +41,8 @@
       },
       {
         "topic": "BTC",
-        "title": "Crypto Winter or the Big Crash? Where the Bitcoin Price Goes Now - Morningstar",
-        "date": "Mon, 27 Jul 2026 09:18:48 GMT",
+        "title": "Crypto Winter or the Big Crash? Where Bitcoin Could Go Next - Morningstar",
+        "date": "Tue, 28 Jul 2026 10:08:06 GMT",
         "source": "Morningstar",
         "sentiment": -0.7184
       },
@@ -55,17 +55,10 @@
       },
       {
         "topic": "BTC",
-        "title": "Bitcoin Price Today: Weak Spot Demand Keeps BTC Under Pressure - Coinpedia",
-        "date": "Mon, 27 Jul 2026 10:46:16 GMT",
-        "source": "Coinpedia",
-        "sentiment": -0.6808
-      },
-      {
-        "topic": "BTC",
-        "title": "Critical Analysis for Bitcoin (BTC): Trading Below Its Value, But No Bullish Signals! Here’s Why - Cryptonews.net",
-        "date": "Mon, 27 Jul 2026 11:59:57 GMT",
-        "source": "Cryptonews.net",
-        "sentiment": -0.678
+        "title": "Crypto Markets Lose $80 Billion as Bitcoin (BTC) Dumps to $63K: Market Watch - CryptoPotato",
+        "date": "Tue, 28 Jul 2026 08:01:00 GMT",
+        "source": "CryptoPotato",
+        "sentiment": -0.6597
       },
       {
         "topic": "BTC",
@@ -111,13 +104,6 @@
       },
       {
         "topic": "BTC",
-        "title": "Has Crypto Finally Exhausted Wall Street? Time to Buy The Dip as BTC ETF Hit 2024 Lows - 99Bitcoins",
-        "date": "Mon, 27 Jul 2026 10:02:16 GMT",
-        "source": "99Bitcoins",
-        "sentiment": -0.5106
-      },
-      {
-        "topic": "BTC",
         "title": "Bitcoin, Ethereum, XRP, Dogecoin Rally as 'Extreme Fear' Persists: Analyst Expects a 'Quick' Move Upward for BTC After 'Shallow' Correction - Yahoo Finance",
         "date": "Sun, 05 Jul 2026 07:00:00 GMT",
         "source": "Yahoo Finance",
@@ -132,25 +118,53 @@
       },
       {
         "topic": "BTC",
-        "title": "Bitcoin holds firm as Hormuz hostilities pause, Fed prepares interest-rate decision: Crypto Markets Today - CoinDesk",
-        "date": "Mon, 27 Jul 2026 10:37:50 GMT",
+        "title": "South Korea's worst market day in years and a stalled Clarity Act put crypto on the back foot - CoinDesk",
+        "date": "Tue, 28 Jul 2026 11:13:07 GMT",
         "source": "CoinDesk",
-        "sentiment": -0.4767
+        "sentiment": -0.4939
       },
       {
         "topic": "BTC",
-        "title": "Crypto Slide Worsens As Bitcoin Falls 6% To $67,000 - Yahoo Finance",
-        "date": "Tue, 02 Jun 2026 07:00:00 GMT",
+        "title": "Bitcoin, Ethereum, XRP, Dogecoin Spring Back Even As Iran And Israel Exchange Strikes: Analyst Sees Increasing Possibility Of BTC Bottom - Yahoo Finance",
+        "date": "Sun, 07 Jun 2026 07:00:00 GMT",
         "source": "Yahoo Finance",
-        "sentiment": -0.4767
+        "sentiment": -0.4588
+      },
+      {
+        "topic": "BTC",
+        "title": "Bitcoin's latest plunge revives the debate over owning it—and whether it's just 'crypto being crypto' - CNBC",
+        "date": "Fri, 12 Jun 2026 07:00:00 GMT",
+        "source": "CNBC",
+        "sentiment": -0.4404
+      },
+      {
+        "topic": "BTC",
+        "title": "Bitcoin Sell-Off Fears Rise as BlackRock and Winklevoss Twins Move 7,000 BTC - Yahoo Finance",
+        "date": "Wed, 03 Jun 2026 07:00:00 GMT",
+        "source": "Yahoo Finance",
+        "sentiment": -0.4215
       }
     ]
   },
   "AI_SEMI": {
     "count": 71,
-    "avg_sentiment": 0.203,
-    "mood": "😀 乐观",
+    "avg_sentiment": 0.177,
+    "mood": "😐 中性",
     "headlines": [
+      {
+        "topic": "AI_SEMI",
+        "title": "AI Memory Boom Goes Bust. Micron, SK Hynix, Sandisk Plunge 30% — and Are Still Falling - 24/7 Wall St.",
+        "date": "Tue, 28 Jul 2026 12:55:43 GMT",
+        "source": "24/7 Wall St.",
+        "sentiment": -0.7269
+      },
+      {
+        "topic": "AI_SEMI",
+        "title": "Market Rumors Nvidia Rubin Platform Plans to Reduce Memory Capacity, Storage Stocks Plunge Across the Board, SanDisk Falls Over 11%. - TradingKey",
+        "date": "Fri, 05 Jun 2026 07:00:00 GMT",
+        "source": "TradingKey",
+        "sentiment": -0.6705
+      },
       {
         "topic": "AI_SEMI",
         "title": "A 'seismic' Nvidia shift, AI chip shortages and how it's threatening to hike gadget prices - CNBC",
@@ -244,7 +258,7 @@
       },
       {
         "topic": "AI_SEMI",
-        "title": "SanDisk Did In Months What Nvidia Took 9 Years To Pull Off — And The Chart Looks Almost Unreal - Benzinga",
+        "title": "SanDisk Did In Months What Nvidia Took 9 Years To Pull Off - Micron Technology (NASDAQ:MU), NVIDIA (NASDA - Benzinga",
         "date": "Fri, 08 May 2026 07:00:00 GMT",
         "source": "Benzinga",
         "sentiment": 0.0
@@ -272,23 +286,9 @@
       },
       {
         "topic": "AI_SEMI",
-        "title": "Micron Hits $1 Trillion Market Cap: AI Memory Chip Boom Explained - Intellectia AI",
-        "date": "Wed, 27 May 2026 07:00:00 GMT",
-        "source": "Intellectia AI",
-        "sentiment": 0.0
-      },
-      {
-        "topic": "AI_SEMI",
-        "title": "Why the Selloff in Micron Technology Stock Never Made Sense - 24/7 Wall St.",
-        "date": "Mon, 24 Nov 2025 08:00:00 GMT",
-        "source": "24/7 Wall St.",
-        "sentiment": 0.0
-      },
-      {
-        "topic": "AI_SEMI",
-        "title": "Beyond the Hottest AI Chip Stock: Four Semiconductor ETFs to Consider for Your Portfolio - NAI500",
-        "date": "Sun, 15 Mar 2026 07:00:00 GMT",
-        "source": "NAI500",
+        "title": "Memory Chips Enter Supercycle, Citi Sets $840 Price Target for Micron. Will Upcoming Nvidia Earnings Confirm Chip Bull Market? - TradingKey",
+        "date": "Tue, 19 May 2026 07:00:00 GMT",
+        "source": "TradingKey",
         "sentiment": 0.0
       }
     ]
