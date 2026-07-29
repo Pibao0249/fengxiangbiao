@@ -1,79 +1,44 @@
 {
-  "collected_at": "2026-07-29T04:45:49.088370+08:00",
+  "collected_at": "2026-07-30T04:46:01.531522+08:00",
   "sectors": {
     "gold": {
       "name": "黄金白银",
-      "latest_hour": 204,
-      "total_7d": 87861,
-      "hourly_avg": 519.9,
+      "latest_hour": 244,
+      "total_7d": 87750,
+      "hourly_avg": 519.2,
       "anomaly": false,
       "anomaly_direction": "normal",
-      "anomaly_ratio": 0.71,
+      "anomaly_ratio": 0.89,
       "emotion": null
     },
     "btc": {
       "name": "BTC",
-      "latest_hour": 177,
-      "total_7d": 144080,
-      "hourly_avg": 852.5,
+      "latest_hour": 176,
+      "total_7d": 144533,
+      "hourly_avg": 855.2,
       "anomaly": true,
       "anomaly_direction": "low",
-      "anomaly_ratio": 0.32,
-      "emotion": {
-        "sentiment": "中性/调整",
-        "sample_count": 10,
-        "breakdown": {
-          "看涨": 3,
-          "看跌": 1,
-          "中性": 6
-        }
-      },
-      "sample_tweets": [
-        {
-          "text": "@RABIXRBX 网站还在施工就敢发币，有点冲劲但至少比那些直接跑路的强，Solana上这种项目太多了，问题是他们怎么证明社区不是刷出来的机器人",
-          "sentiment": "看跌",
-          "created_at": "2026-07-28T20:45:26.000Z"
-        },
-        {
-          "text": "@CryptoApprenti1 啥机会啊？是加密货币交易时机到了？",
-          "sentiment": "看涨",
-          "created_at": "2026-07-28T20:45:08.000Z"
-        },
-        {
-          "text": "✨ 🥳 💯\nmeone推特外围号's欧洲商德州扑克城粉 r推特热门idiculous dre百代孕推特推代发荐算裸美国获客聊法引股厄瓜多尔欧美币圈票粉流家法国棋牌乐韩国交友粉欧洲杯ss 体彩竞彩at ",
-          "sentiment": "中性",
-          "created_at": "2026-07-28T20:45:03.000Z"
-        },
-        {
-          "text": "@guohai123 哇一键躺赚比特币利息，懒人福音来啦",
-          "sentiment": "看涨",
-          "created_at": "2026-07-28T20:44:56.000Z"
-        },
-        {
-          "text": "🧑🏿‍🎓🙆🏼‍♀👮🏽‍♂️🌌 飞机  ✈✈ https://t.co/Ba3fu1XUGn   世界杯/足球/银行卡/微信/支付宝/币圈/比特币/赚钱/偏门项目/手机赚钱 https://t.co/s",
-          "sentiment": "看涨",
-          "created_at": "2026-07-28T20:44:27.000Z"
-        }
-      ]
+      "anomaly_ratio": 0.35,
+      "emotion": null
     },
     "a_semi": {
       "name": "A股半导体",
-      "latest_hour": 79,
-      "total_7d": 51559,
-      "hourly_avg": 305.1,
+      "latest_hour": 59,
+      "total_7d": 50582,
+      "hourly_avg": 299.3,
       "anomaly": false,
       "anomaly_direction": "normal",
-      "anomaly_ratio": 0.87,
+      "anomaly_ratio": 0.66,
       "emotion": null
     },
     "us_semi": {
       "name": "美股半导体",
-      "latest_hour": 67,
-      "total_7d": 32302,
-      "hourly_avg": 191.1,
+      "latest_hour": 66,
+      "total_7d": 35986,
+      "hourly_avg": 212.9,
       "anomaly": false,
       "anomaly_direction": "normal",
-      "anomaly_ratio": 1.34,
+      "anomaly_ratio": 1.26,
       "emotion": null
     }
   }
