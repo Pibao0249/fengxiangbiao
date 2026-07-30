@@ -1,44 +1,79 @@
 {
-  "collected_at": "2026-07-30T04:46:01.531522+08:00",
+  "collected_at": "2026-07-31T04:45:14.925660+08:00",
   "sectors": {
     "gold": {
       "name": "黄金白银",
-      "latest_hour": 244,
-      "total_7d": 87750,
-      "hourly_avg": 519.2,
+      "latest_hour": 218,
+      "total_7d": 88962,
+      "hourly_avg": 526.4,
       "anomaly": false,
       "anomaly_direction": "normal",
-      "anomaly_ratio": 0.89,
+      "anomaly_ratio": 0.81,
       "emotion": null
     },
     "btc": {
       "name": "BTC",
-      "latest_hour": 176,
-      "total_7d": 144533,
-      "hourly_avg": 855.2,
+      "latest_hour": 196,
+      "total_7d": 142776,
+      "hourly_avg": 844.8,
       "anomaly": true,
       "anomaly_direction": "low",
-      "anomaly_ratio": 0.35,
-      "emotion": null
+      "anomaly_ratio": 0.42,
+      "emotion": {
+        "sentiment": "中性/调整",
+        "sample_count": 10,
+        "breakdown": {
+          "看涨": 1,
+          "看跌": 2,
+          "中性": 7
+        }
+      },
+      "sample_tweets": [
+        {
+          "text": "@BitcoinNews 比特币重回6万5确实让人兴奋，但美联储暂停只是表层原因，ETF资金持续流入才是关键，你们觉得这波能站稳吗",
+          "sentiment": "中性",
+          "created_at": "2026-07-30T20:45:01.000Z"
+        },
+        {
+          "text": "7月30日，俄罗斯版“亚马逊”——Wildberries(野莓)——今天又损失了两个仓库。\n\n无人机袭击了位于乌德穆尔特共和国萨拉普尔（Sarapul）的 Wildberries 物流中心。在被击中起",
+          "sentiment": "看跌",
+          "created_at": "2026-07-30T20:44:09.000Z"
+        },
+        {
+          "text": "@linwanwan823 @cz_binance 加密货币正契合这理念，带来开放信任新金融 。",
+          "sentiment": "中性",
+          "created_at": "2026-07-30T20:43:43.000Z"
+        },
+        {
+          "text": "川总准备怎么赖账的办法是：\n\n🚨🇺🇸 特朗普总统：“也许我们会用加密货币偿还 35 万亿美元的美国债务。\n\n我会在一张小纸片上写下，35 万亿美元加密货币，我们没有债务。” https://t.co/",
+          "sentiment": "中性",
+          "created_at": "2026-07-30T20:42:24.000Z"
+        },
+        {
+          "text": "@CryptoMichNL ETH 1975这个位置确实关键，一旦站稳2300可能只是起跑线，我倒好奇如果比特币先回调，它还能独立走这么远吗",
+          "sentiment": "中性",
+          "created_at": "2026-07-30T20:42:04.000Z"
+        }
+      ]
     },
     "a_semi": {
       "name": "A股半导体",
-      "latest_hour": 59,
-      "total_7d": 50582,
-      "hourly_avg": 299.3,
+      "latest_hour": 77,
+      "total_7d": 48748,
+      "hourly_avg": 288.4,
       "anomaly": false,
       "anomaly_direction": "normal",
-      "anomaly_ratio": 0.66,
+      "anomaly_ratio": 0.91,
       "emotion": null
     },
     "us_semi": {
       "name": "美股半导体",
-      "latest_hour": 66,
-      "total_7d": 35986,
-      "hourly_avg": 212.9,
+      "latest_hour": 48,
+      "total_7d": 36952,
+      "hourly_avg": 218.7,
       "anomaly": false,
       "anomaly_direction": "normal",
-      "anomaly_ratio": 1.26,
+      "anomaly_ratio": 0.89,
       "emotion": null
     }
   }
