@@ -1,45 +1,21 @@
 {
-  "collected_at": "2026-08-02T08:45:16.088893+08:00",
+  "collected_at": "2026-08-03T04:45:54.575093+08:00",
   "sectors": {
     "gold": {
       "name": "黄金白银",
-      "latest_hour": 271,
-      "total_7d": 93023,
-      "hourly_avg": 550.4,
-      "anomaly": false,
-      "anomaly_direction": "normal",
-      "anomaly_ratio": 0.9,
-      "emotion": null
+      "error": "<urlopen error [Errno 61] Connection refused>"
     },
     "btc": {
       "name": "BTC",
-      "latest_hour": 388,
-      "total_7d": 91441,
-      "hourly_avg": 541.1,
-      "anomaly": false,
-      "anomaly_direction": "normal",
-      "anomaly_ratio": 1.0,
-      "emotion": null
+      "error": "<urlopen error [Errno 61] Connection refused>"
     },
     "a_semi": {
       "name": "A股半导体",
-      "latest_hour": 119,
-      "total_7d": 46931,
-      "hourly_avg": 277.7,
-      "anomaly": true,
-      "anomaly_direction": "low",
-      "anomaly_ratio": 0.57,
-      "emotion": null
+      "error": "<urlopen error [Errno 61] Connection refused>"
     },
     "us_semi": {
       "name": "美股半导体",
-      "latest_hour": 73,
-      "total_7d": 36774,
-      "hourly_avg": 217.6,
-      "anomaly": true,
-      "anomaly_direction": "low",
-      "anomaly_ratio": 0.51,
-      "emotion": null
+      "error": "<urlopen error [Errno 61] Connection refused>"
     }
   }
 }
