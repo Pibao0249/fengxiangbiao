@@ -1,0 +1,14 @@
+{
+  "BTC": {
+    "count": 0,
+    "avg_sentiment": 0,
+    "mood": "😐 中性",
+    "headlines": []
+  },
+  "AI_SEMI": {
+    "count": 0,
+    "avg_sentiment": 0,
+    "mood": "😐 中性",
+    "headlines": []
+  }
+}
