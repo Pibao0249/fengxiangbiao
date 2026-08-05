@@ -1,79 +1,79 @@
 {
-  "collected_at": "2026-08-05T04:45:06.427236+08:00",
+  "collected_at": "2026-08-06T04:45:51.528110+08:00",
   "sectors": {
     "gold": {
       "name": "黄金白银",
-      "latest_hour": 215,
-      "total_7d": 92704,
-      "hourly_avg": 548.5,
-      "anomaly": false,
-      "anomaly_direction": "normal",
-      "anomaly_ratio": 0.84,
-      "emotion": null
-    },
-    "btc": {
-      "name": "BTC",
-      "latest_hour": 113,
-      "total_7d": 96288,
-      "hourly_avg": 569.8,
+      "latest_hour": 92,
+      "total_7d": 90118,
+      "hourly_avg": 533.2,
       "anomaly": true,
       "anomaly_direction": "low",
-      "anomaly_ratio": 0.29,
+      "anomaly_ratio": 0.36,
       "emotion": {
         "sentiment": "中性/调整",
-        "sample_count": 10,
+        "sample_count": 9,
         "breakdown": {
-          "看涨": 2,
+          "看涨": 1,
           "看跌": 0,
           "中性": 8
         }
       },
       "sample_tweets": [
         {
-          "text": "@mars_bnb @gokunocool 护照都不给办了，全球CRS查税，为什么要用这种方式出售加密货币。即将迎来最严厉的资金审查。",
+          "text": "👩🏼‍❤️‍💋‍👨🏻🛢️🕵️‍♂🧔🏽‍♀️ 龙虎斗/电子平台/赏金船长/BG电子/BBIN电子/PP电游//TTG电子/电子游戏/TTG黄金列车世界杯/开云体育官网 👉👉    https://t.c",
           "sentiment": "中性",
-          "created_at": "2026-08-04T20:44:52.000Z"
+          "created_at": "2026-08-05T20:44:05.000Z"
         },
         {
-          "text": "其他参与者包括：\n\n沃尔特·夏普，前驻韩美军司令\n\n查尔斯·雅各比，前北方司令部司令\n\n查尔斯·威廉，前南方司令部司令\n\n罗伯特·范·安特卫普，前陆军工程兵团司令\n\n斯蒂芬·兰扎，前第一军军长\n\n卡尔",
+          "text": "🍀 💪 🌟 电子游艺 永盈彩票 DS足球 华纳 35比分 世界杯 开云体育 百家乐 众享娱乐 金色道虎 富联娱乐 财富派克黄金 棋牌 糖心风暴 世界杯 华体会 百家乐\nhttps://t.co/y1N",
           "sentiment": "中性",
-          "created_at": "2026-08-04T20:44:07.000Z"
+          "created_at": "2026-08-05T20:42:56.000Z"
         },
         {
-          "text": "过去24 小时全网爆仓 $117.94M\n\n多头 $40.60M（34%）· 空头 $77.34M（66%）\n共 49,260 笔仓位被强平\n\n空头被抬走了一批。\n\n最大单笔：binance BTCU",
+          "text": "大V全部出来看空了，只有真金白银像我这样的散户知道天台那个位子跳下来不痛，闪迪继续看到1000以下。ai的时代不符合中国的国情，不符合国情的全部看空。我今天享受到AI，今天得到了10万积分和费用减免。",
           "sentiment": "中性",
-          "created_at": "2026-08-04T20:42:08.000Z"
+          "created_at": "2026-08-05T20:42:53.000Z"
         },
         {
-          "text": "出席会议的美军军方人员包括：\n\n彼得·佩斯，前参谋长联席会议主席\n\n比尔·欧文斯，前参谋长联席会议副主席\n\n约翰·阿比扎伊德，前中央司令部司令\n\n乔治·凯西，前陆军参谋长\n\n雷·奥迪尔诺，前陆军参谋长",
+          "text": "👩🏽‍❤️‍💋‍👩🏿🔁🎅🏾👨🏾‍❤‍👨🏾 买美股黄金纳斯达克的股票来币安,币安高返佣链接      👉👉👉  https://t.co/cO9qZJOFDB https://t.co/p3D9PxbW",
           "sentiment": "中性",
-          "created_at": "2026-08-04T20:41:42.000Z"
+          "created_at": "2026-08-05T20:42:20.000Z"
         },
         {
-          "text": "复盘一下ponsv2首币Jacket的狙击\n\n晚上九点朋友跟我讲新的v2合约，因为初代v2有不少小伙伴拿到了大结果 https://t.co/cQC6F1JMHy",
+          "text": "没注意西部还有财报，西部业绩一般被砸烂了，加密闪迪的多军好多，没有同步美股盘后，插针的时候一直高于 美股，最后1300左右 平空的。不过也没啥太严重的看空想法，就空了2000多刀 掏了200多刀。 h",
           "sentiment": "中性",
-          "created_at": "2026-08-04T20:40:26.000Z"
+          "created_at": "2026-08-05T20:39:34.000Z"
         }
       ]
     },
+    "btc": {
+      "name": "BTC",
+      "latest_hour": 187,
+      "total_7d": 95117,
+      "hourly_avg": 562.8,
+      "anomaly": true,
+      "anomaly_direction": "low",
+      "anomaly_ratio": 0.52,
+      "emotion": null
+    },
     "a_semi": {
       "name": "A股半导体",
-      "latest_hour": 76,
-      "total_7d": 39301,
-      "hourly_avg": 232.6,
+      "latest_hour": 67,
+      "total_7d": 38286,
+      "hourly_avg": 226.5,
       "anomaly": false,
       "anomaly_direction": "normal",
-      "anomaly_ratio": 0.92,
+      "anomaly_ratio": 0.82,
       "emotion": null
     },
     "us_semi": {
       "name": "美股半导体",
-      "latest_hour": 43,
-      "total_7d": 28577,
-      "hourly_avg": 169.1,
+      "latest_hour": 35,
+      "total_7d": 24080,
+      "hourly_avg": 142.5,
       "anomaly": false,
       "anomaly_direction": "normal",
-      "anomaly_ratio": 0.83,
+      "anomaly_ratio": 0.69,
       "emotion": null
     }
   }
