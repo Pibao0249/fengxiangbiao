@@ -1,80 +1,80 @@
 {
-  "collected_at": "2026-08-06T04:45:51.528110+08:00",
+  "collected_at": "2026-08-07T04:45:44.276252+08:00",
   "sectors": {
     "gold": {
       "name": "黄金白银",
-      "latest_hour": 92,
-      "total_7d": 90118,
-      "hourly_avg": 533.2,
+      "latest_hour": 160,
+      "total_7d": 89193,
+      "hourly_avg": 527.8,
+      "anomaly": false,
+      "anomaly_direction": "normal",
+      "anomaly_ratio": 0.68,
+      "emotion": null
+    },
+    "btc": {
+      "name": "BTC",
+      "latest_hour": 237,
+      "total_7d": 95962,
+      "hourly_avg": 567.8,
+      "anomaly": false,
+      "anomaly_direction": "normal",
+      "anomaly_ratio": 0.66,
+      "emotion": null
+    },
+    "a_semi": {
+      "name": "A股半导体",
+      "latest_hour": 91,
+      "total_7d": 38219,
+      "hourly_avg": 226.1,
+      "anomaly": false,
+      "anomaly_direction": "normal",
+      "anomaly_ratio": 1.13,
+      "emotion": null
+    },
+    "us_semi": {
+      "name": "美股半导体",
+      "latest_hour": 30,
+      "total_7d": 37765,
+      "hourly_avg": 223.5,
       "anomaly": true,
       "anomaly_direction": "low",
-      "anomaly_ratio": 0.36,
+      "anomaly_ratio": 0.6,
       "emotion": {
         "sentiment": "中性/调整",
-        "sample_count": 9,
+        "sample_count": 10,
         "breakdown": {
-          "看涨": 1,
-          "看跌": 0,
+          "看涨": 0,
+          "看跌": 2,
           "中性": 8
         }
       },
       "sample_tweets": [
         {
-          "text": "👩🏼‍❤️‍💋‍👨🏻🛢️🕵️‍♂🧔🏽‍♀️ 龙虎斗/电子平台/赏金船长/BG电子/BBIN电子/PP电游//TTG电子/电子游戏/TTG黄金列车世界杯/开云体育官网 👉👉    https://t.c",
+          "text": "昨天有很多我持有的个股出财报，个股有点上蹿下跳的，最终账户小红收盘，综合-1.53%，目前现金仓位0.85%\n\n今天除了早上公布的三个调仓以外，还做了一部分Tesla到SpaceX的调整，本来想着等合",
           "sentiment": "中性",
-          "created_at": "2026-08-05T20:44:05.000Z"
+          "created_at": "2026-08-06T20:39:20.000Z"
         },
         {
-          "text": "🍀 💪 🌟 电子游艺 永盈彩票 DS足球 华纳 35比分 世界杯 开云体育 百家乐 众享娱乐 金色道虎 富联娱乐 财富派克黄金 棋牌 糖心风暴 世界杯 华体会 百家乐\nhttps://t.co/y1N",
-          "sentiment": "中性",
-          "created_at": "2026-08-05T20:42:56.000Z"
+          "text": "@feiyoufei8964 做空台积电呗",
+          "sentiment": "看跌",
+          "created_at": "2026-08-06T20:35:29.000Z"
         },
         {
-          "text": "大V全部出来看空了，只有真金白银像我这样的散户知道天台那个位子跳下来不痛，闪迪继续看到1000以下。ai的时代不符合中国的国情，不符合国情的全部看空。我今天享受到AI，今天得到了10万积分和费用减免。",
+          "text": "《The Information》報道，NVIDIA 正考慮讓下一代 Rubin Ultra 使用較原定更少的 HBM，以應對先進高頻寬記憶體短缺。NVIDIA 最近測試至少三個版本，部分版本的記憶體",
           "sentiment": "中性",
-          "created_at": "2026-08-05T20:42:53.000Z"
+          "created_at": "2026-08-06T20:35:02.000Z"
         },
         {
-          "text": "👩🏽‍❤️‍💋‍👩🏿🔁🎅🏾👨🏾‍❤‍👨🏾 买美股黄金纳斯达克的股票来币安,币安高返佣链接      👉👉👉  https://t.co/cO9qZJOFDB https://t.co/p3D9PxbW",
+          "text": "营收同比涨 372%，毛利率 84.6%，下季度指引 105.5 亿美元，还批了 140 亿美元回购。SanDisk 这份财报，今天收跌 6.8%。\n\nWestern Digital 也超了预期，收跌",
           "sentiment": "中性",
-          "created_at": "2026-08-05T20:42:20.000Z"
+          "created_at": "2026-08-06T20:25:52.000Z"
         },
         {
-          "text": "没注意西部还有财报，西部业绩一般被砸烂了，加密闪迪的多军好多，没有同步美股盘后，插针的时候一直高于 美股，最后1300左右 平空的。不过也没啥太严重的看空想法，就空了2000多刀 掏了200多刀。 h",
+          "text": "🟦❗\n开云体育 百家乐 乐鱼体育 世界杯买球 世界杯 幸运赛马 世界杯外围 澳洲幸运10 熊猫体育 平台app 欧洲杯 开云电竞  点链接@FateneBH https://t.co/HDyP3O8K",
           "sentiment": "中性",
-          "created_at": "2026-08-05T20:39:34.000Z"
+          "created_at": "2026-08-06T20:24:49.000Z"
         }
       ]
-    },
-    "btc": {
-      "name": "BTC",
-      "latest_hour": 187,
-      "total_7d": 95117,
-      "hourly_avg": 562.8,
-      "anomaly": true,
-      "anomaly_direction": "low",
-      "anomaly_ratio": 0.52,
-      "emotion": null
-    },
-    "a_semi": {
-      "name": "A股半导体",
-      "latest_hour": 67,
-      "total_7d": 38286,
-      "hourly_avg": 226.5,
-      "anomaly": false,
-      "anomaly_direction": "normal",
-      "anomaly_ratio": 0.82,
-      "emotion": null
-    },
-    "us_semi": {
-      "name": "美股半导体",
-      "latest_hour": 35,
-      "total_7d": 24080,
-      "hourly_avg": 142.5,
-      "anomaly": false,
-      "anomaly_direction": "normal",
-      "anomaly_ratio": 0.69,
-      "emotion": null
     }
   }
 }
