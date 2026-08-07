@@ -40,6 +40,34 @@ def fetch_direct(url, headers=None, timeout=10):
         return None
 
 # ═══════════════════════════════════════════
+# 狼波周期指数 (WWI)
+# ═══════════════════════════════════════════
+HALVING_INTERVAL = 210000
+WWI_BULL_HALF = 78750
+
+def get_wwi(block_height):
+    """计算狼波周期指数 Wolfy Wave Index
+    纯区块制，0=理论熊底，1=理论牛顶"""
+    s = (block_height + WWI_BULL_HALF) % HALVING_INTERVAL
+    bull_end = HALVING_INTERVAL * 3 // 4  # 157500
+    if s < bull_end:
+        wwi = s / bull_end
+        phase = 'bull'
+    else:
+        wwi = 1 - (s - bull_end) / (HALVING_INTERVAL // 4)
+        phase = 'bear'
+    return {'wwi': round(wwi, 4), 'phase': phase, 'block_height': block_height}
+
+def fetch_block_height():
+    """从 blockchain.info 获取当前 BTC 区块高度（国内直连可用）"""
+    try:
+        req = urllib.request.Request('https://blockchain.info/q/getblockcount')
+        with urllib.request.urlopen(req, timeout=10, context=ssl_ctx) as r:
+            return int(r.read().decode().strip())
+    except:
+        return None
+
+# ═══════════════════════════════════════════
 # 情绪词典
 # ═══════════════════════════════════════════
 BULLISH = ['暴涨','起飞','新高','突破','抄底','牛回','牛市','反转','大阳线','满仓','梭哈',
@@ -493,6 +521,17 @@ if __name__ == '__main__':
         s = result['sectors'][sec]
         c = result['consensus'].get(sec, {})
         print(f'  {tag}: {s["count"]}条 [{s["data_source"]}] 沉默{s["silence_rate"]:.0f}% | 共识: {c.get("level","?")}')
+    
+    # ═══ 狼波周期指数 ═══
+    h = fetch_block_height()
+    if h:
+        wwi_data = get_wwi(h)
+        result['wwi'] = wwi_data
+        phase_cn = '牛市段' if wwi_data['phase'] == 'bull' else '熊市段'
+        print(f'  🐺 WWI: {wwi_data["wwi"]:.4f} ({phase_cn}) 区块 {h:,}')
+    else:
+        result['wwi'] = None
+        print(f'  🐺 WWI: 获取失败')
     
     # ═══ 生成摘要 ═══
     result['summary'] = {

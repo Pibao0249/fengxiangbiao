@@ -5,9 +5,9 @@
 
 成本控制：
 - Counts 接口：每2小时4次调用（Basic 套餐约48次/天，免费额度够）
-- Search 接口：仅异常时触发，每天最多2次，每次最多5条
+- Search 接口：仅异常时触发，每天最多2次，每次最多10条
 """
-import json, os, sys, urllib.request
+import json, os, sys, urllib.request, time
 from datetime import datetime, timezone, timedelta
 
 BEARER = "AAAAAAAAAAAAAAAAAAAAABj7%2BgEAAAAANbf7V687aLDxotqkIl5iOdn56Mg%3Dlvk90PcvcspHHfISvkdhB2hpB2cOLfajoPaKCSC1YL7sTY7mQ6"
@@ -45,13 +45,23 @@ SECTORS = {
 }
 
 
-def api(url):
-    """X API v2 请求"""
-    req = urllib.request.Request(url, headers={"Authorization": f"Bearer {BEARER}"})
-    proxy_handler = urllib.request.ProxyHandler({"https": PROXY, "http": PROXY})
-    opener = urllib.request.build_opener(proxy_handler)
-    with opener.open(req, timeout=15) as resp:
-        return json.loads(resp.read().decode())
+def api(url, retries=3):
+    """X API v2 请求（含重试）"""
+    last_err = None
+    for attempt in range(retries):
+        try:
+            req = urllib.request.Request(url, headers={"Authorization": f"Bearer {BEARER}"})
+            proxy_handler = urllib.request.ProxyHandler({"https": PROXY, "http": PROXY})
+            opener = urllib.request.build_opener(proxy_handler)
+            with opener.open(req, timeout=30) as resp:
+                return json.loads(resp.read().decode())
+        except Exception as e:
+            last_err = e
+            if attempt < retries - 1:
+                wait = 2 ** attempt
+                print(f"  ⚠️ 第{attempt+1}次失败, {wait}s后重试...", file=sys.stderr)
+                time.sleep(wait)
+    raise last_err
 
 
 def get_counts(sector_key):
@@ -61,7 +71,7 @@ def get_counts(sector_key):
     return api(url)
 
 
-def get_tweets(sector_key, max_results=5):
+def get_tweets(sector_key, max_results=10):
     """抓取样本帖子（仅在异常时使用）"""
     q = urllib.parse.quote(SECTORS[sector_key]["search_query"])
     url = f"https://api.twitter.com/2/tweets/search/recent?query={q}&max_results={max_results}&tweet.fields=created_at,public_metrics,lang"
@@ -218,6 +228,9 @@ def main():
             }
             continue
 
+        # 板块间延时，避免连续请求被 X 边缘节点拒绝
+        time.sleep(0.5)
+
         if "data" not in counts:
             result["sectors"][sector_key] = {
                 "name": cfg["name"],
@@ -250,7 +263,7 @@ def main():
         if is_anomaly and search_log["triggered"] < 2:
             print(f"  🚨 异常! direction={direction} ratio={ratio:.1f}x, 抓样本...", file=sys.stderr)
             try:
-                tweets = get_tweets(sector_key, max_results=5)
+                tweets = get_tweets(sector_key, max_results=10)
                 emotion = classify_emotion(tweets)
                 sector_result["emotion"] = emotion
                 sector_result["sample_tweets"] = [

@@ -193,6 +193,8 @@ body{background:#0a0a0f;color:#e0e0e0;font-family:-apple-system,"PingFang SC","M
 .bar-b{background:#22c55e;height:100%}.bar-s{background:#ef4444;height:100%}.bar-n{background:#333;height:100%}
 .price-bar{display:flex;justify-content:space-between;font-size:.72em;margin:6px 0;color:#888}
 .price-bar .p-big{color:#ccc;font-weight:700}
+.wwi-bar{display:flex;justify-content:space-between;font-size:.72em;margin:6px 0;color:#888;padding:4px 6px;background:rgba(247,147,26,.06);border-radius:4px}
+.wwi-bar .p-big{font-weight:700}
 .fng-wrap{text-align:center}.fng-val{font-size:2.2em;font-weight:700}
 .fng-meter{width:100%;height:14px;background:linear-gradient(to right,#22c55e,#eab308,#ef4444);border-radius:7px;position:relative;margin:6px 0}
 .fng-dot{width:10px;height:10px;background:white;border-radius:50%;position:absolute;top:2px;box-shadow:0 0 6px rgba(255,255,255,.5)}
@@ -212,6 +214,7 @@ body{background:#0a0a0f;color:#e0e0e0;font-family:-apple-system,"PingFang SC","M
 def build_html(data, prices, fng, consensus):
     now = datetime.now()
     sectors = data.get('sectors', {})
+    wwi_data = data.get('wwi')
     sources = data.get('sources', {})
     guba_status = data.get('sources', {}).get('guba', {}).get('status', 'missing')
     
@@ -351,6 +354,20 @@ def build_html(data, prices, fng, consensus):
     def make_btc_card():
         fg_color = '#22c55e' if fng_val <= 25 else '#ef4444' if fng_val >= 75 else '#eab308'
         
+        # 狼波周期指数
+        wwi_str = ''
+        if wwi_data:
+            wwi_val = wwi_data['wwi']
+            wwi_phase = '牛市段' if wwi_data['phase'] == 'bull' else '熊市段'
+            if wwi_data['phase'] == 'bear':
+                bear_done = (1 - wwi_val) * 100
+                wwi_color = '#f7931a' if bear_done < 50 else '#22c55e' if bear_done > 80 else '#eab308'
+                wwi_str = f'WWI {wwi_val:.3f} · 熊底完成{bear_done:.0f}%'
+            else:
+                bull_done = wwi_val * 100
+                wwi_color = '#22c55e' if bull_done < 50 else '#ef4444' if bull_done > 80 else '#eab308'
+                wwi_str = f'WWI {wwi_val:.3f} · 牛市{bull_done:.0f}%'
+        
         if fng_val <= 25:
             sl = ('l-g', '😱', f'F&G {fng_val}')
             comp = ('c-fire', '😱 韭菜都割完了…')
@@ -381,6 +398,7 @@ def build_html(data, prices, fng, consensus):
   </div>
   <div class="composite {comp[0]}">{comp[1]}</div>
   <div class="reasons">{reasons}</div>
+  {f'<div class="wwi-bar"><span>🐺 狼波周期: <span class="p-big" style="color:{wwi_color}">{wwi_str}</span></span><span>区块 {wwi_data["block_height"]:,}</span></div>' if wwi_data else ''}
   <div class="price-bar">
     <span>BTC: <span class="p-big">${btc_price:,.0f}</span></span>
     <span>MA200: <span class="p-big">${btc_ma200:,.0f}</span></span>
@@ -495,7 +513,7 @@ def build_html(data, prices, fng, consensus):
         
         return f'''
 <div class="card">
-  <div class="card-hdr"><span class="card-title">🇺🇸 美股 半导体</span><span class="card-badge bg-us">{count}帖 · SOX ${sox_price:,.0f} · 7均{us_semi_avg_dev:+.0f}%</span></div>
+  <div class="card-hdr"><span class="card-title">🇺🇸 美股 半导体</span><span class="card-badge bg-us">{count}帖 · SOX ${sox_price:,.0f} · 7均{f'{us_semi_avg_dev:+.0f}%' if us_semi_avg_dev is not None else 'N/A'}</span></div>
   <div class="layers">
     <div class="layer"><div class="layer-emoji">{sl[1]}</div><div class="layer-val {sl[0]}">{sl[2]}</div><div class="layer-lbl">散户情绪</div></div>
     <div class="layer"><div class="layer-emoji">{cl[1]}</div><div class="layer-val {cl[0]}">{cl[2]}</div><div class="layer-lbl">周期位置</div></div>
@@ -513,7 +531,7 @@ def build_html(data, prices, fng, consensus):
   <div class="bar"><div class="bar-b" style="width:{b_pct:.1f}%"></div><div class="bar-s" style="width:{s_pct:.1f}%"></div><div class="bar-n" style="width:{silence:.1f}%"></div></div>
   <div class="price-bar">
     <span>SOX: <span class="p-big">${sox_price:,.0f}</span></span>
-    <span>7均偏离: <span class="p-big" style="color:{'#22c55e' if us_semi_avg_dev and us_semi_avg_dev > 0 else '#ef4444'}">{us_semi_avg_dev:+.0f}%</span></span>
+    <span>7均偏离: <span class="p-big" style="color:{'#22c55e' if us_semi_avg_dev is not None and us_semi_avg_dev > 0 else '#ef4444'}">{f'{us_semi_avg_dev:+.0f}%' if us_semi_avg_dev is not None else 'N/A'}</span></span>
   </div>
   <div style="font-size:.6em;color:#555;margin-top:4px">{us_tickers_str}</div>
   <div class="src">NVDA+AMD+MU+AVGO+SMCI+TSM+SK海力士 股吧 × Yahoo Finance实时</div>
@@ -536,7 +554,7 @@ def build_html(data, prices, fng, consensus):
 <div class="header">
   <h1>🌪️ 疯向标</h1>
   <div class="sub">散户情绪天气预报 · 纯属娱乐不构成投资建议</div>
-  <div class="meta">📅 {now.strftime('%Y-%m-%d %a')} · {now.strftime('%H:%M')} CST · BTC ${btc_price:,.0f} · 金${gold_price:,.0f} · 银 · VIX {vix:.1f}</div>
+  <div class="meta">📅 {now.strftime('%Y-%m-%d %a')} · {now.strftime('%H:%M')} CST · BTC ${btc_price:,.0f} · 金${gold_price:,.0f} · 银${silver_price:,.0f} · VIX {vix:.1f}</div>
 </div>
 
 {guba_html}
