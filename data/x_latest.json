@@ -1,45 +1,80 @@
 {
-  "collected_at": "2026-08-07T20:45:27.968128+08:00",
+  "collected_at": "2026-08-08T00:45:57.403541+08:00",
   "sectors": {
     "gold": {
       "name": "黄金白银",
-      "latest_hour": 659,
-      "total_7d": 84359,
-      "hourly_avg": 499.2,
+      "latest_hour": 365,
+      "total_7d": 82523,
+      "hourly_avg": 488.3,
       "anomaly": false,
       "anomaly_direction": "normal",
-      "anomaly_ratio": 1.18,
+      "anomaly_ratio": 0.86,
       "emotion": null
     },
     "btc": {
       "name": "BTC",
-      "latest_hour": 463,
-      "total_7d": 95541,
-      "hourly_avg": 565.3,
+      "latest_hour": 469,
+      "total_7d": 95880,
+      "hourly_avg": 567.3,
       "anomaly": false,
       "anomaly_direction": "normal",
-      "anomaly_ratio": 0.9,
+      "anomaly_ratio": 1.16,
       "emotion": null
     },
     "a_semi": {
       "name": "A股半导体",
       "latest_hour": 191,
-      "total_7d": 38272,
-      "hourly_avg": 226.5,
+      "total_7d": 38447,
+      "hourly_avg": 227.5,
       "anomaly": false,
       "anomaly_direction": "normal",
-      "anomaly_ratio": 0.82,
+      "anomaly_ratio": 0.95,
       "emotion": null
     },
     "us_semi": {
       "name": "美股半导体",
-      "latest_hour": 61,
-      "total_7d": 36136,
-      "hourly_avg": 213.8,
+      "latest_hour": 56,
+      "total_7d": 35511,
+      "hourly_avg": 210.1,
       "anomaly": true,
       "anomaly_direction": "low",
-      "anomaly_ratio": 0.27,
-      "emotion": null
+      "anomaly_ratio": 0.21,
+      "emotion": {
+        "sentiment": "中性/调整",
+        "sample_count": 10,
+        "breakdown": {
+          "看涨": 1,
+          "看跌": 2,
+          "中性": 7
+        }
+      },
+      "sample_tweets": [
+        {
+          "text": "@BTCdayu 恰恰相反。热门赛道全是泡沫，有泡沫的地方就有钱赚。例如今年的闪迪，前年的英伟达",
+          "sentiment": "中性",
+          "created_at": "2026-08-07T16:44:52.000Z"
+        },
+        {
+          "text": "收盘突发超级利好！多条赛道拐点确认，下周吃肉行情已锁定\n \n利好一：SK海力士384亿美元砸向晶圆厂，存储扩产再提速",
+          "sentiment": "看涨",
+          "created_at": "2026-08-07T16:43:09.000Z"
+        },
+        {
+          "text": "🏆💙抓聚疗会宾客谈笑前喧闹，粗他目光始终追随列我，悄悄替我挡下烈酒，低愈声询问我是否腺想要提前离场。龙筋老师唤他上摩台解题，我立刻放下笔认真聆听。式清晰温和的柔增嗓音，足够抚平我一整天积按攒下来的烦闷",
+          "sentiment": "中性",
+          "created_at": "2026-08-07T16:41:42.000Z"
+        },
+        {
+          "text": "@rwayne AI相关行业起码有20年的辉煌期，deepseek干个十几年+期权基本财务自由了，英伟达已经是发展的高峰期了，只有工资，去海关和英伟达不就是为了生活舒适嘛，deepseek十几年就实现",
+          "sentiment": "看跌",
+          "created_at": "2026-08-07T16:36:26.000Z"
+        },
+        {
+          "text": "一觉醒来，AI圈的资金正在疯狂“搬家”！\n隔夜美股炸出了极具戏剧性的一幕：\n存储巨头闪崩： 西部数据重挫超13%，闪迪大跌超6%，SK海力士、美光全线下跌。\nAI应用股遭重锤： Datadog、App",
+          "sentiment": "看跌",
+          "created_at": "2026-08-07T16:33:28.000Z"
+        }
+      ]
     }
   }
 }
