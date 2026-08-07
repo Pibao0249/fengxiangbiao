@@ -1,0 +1,296 @@
+{
+  "BTC": {
+    "count": 100,
+    "avg_sentiment": -0.05,
+    "mood": "😐 中性",
+    "headlines": [
+      {
+        "topic": "BTC",
+        "title": "Can Bitcoin Crash to $20K in 2026? What Could Trigger a Historic Crypto Market Collapse - Bitcoin Foundation",
+        "date": "Thu, 04 Jun 2026 07:00:00 GMT",
+        "source": "Bitcoin Foundation",
+        "sentiment": -0.9001
+      },
+      {
+        "topic": "BTC",
+        "title": "Bitcoin Hits 20-Month Low, Ethereum, Dogecoin, XRP Also Decline: Analyst Identifies 'Genuine Battleground' For Beleaguered BTC Amid 'Extreme Fear' - Yahoo Finance",
+        "date": "Wed, 24 Jun 2026 07:00:00 GMT",
+        "source": "Yahoo Finance",
+        "sentiment": -0.8439
+      },
+      {
+        "topic": "BTC",
+        "title": "Bitcoin Bear Market Losses Put BTC’s Bottom Case to Test - Bitcoin Foundation",
+        "date": "Mon, 08 Jun 2026 07:00:00 GMT",
+        "source": "Bitcoin Foundation",
+        "sentiment": -0.7717
+      },
+      {
+        "topic": "BTC",
+        "title": "CryptoQuant says bitcoin, ether and XRP whales are accumulating, signaling a 'late-stage bear market' - The Block",
+        "date": "Wed, 05 Aug 2026 19:09:26 GMT",
+        "source": "The Block",
+        "sentiment": -0.7506
+      },
+      {
+        "topic": "BTC",
+        "title": "Bitcoin Down 27% in 2026: Has BTC Finally Bottomed or Is Another Crash Coming? - CCN.com",
+        "date": "Tue, 04 Aug 2026 13:19:55 GMT",
+        "source": "CCN.com",
+        "sentiment": -0.7184
+      },
+      {
+        "topic": "BTC",
+        "title": "Why Jim Cramer’s quantum panic isn’t rattling bitcoin as price holds steady around $64,000 - CoinDesk",
+        "date": "Tue, 04 Aug 2026 08:14:39 GMT",
+        "source": "CoinDesk",
+        "sentiment": -0.6705
+      },
+      {
+        "topic": "BTC",
+        "title": "Bitcoin’s (BTC) low price volatility doesn’t necessarily mean low risk: Crypto Daily - CoinDesk",
+        "date": "Thu, 06 Aug 2026 11:39:51 GMT",
+        "source": "CoinDesk",
+        "sentiment": -0.6486
+      },
+      {
+        "topic": "BTC",
+        "title": "Have All the Bitcoin Sellers Left? If a $100M Hack Makes Nobody Panic That Means Yes, Experts Argue - Benzinga",
+        "date": "Wed, 05 Aug 2026 11:58:09 GMT",
+        "source": "Benzinga",
+        "sentiment": -0.6369
+      },
+      {
+        "topic": "BTC",
+        "title": "S&P 500 Hits Record Highs—Why Does Bitcoin Not Join the Rally? - Benzinga",
+        "date": "Wed, 05 Aug 2026 15:11:20 GMT",
+        "source": "Benzinga",
+        "sentiment": -0.6259
+      },
+      {
+        "topic": "BTC",
+        "title": "BTC, ETH price news: Bitcoin steady around $65,000 as 'Mag 7' have worst day since 2025 - CoinDesk",
+        "date": "Thu, 23 Jul 2026 07:00:00 GMT",
+        "source": "CoinDesk",
+        "sentiment": -0.6249
+      },
+      {
+        "topic": "BTC",
+        "title": "The bitcoin (BTC) price has plenty of reasons to freak out, yet volatility remains low: Crypto Daily - CoinDesk",
+        "date": "Tue, 04 Aug 2026 11:27:12 GMT",
+        "source": "CoinDesk",
+        "sentiment": -0.6124
+      },
+      {
+        "topic": "BTC",
+        "title": "Why Is Crypto Down Today? BTC Price Nears $61K as Investors Fear Another Major Sell-Off - Bitcoin Foundation",
+        "date": "Wed, 10 Jun 2026 07:00:00 GMT",
+        "source": "Bitcoin Foundation",
+        "sentiment": -0.6124
+      },
+      {
+        "topic": "BTC",
+        "title": "CryptoQuant: Bitcoin Structural Demand Weakens to 2026 Low - Bitcoin Foundation",
+        "date": "Mon, 25 May 2026 07:00:00 GMT",
+        "source": "Bitcoin Foundation",
+        "sentiment": -0.5994
+      },
+      {
+        "topic": "BTC",
+        "title": "Bitcoin is weathering its ugliest week in months as narrative fades and liquidity rotates - cnbc.com",
+        "date": "Thu, 04 Jun 2026 07:00:00 GMT",
+        "source": "cnbc.com",
+        "sentiment": -0.5859
+      },
+      {
+        "topic": "BTC",
+        "title": "Bitcoin Price Forecast: BTC advances amid ETF inflows, but oil-driven inflation fears limit upside - fxstreet.com",
+        "date": "Tue, 04 Aug 2026 09:47:02 GMT",
+        "source": "fxstreet.com",
+        "sentiment": -0.5719
+      },
+      {
+        "topic": "BTC",
+        "title": "Coldcard attacker holds 1,159 BTC as mixing starts - Crypto News",
+        "date": "Wed, 05 Aug 2026 22:20:58 GMT",
+        "source": "Crypto News",
+        "sentiment": -0.5719
+      },
+      {
+        "topic": "BTC",
+        "title": "Bitcoin (BTC) Whales Are Moving Big as Coldcard Chaos Sends Shockwave - CryptoPotato",
+        "date": "Wed, 05 Aug 2026 08:28:00 GMT",
+        "source": "CryptoPotato",
+        "sentiment": -0.5719
+      },
+      {
+        "topic": "BTC",
+        "title": "Bitcoin Holds $64,000, Ethereum Up 2%, but XRP, Dogecoin Disappoint - Benzinga",
+        "date": "Wed, 05 Aug 2026 18:06:30 GMT",
+        "source": "Benzinga",
+        "sentiment": -0.5499
+      },
+      {
+        "topic": "BTC",
+        "title": "BTC Whales Add 190K Coins Since Dec. as CryptoQuant Eyes Bear Market End - CoinMarketCap",
+        "date": "Thu, 06 Aug 2026 13:39:58 GMT",
+        "source": "CoinMarketCap",
+        "sentiment": -0.5423
+      },
+      {
+        "topic": "BTC",
+        "title": "Bitcoin’s Bear Market May End Before the Four-Year Cycle Predicts - Bitcoin Foundation",
+        "date": "Thu, 23 Jul 2026 07:00:00 GMT",
+        "source": "Bitcoin Foundation",
+        "sentiment": -0.5423
+      }
+    ]
+  },
+  "AI_SEMI": {
+    "count": 71,
+    "avg_sentiment": 0.245,
+    "mood": "😀 乐观",
+    "headlines": [
+      {
+        "topic": "AI_SEMI",
+        "title": "AI Memory Boom Goes Bust. Micron, SK Hynix, Sandisk Plunge 30% — and Are Still Falling - 24/7 Wall St.",
+        "date": "Tue, 28 Jul 2026 07:00:00 GMT",
+        "source": "24/7 Wall St.",
+        "sentiment": -0.7269
+      },
+      {
+        "topic": "AI_SEMI",
+        "title": "A 'seismic' Nvidia shift, AI chip shortages and how it's threatening to hike gadget prices - cnbc.com",
+        "date": "Tue, 02 Dec 2025 08:00:00 GMT",
+        "source": "cnbc.com",
+        "sentiment": -0.6124
+      },
+      {
+        "topic": "AI_SEMI",
+        "title": "Did NVIDIA Crash Memory Stocks Like Micron and SanDisk Yesterday? - 24/7 Wall St.",
+        "date": "Wed, 04 Mar 2026 08:00:00 GMT",
+        "source": "24/7 Wall St.",
+        "sentiment": -0.5423
+      },
+      {
+        "topic": "AI_SEMI",
+        "title": "Micron Investors Just Got Terrible News From Nvidia - Vocal",
+        "date": "Tue, 10 Mar 2026 01:12:58 GMT",
+        "source": "Vocal",
+        "sentiment": -0.4767
+      },
+      {
+        "topic": "AI_SEMI",
+        "title": "AI memory, chip stocks fall again after brief recovery despite strong ASML results - Seeking Alpha",
+        "date": "Wed, 15 Jul 2026 07:00:00 GMT",
+        "source": "Seeking Alpha",
+        "sentiment": -0.4023
+      },
+      {
+        "topic": "AI_SEMI",
+        "title": "MU and DELL: 2 AI Infrastructure Stocks Crushing NVDA in 2026 - TradingView",
+        "date": "Wed, 10 Jun 2026 07:00:00 GMT",
+        "source": "TradingView",
+        "sentiment": -0.3612
+      },
+      {
+        "topic": "AI_SEMI",
+        "title": "Micron and SK Hynix Cross $1 Trillion Valuations as Chip Shortage Fuels AI Boom - 24/7 Wall St.",
+        "date": "Tue, 02 Jun 2026 07:00:00 GMT",
+        "source": "24/7 Wall St.",
+        "sentiment": -0.25
+      },
+      {
+        "topic": "AI_SEMI",
+        "title": "Forget Nvidia: Micron Is Up 330% in a Year and Still Looks Cheap - 24/7 Wall St.",
+        "date": "Wed, 25 Feb 2026 08:00:00 GMT",
+        "source": "24/7 Wall St.",
+        "sentiment": -0.2263
+      },
+      {
+        "topic": "AI_SEMI",
+        "title": "Forget Nvidia - This Chip Stock Could Deliver Explosive Returns by 2030 - TradingKey",
+        "date": "Sun, 04 Jan 2026 08:00:00 GMT",
+        "source": "TradingKey",
+        "sentiment": -0.2263
+      },
+      {
+        "topic": "AI_SEMI",
+        "title": "Google reveals algorithms to address AI memory challenges; memory and storage stocks drop (GOOG:NASDAQ) - Seeking Alpha",
+        "date": "Wed, 25 Mar 2026 07:00:00 GMT",
+        "source": "Seeking Alpha",
+        "sentiment": -0.2023
+      },
+      {
+        "topic": "AI_SEMI",
+        "title": "Is Micron the Next Nvidia? Why the 2026 \"Memory Crunch\" Makes MU Stock a Top AI Buy - TradingKey",
+        "date": "Thu, 06 Aug 2026 03:40:52 GMT",
+        "source": "TradingKey",
+        "sentiment": -0.128
+      },
+      {
+        "topic": "AI_SEMI",
+        "title": "Micron Is the Memory Toll Booth Behind NVIDIA’s AI GPU Boom - techi.com",
+        "date": "Fri, 08 May 2026 07:00:00 GMT",
+        "source": "techi.com",
+        "sentiment": 0.0
+      },
+      {
+        "topic": "AI_SEMI",
+        "title": "SanDisk Did In Months What Nvidia Took 9 Years To Pull Off — And The Chart Looks Almost Unreal - Benzinga",
+        "date": "Fri, 08 May 2026 07:00:00 GMT",
+        "source": "Benzinga",
+        "sentiment": 0.0
+      },
+      {
+        "topic": "AI_SEMI",
+        "title": "Will Marvell Technology (MRVL) Really Become the Next Trillion-Dollar Stock? - TradingView",
+        "date": "Wed, 03 Jun 2026 07:00:00 GMT",
+        "source": "TradingView",
+        "sentiment": 0.0
+      },
+      {
+        "topic": "AI_SEMI",
+        "title": "Memory Price Tsunami Swamps Apple as Tim Cook Hikes Prices 20% - 24/7 Wall St.",
+        "date": "Thu, 25 Jun 2026 07:00:00 GMT",
+        "source": "24/7 Wall St.",
+        "sentiment": 0.0
+      },
+      {
+        "topic": "AI_SEMI",
+        "title": "Memory Chips Enter Supercycle, Citi Sets $840 Price Target for Micron. Will Upcoming Nvidia Earnings Confirm Chip Bull Market? - TradingKey",
+        "date": "Tue, 19 May 2026 07:00:00 GMT",
+        "source": "TradingKey",
+        "sentiment": 0.0
+      },
+      {
+        "topic": "AI_SEMI",
+        "title": "Micron Hits $1 Trillion Market Cap: AI Memory Chip Boom Explained - Intellectia AI",
+        "date": "Wed, 27 May 2026 07:00:00 GMT",
+        "source": "Intellectia AI",
+        "sentiment": 0.0
+      },
+      {
+        "topic": "AI_SEMI",
+        "title": "Why the Selloff in Micron Technology Stock Never Made Sense - 24/7 Wall St.",
+        "date": "Mon, 24 Nov 2025 08:00:00 GMT",
+        "source": "24/7 Wall St.",
+        "sentiment": 0.0
+      },
+      {
+        "topic": "AI_SEMI",
+        "title": "Beyond the Hottest AI Chip Stock: Four Semiconductor ETFs to Consider for Your Portfolio - NAI500",
+        "date": "Sun, 15 Mar 2026 07:00:00 GMT",
+        "source": "NAI500",
+        "sentiment": 0.0
+      },
+      {
+        "topic": "AI_SEMI",
+        "title": "Could Micron’s Memory Boom Make It the New Oracle? - 24/7 Wall St.",
+        "date": "Thu, 11 Sep 2025 07:00:00 GMT",
+        "source": "24/7 Wall St.",
+        "sentiment": 0.0
+      }
+    ]
+  }
+}
