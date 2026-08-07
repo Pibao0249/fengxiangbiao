@@ -1,80 +1,80 @@
 {
-  "collected_at": "2026-08-08T00:45:57.403541+08:00",
+  "collected_at": "2026-08-08T04:45:25.166320+08:00",
   "sectors": {
     "gold": {
       "name": "黄金白银",
-      "latest_hour": 365,
-      "total_7d": 82523,
-      "hourly_avg": 488.3,
-      "anomaly": false,
-      "anomaly_direction": "normal",
-      "anomaly_ratio": 0.86,
-      "emotion": null
-    },
-    "btc": {
-      "name": "BTC",
-      "latest_hour": 469,
-      "total_7d": 95880,
-      "hourly_avg": 567.3,
-      "anomaly": false,
-      "anomaly_direction": "normal",
-      "anomaly_ratio": 1.16,
-      "emotion": null
-    },
-    "a_semi": {
-      "name": "A股半导体",
-      "latest_hour": 191,
-      "total_7d": 38447,
-      "hourly_avg": 227.5,
-      "anomaly": false,
-      "anomaly_direction": "normal",
-      "anomaly_ratio": 0.95,
-      "emotion": null
-    },
-    "us_semi": {
-      "name": "美股半导体",
-      "latest_hour": 56,
-      "total_7d": 35511,
-      "hourly_avg": 210.1,
+      "latest_hour": 140,
+      "total_7d": 82305,
+      "hourly_avg": 487.0,
       "anomaly": true,
       "anomaly_direction": "low",
-      "anomaly_ratio": 0.21,
+      "anomaly_ratio": 0.62,
       "emotion": {
         "sentiment": "中性/调整",
         "sample_count": 10,
         "breakdown": {
-          "看涨": 1,
-          "看跌": 2,
-          "中性": 7
+          "看涨": 0,
+          "看跌": 0,
+          "中性": 10
         }
       },
       "sample_tweets": [
         {
-          "text": "@BTCdayu 恰恰相反。热门赛道全是泡沫，有泡沫的地方就有钱赚。例如今年的闪迪，前年的英伟达",
+          "text": "🚀 🌐 🌐 🌐 👑 YB棋牌 黄金摇钱树 北京赛车 BG视讯百家乐 亚博app积分 365棋牌 永盈彩票 JDG捕鱼 曼城 英超 哈兰德 德布劳内 罗德里 利物浦 萨拉赫 https://t.co/6",
           "sentiment": "中性",
-          "created_at": "2026-08-07T16:44:52.000Z"
+          "created_at": "2026-08-07T20:44:57.000Z"
         },
         {
-          "text": "收盘突发超级利好！多条赛道拐点确认，下周吃肉行情已锁定\n \n利好一：SK海力士384亿美元砸向晶圆厂，存储扩产再提速",
-          "sentiment": "看涨",
-          "created_at": "2026-08-07T16:43:09.000Z"
-        },
-        {
-          "text": "🏆💙抓聚疗会宾客谈笑前喧闹，粗他目光始终追随列我，悄悄替我挡下烈酒，低愈声询问我是否腺想要提前离场。龙筋老师唤他上摩台解题，我立刻放下笔认真聆听。式清晰温和的柔增嗓音，足够抚平我一整天积按攒下来的烦闷",
+          "text": "🐅🤱从定西晋中淮南的雾霾里逃出来，\n落脚铜陵盘锦大同的弄堂，再杭州梧州张掖喝早茶，\n最后在白银长沙莆田的火锅里把自己涮醒外 围——这才叫真正的城市自由行！\n\n你最近在哪座城门约上炮昭通肇庆济南 ？\nh",
           "sentiment": "中性",
-          "created_at": "2026-08-07T16:41:42.000Z"
+          "created_at": "2026-08-07T20:44:01.000Z"
         },
         {
-          "text": "@rwayne AI相关行业起码有20年的辉煌期，deepseek干个十几年+期权基本财务自由了，英伟达已经是发展的高峰期了，只有工资，去海关和英伟达不就是为了生活舒适嘛，deepseek十几年就实现",
-          "sentiment": "看跌",
-          "created_at": "2026-08-07T16:36:26.000Z"
+          "text": "💴🔷从株州沈阳白银的雾霾里逃出来，\n落脚肇庆广安衢州的弄堂，再三沙温州武汉喝早茶，\n最后在来宾永州宝鸡的火锅里把自己涮醒外 围——这才叫真正的城市自由行！\n\n你最近在哪座城门约上炮营口桂林开封 ？\nh",
+          "sentiment": "中性",
+          "created_at": "2026-08-07T20:42:40.000Z"
         },
         {
-          "text": "一觉醒来，AI圈的资金正在疯狂“搬家”！\n隔夜美股炸出了极具戏剧性的一幕：\n存储巨头闪崩： 西部数据重挫超13%，闪迪大跌超6%，SK海力士、美光全线下跌。\nAI应用股遭重锤： Datadog、App",
-          "sentiment": "看跌",
-          "created_at": "2026-08-07T16:33:28.000Z"
+          "text": "🏠📑从白银丹东崇左的雾霾里逃出来，\n落脚舟山铁岭通辽的弄堂，再宜昌鄂尔多斯深圳喝早茶，\n最后在商洛朔州呼和浩特的火锅里把自己涮醒外 围——这才叫真正的城市自由行！\n\n你最近在哪座城门约上炮凉山阜新南通",
+          "sentiment": "中性",
+          "created_at": "2026-08-07T20:39:42.000Z"
+        },
+        {
+          "text": "🐠🏀从昌都玉林宿州的雾霾里逃出来，\n落脚衢州乌海阳江的弄堂，再马鞍山毕节阜新喝早茶，\n最后在牡丹江白银合肥的火锅里把自己涮醒外 围——这才叫真正的城市自由行！\n\n你最近在哪座城门约上炮江门嘉峪关张掖 ",
+          "sentiment": "中性",
+          "created_at": "2026-08-07T20:38:22.000Z"
         }
       ]
+    },
+    "btc": {
+      "name": "BTC",
+      "latest_hour": 158,
+      "total_7d": 95995,
+      "hourly_avg": 568.0,
+      "anomaly": true,
+      "anomaly_direction": "low",
+      "anomaly_ratio": 0.44,
+      "emotion": null
+    },
+    "a_semi": {
+      "name": "A股半导体",
+      "latest_hour": 66,
+      "total_7d": 38516,
+      "hourly_avg": 227.9,
+      "anomaly": false,
+      "anomaly_direction": "normal",
+      "anomaly_ratio": 0.81,
+      "emotion": null
+    },
+    "us_semi": {
+      "name": "美股半导体",
+      "latest_hour": 19,
+      "total_7d": 35383,
+      "hourly_avg": 209.4,
+      "anomaly": true,
+      "anomaly_direction": "low",
+      "anomaly_ratio": 0.4,
+      "emotion": null
     }
   }
 }
