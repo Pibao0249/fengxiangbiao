@@ -1,79 +1,44 @@
 {
-  "collected_at": "2026-08-08T04:45:25.166320+08:00",
+  "collected_at": "2026-08-08T08:45:51.074090+08:00",
   "sectors": {
     "gold": {
       "name": "黄金白银",
-      "latest_hour": 140,
-      "total_7d": 82305,
-      "hourly_avg": 487.0,
-      "anomaly": true,
-      "anomaly_direction": "low",
-      "anomaly_ratio": 0.62,
-      "emotion": {
-        "sentiment": "中性/调整",
-        "sample_count": 10,
-        "breakdown": {
-          "看涨": 0,
-          "看跌": 0,
-          "中性": 10
-        }
-      },
-      "sample_tweets": [
-        {
-          "text": "🚀 🌐 🌐 🌐 👑 YB棋牌 黄金摇钱树 北京赛车 BG视讯百家乐 亚博app积分 365棋牌 永盈彩票 JDG捕鱼 曼城 英超 哈兰德 德布劳内 罗德里 利物浦 萨拉赫 https://t.co/6",
-          "sentiment": "中性",
-          "created_at": "2026-08-07T20:44:57.000Z"
-        },
-        {
-          "text": "🐅🤱从定西晋中淮南的雾霾里逃出来，\n落脚铜陵盘锦大同的弄堂，再杭州梧州张掖喝早茶，\n最后在白银长沙莆田的火锅里把自己涮醒外 围——这才叫真正的城市自由行！\n\n你最近在哪座城门约上炮昭通肇庆济南 ？\nh",
-          "sentiment": "中性",
-          "created_at": "2026-08-07T20:44:01.000Z"
-        },
-        {
-          "text": "💴🔷从株州沈阳白银的雾霾里逃出来，\n落脚肇庆广安衢州的弄堂，再三沙温州武汉喝早茶，\n最后在来宾永州宝鸡的火锅里把自己涮醒外 围——这才叫真正的城市自由行！\n\n你最近在哪座城门约上炮营口桂林开封 ？\nh",
-          "sentiment": "中性",
-          "created_at": "2026-08-07T20:42:40.000Z"
-        },
-        {
-          "text": "🏠📑从白银丹东崇左的雾霾里逃出来，\n落脚舟山铁岭通辽的弄堂，再宜昌鄂尔多斯深圳喝早茶，\n最后在商洛朔州呼和浩特的火锅里把自己涮醒外 围——这才叫真正的城市自由行！\n\n你最近在哪座城门约上炮凉山阜新南通",
-          "sentiment": "中性",
-          "created_at": "2026-08-07T20:39:42.000Z"
-        },
-        {
-          "text": "🐠🏀从昌都玉林宿州的雾霾里逃出来，\n落脚衢州乌海阳江的弄堂，再马鞍山毕节阜新喝早茶，\n最后在牡丹江白银合肥的火锅里把自己涮醒外 围——这才叫真正的城市自由行！\n\n你最近在哪座城门约上炮江门嘉峪关张掖 ",
-          "sentiment": "中性",
-          "created_at": "2026-08-07T20:38:22.000Z"
-        }
-      ]
+      "latest_hour": 215,
+      "total_7d": 81766,
+      "hourly_avg": 483.8,
+      "anomaly": false,
+      "anomaly_direction": "normal",
+      "anomaly_ratio": 0.77,
+      "emotion": null
     },
     "btc": {
       "name": "BTC",
-      "latest_hour": 158,
-      "total_7d": 95995,
-      "hourly_avg": 568.0,
-      "anomaly": true,
-      "anomaly_direction": "low",
-      "anomaly_ratio": 0.44,
+      "latest_hour": 293,
+      "total_7d": 96173,
+      "hourly_avg": 569.1,
+      "anomaly": false,
+      "anomaly_direction": "normal",
+      "anomaly_ratio": 0.82,
       "emotion": null
     },
     "a_semi": {
       "name": "A股半导体",
-      "latest_hour": 66,
-      "total_7d": 38516,
-      "hourly_avg": 227.9,
+      "latest_hour": 164,
+      "total_7d": 38525,
+      "hourly_avg": 228.0,
       "anomaly": false,
       "anomaly_direction": "normal",
-      "anomaly_ratio": 0.81,
+      "anomaly_ratio": 0.83,
       "emotion": null
     },
     "us_semi": {
       "name": "美股半导体",
-      "latest_hour": 19,
-      "total_7d": 35383,
-      "hourly_avg": 209.4,
+      "latest_hour": 35,
+      "total_7d": 35265,
+      "hourly_avg": 208.7,
       "anomaly": true,
       "anomaly_direction": "low",
-      "anomaly_ratio": 0.4,
+      "anomaly_ratio": 0.26,
       "emotion": null
     }
   }
