@@ -1,78 +1,78 @@
 {
-  "collected_at": "2026-08-09T00:45:41.910817+08:00",
+  "collected_at": "2026-08-09T04:45:07.283654+08:00",
   "sectors": {
     "gold": {
       "name": "黄金白银",
-      "latest_hour": 305,
-      "total_7d": 78708,
-      "hourly_avg": 465.7,
+      "latest_hour": 240,
+      "total_7d": 78862,
+      "hourly_avg": 466.6,
       "anomaly": false,
       "anomaly_direction": "normal",
-      "anomaly_ratio": 0.77,
+      "anomaly_ratio": 1.09,
       "emotion": null
     },
     "btc": {
       "name": "BTC",
-      "latest_hour": 474,
-      "total_7d": 98294,
-      "hourly_avg": 581.6,
+      "latest_hour": 176,
+      "total_7d": 98344,
+      "hourly_avg": 581.9,
       "anomaly": false,
       "anomaly_direction": "normal",
-      "anomaly_ratio": 1.17,
+      "anomaly_ratio": 1.04,
       "emotion": null
     },
     "a_semi": {
       "name": "A股半导体",
-      "latest_hour": 148,
-      "total_7d": 39119,
-      "hourly_avg": 231.5,
+      "latest_hour": 88,
+      "total_7d": 39160,
+      "hourly_avg": 231.7,
       "anomaly": false,
       "anomaly_direction": "normal",
-      "anomaly_ratio": 0.75,
+      "anomaly_ratio": 1.11,
       "emotion": null
     },
     "us_semi": {
       "name": "美股半导体",
-      "latest_hour": 58,
-      "total_7d": 35036,
-      "hourly_avg": 207.3,
+      "latest_hour": 22,
+      "total_7d": 34964,
+      "hourly_avg": 206.9,
       "anomaly": true,
       "anomaly_direction": "low",
-      "anomaly_ratio": 0.22,
+      "anomaly_ratio": 0.49,
       "emotion": {
         "sentiment": "中性/调整",
         "sample_count": 10,
         "breakdown": {
-          "看涨": 1,
-          "看跌": 0,
-          "中性": 9
+          "看涨": 2,
+          "看跌": 1,
+          "中性": 7
         }
       },
       "sample_tweets": [
         {
-          "text": "Check this out! https://t.co/vCPuKAkjD4 via @dajiyuan \n\n【独家】谁在围攻神韵？多条战线曝光\n📷\n（大纪元制图）\n設為Google新聞首選來源20",
-          "sentiment": "中性",
-          "created_at": "2026-08-08T16:44:21.000Z"
+          "text": "$NBIS 是我在整个 AI 基础设施里最看好的成长故事之一，他同时完成了四件事情：\n\n第一：需求确定性\n\nNebius 今年 3 月和 Meta 签的第二份大单把这一点体现得最充分：这是一份五年期协",
+          "sentiment": "看涨",
+          "created_at": "2026-08-08T20:43:56.000Z"
         },
         {
-          "text": "🤎腾达集团🎉主页✈\n🤎5年诚信老商家，支持担保　同台、支持视频验货。\n#实名认证 🧰 #免实名 😹\n#代实名 🥿 #联通卡 🐝\n#虚拟卡 🐽 #移动卡 🥴\n#LINE 😭 #电销卡 🧍\n#欧易 ⛓ #",
+          "text": "🧥腾达集团👙主页✈\n⛅5年诚信老商家，支持担保　同台、支持视频验货。\n#抖音号 🚦 #大王卡 🍴\n#广电卡 🐼 #鸭聊佳 🕹\n#虚拟卡 💊 #电销卡 ⚙\n#币安 🧞 #电销卡 🪕\n#移动卡 🦤 #全球",
           "sentiment": "中性",
-          "created_at": "2026-08-08T16:42:49.000Z"
+          "created_at": "2026-08-08T20:43:29.000Z"
         },
         {
-          "text": "马斯克Terafab的大杀器FEL到底是什么\n\n如果把 ASML 的 EUV 光源比作“拿大锤砸蚊子”，那 FEL 就像“激光点名”\n\n很多人以为：\n\nEUV 光刻机最贵的是镜头。\n\n其实真正的“吞金",
+          "text": "如征信白户贷、结清贷，则通过历史贷款记录分析客户的信用修复能力。\n应用和意义\n精准客户挖掘的应用，极大提升了电销效率。通过广告搜索、企微、线下APP数据提取、网页数据爬取、关键词访客追踪等方式，结合视",
           "sentiment": "中性",
-          "created_at": "2026-08-08T16:40:06.000Z"
+          "created_at": "2026-08-08T20:39:00.000Z"
         },
         {
-          "text": "【为什么滕叔现在不碰特斯拉？】我们根据数据来判断标的目前的趋势，特斯拉处在一个6年的长线箱体中震荡。滕叔对资金的效率有很高的要求……关于特斯拉目前的主力机构持仓成本，滕叔已在discord群中更新：h",
+          "text": "大科技公司的债务风险定价飙升。\n\n今年以来，5年期CDS普遍上升：\n\n$ORCL +70bp，升至约215bp\n$AVGO +48bp\n$META +39bp，升至95bp\n$NVDA +32bp，升",
           "sentiment": "中性",
-          "created_at": "2026-08-08T16:39:30.000Z"
+          "created_at": "2026-08-08T20:38:39.000Z"
         },
         {
-          "text": "@tuolaji2024 关键还是看HBM价格和优先供货能否兑现吧",
+          "text": "美国机器人创业者，已经开始人肉背中国零件回硅谷了。\n\n据The Information报道，美国一些机器人创业公司为了拿到中国供应链的零件，工程师和VC直接飞深圳采购，把机器人零件塞进行李箱带回美国。",
           "sentiment": "中性",
-          "created_at": "2026-08-08T16:38:06.000Z"
+          "created_at": "2026-08-08T20:37:56.000Z"
         }
       ]
     }
