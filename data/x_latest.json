@@ -1,80 +1,45 @@
 {
-  "collected_at": "2026-08-09T04:45:07.283654+08:00",
+  "collected_at": "2026-08-09T08:45:37.062374+08:00",
   "sectors": {
     "gold": {
       "name": "黄金白银",
-      "latest_hour": 240,
-      "total_7d": 78862,
+      "latest_hour": 275,
+      "total_7d": 78854,
       "hourly_avg": 466.6,
       "anomaly": false,
       "anomaly_direction": "normal",
-      "anomaly_ratio": 1.09,
+      "anomaly_ratio": 0.99,
       "emotion": null
     },
     "btc": {
       "name": "BTC",
-      "latest_hour": 176,
-      "total_7d": 98344,
-      "hourly_avg": 581.9,
+      "latest_hour": 298,
+      "total_7d": 98077,
+      "hourly_avg": 580.3,
       "anomaly": false,
       "anomaly_direction": "normal",
-      "anomaly_ratio": 1.04,
+      "anomaly_ratio": 0.84,
       "emotion": null
     },
     "a_semi": {
       "name": "A股半导体",
-      "latest_hour": 88,
-      "total_7d": 39160,
+      "latest_hour": 108,
+      "total_7d": 39155,
       "hourly_avg": 231.7,
-      "anomaly": false,
-      "anomaly_direction": "normal",
-      "anomaly_ratio": 1.11,
+      "anomaly": true,
+      "anomaly_direction": "low",
+      "anomaly_ratio": 0.55,
       "emotion": null
     },
     "us_semi": {
       "name": "美股半导体",
-      "latest_hour": 22,
-      "total_7d": 34964,
-      "hourly_avg": 206.9,
+      "latest_hour": 34,
+      "total_7d": 34861,
+      "hourly_avg": 206.3,
       "anomaly": true,
       "anomaly_direction": "low",
-      "anomaly_ratio": 0.49,
-      "emotion": {
-        "sentiment": "中性/调整",
-        "sample_count": 10,
-        "breakdown": {
-          "看涨": 2,
-          "看跌": 1,
-          "中性": 7
-        }
-      },
-      "sample_tweets": [
-        {
-          "text": "$NBIS 是我在整个 AI 基础设施里最看好的成长故事之一，他同时完成了四件事情：\n\n第一：需求确定性\n\nNebius 今年 3 月和 Meta 签的第二份大单把这一点体现得最充分：这是一份五年期协",
-          "sentiment": "看涨",
-          "created_at": "2026-08-08T20:43:56.000Z"
-        },
-        {
-          "text": "🧥腾达集团👙主页✈\n⛅5年诚信老商家，支持担保　同台、支持视频验货。\n#抖音号 🚦 #大王卡 🍴\n#广电卡 🐼 #鸭聊佳 🕹\n#虚拟卡 💊 #电销卡 ⚙\n#币安 🧞 #电销卡 🪕\n#移动卡 🦤 #全球",
-          "sentiment": "中性",
-          "created_at": "2026-08-08T20:43:29.000Z"
-        },
-        {
-          "text": "如征信白户贷、结清贷，则通过历史贷款记录分析客户的信用修复能力。\n应用和意义\n精准客户挖掘的应用，极大提升了电销效率。通过广告搜索、企微、线下APP数据提取、网页数据爬取、关键词访客追踪等方式，结合视",
-          "sentiment": "中性",
-          "created_at": "2026-08-08T20:39:00.000Z"
-        },
-        {
-          "text": "大科技公司的债务风险定价飙升。\n\n今年以来，5年期CDS普遍上升：\n\n$ORCL +70bp，升至约215bp\n$AVGO +48bp\n$META +39bp，升至95bp\n$NVDA +32bp，升",
-          "sentiment": "中性",
-          "created_at": "2026-08-08T20:38:39.000Z"
-        },
-        {
-          "text": "美国机器人创业者，已经开始人肉背中国零件回硅谷了。\n\n据The Information报道，美国一些机器人创业公司为了拿到中国供应链的零件，工程师和VC直接飞深圳采购，把机器人零件塞进行李箱带回美国。",
-          "sentiment": "中性",
-          "created_at": "2026-08-08T20:37:56.000Z"
-        }
-      ]
+      "anomaly_ratio": 0.27,
+      "emotion": null
     }
   }
 }
