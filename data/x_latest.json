@@ -1,80 +1,80 @@
 {
-  "collected_at": "2026-08-10T00:45:39.313929+08:00",
+  "collected_at": "2026-08-10T04:46:05.176800+08:00",
   "sectors": {
     "gold": {
       "name": "黄金白银",
-      "latest_hour": 320,
-      "total_7d": 76117,
-      "hourly_avg": 450.4,
+      "latest_hour": 144,
+      "total_7d": 75436,
+      "hourly_avg": 446.4,
       "anomaly": false,
       "anomaly_direction": "normal",
-      "anomaly_ratio": 0.84,
+      "anomaly_ratio": 0.7,
       "emotion": null
     },
     "btc": {
       "name": "BTC",
-      "latest_hour": 338,
-      "total_7d": 98371,
-      "hourly_avg": 582.1,
+      "latest_hour": 119,
+      "total_7d": 98262,
+      "hourly_avg": 581.4,
       "anomaly": false,
       "anomaly_direction": "normal",
-      "anomaly_ratio": 0.81,
+      "anomaly_ratio": 0.68,
       "emotion": null
     },
     "a_semi": {
       "name": "A股半导体",
-      "latest_hour": 204,
-      "total_7d": 39694,
-      "hourly_avg": 234.9,
-      "anomaly": false,
-      "anomaly_direction": "normal",
-      "anomaly_ratio": 1.03,
-      "emotion": null
-    },
-    "us_semi": {
-      "name": "美股半导体",
-      "latest_hour": 52,
-      "total_7d": 34414,
-      "hourly_avg": 203.6,
+      "latest_hour": 120,
+      "total_7d": 39872,
+      "hourly_avg": 235.9,
       "anomaly": true,
-      "anomaly_direction": "low",
-      "anomaly_ratio": 0.2,
+      "anomaly_direction": "high",
+      "anomaly_ratio": 1.55,
       "emotion": {
         "sentiment": "中性/调整",
         "sample_count": 10,
         "breakdown": {
-          "看涨": 1,
-          "看跌": 0,
+          "看涨": 0,
+          "看跌": 1,
           "中性": 9
         }
       },
       "sample_tweets": [
         {
-          "text": "@dutyge 别说这个了，润人只要有点脑子的都不会回来，不管水电工泥瓦匠还是炒菜端盘子理仓库，在那能开奔驰宝马特斯拉雷克萨斯，最次弄台丰田本田。现在国内经济这样，失业率高企，你让他们回国干啥？回农村",
+          "text": "@Polymarket 这些芯片质量很低劣，粗制滥造。它们的企业对待员工不友好，苹果不会使用这些人的产品的",
           "sentiment": "中性",
-          "created_at": "2026-08-09T16:43:38.000Z"
+          "created_at": "2026-08-09T20:42:32.000Z"
         },
         {
-          "text": "☘腾达集团💆主页✈\n🐏5年诚信老商家，支持担保　同台、支持视频验货。\n#探探 🎖 #移动联通电信 😫\n#厅卡 🧯 #快手 🍜\n#银行卡五件套 🌛 #支付宝 💏\n#钉钉 🏹 #QQ号 📯\n#电销卡 💌 ",
+          "text": "心理建设\n\n除了避免外部伤害摧毁你的现实生活，当然还要避免外部偏见进入你的内心，摧毁你的自我评价。\n\n1. 不要把社会的偏见转化成对自己的否定\n\n我在之前的文章里已经反复强调了一个一个事实：LGBTQ",
           "sentiment": "中性",
-          "created_at": "2026-08-09T16:40:42.000Z"
+          "created_at": "2026-08-09T20:40:55.000Z"
         },
         {
-          "text": "🧟🏬⬜开云体育百家乐/开云体育百家乐/乐鱼体育/开云体育/3D福彩/捕鱼达人/欧亚体育/扑克大战/电竞/英甲/bet365网址  点链接@FateneBH https://t.co/ucRUKO4UT",
+          "text": "@qingyue820 30 亿美元融资更像基础设施信号，不是普通产品信号。Coatue、黑石和英伟达都在押算力会不会变成可卖的容量。",
           "sentiment": "中性",
-          "created_at": "2026-08-09T16:40:35.000Z"
+          "created_at": "2026-08-09T20:36:28.000Z"
         },
         {
-          "text": "虽然现在谷歌，亚马逊，微软，Meta都有自己的芯片，但问题却在芯片得指的台积电造，内存得指的三巨头供。价格贵不说还不能保证能拿到货，这种风险实在太大。不如自己建工厂一了百了，省心多了。我就不明白这些大",
-          "sentiment": "中性",
-          "created_at": "2026-08-09T16:40:33.000Z"
+          "text": "@latontagrande 欧洲尽管也是美帝霸权受害者，但同时也是在大多数情况下积极主动的帮凶，其从犯的本质是不变的。\n\n美帝韧性很强，半导体泡沫破灭或在未来一两年，希望如此。但覆灭之路还长。未来2",
+          "sentiment": "看跌",
+          "created_at": "2026-08-09T20:35:23.000Z"
         },
         {
-          "text": "印度早.泄伟.哥 超长延.时喷雾 助勃药 绿p果冻 蓝水晶 小蓝片 绿钻 超希 超必 #盐酸达泊西汀 https://t.co/rqMbOYKNeY",
+          "text": "bl 《欲望公路2》1-6集高清未删减版\n💦深夜精选合集🔞⬇️\nhttps://t.co/WKSF2KPbIe\n晚晴的阴道壁在他静止的插入中微微收缩着，像在包裹着他的鸡巴做无意识的按摩。他的拇指在她臀",
           "sentiment": "中性",
-          "created_at": "2026-08-09T16:39:19.000Z"
+          "created_at": "2026-08-09T20:26:40.000Z"
         }
       ]
+    },
+    "us_semi": {
+      "name": "美股半导体",
+      "latest_hour": 16,
+      "total_7d": 34371,
+      "hourly_avg": 203.4,
+      "anomaly": true,
+      "anomaly_direction": "low",
+      "anomaly_ratio": 0.36,
+      "emotion": null
     }
   }
 }
