@@ -1,12 +1,12 @@
 {
-  "time": "2026-08-09T06:03:48.668884",
+  "time": "2026-08-09T21:01:08.501521",
   "sources": {
     "baidu": {
       "count": 51,
       "status": "ok"
     },
     "weibo": {
-      "count": 50,
+      "count": 51,
       "status": "ok"
     },
     "bilibili": {
@@ -15,7 +15,7 @@
     },
     "fng": {
       "status": "ok",
-      "value": 30
+      "value": 31
     },
     "xueqiu": {
       "status": "ok",
@@ -29,58 +29,58 @@
   "sectors": {
     "gold": {
       "count": 160,
-      "bullish": 20,
+      "bullish": 18,
       "bearish": 6,
-      "neutral": 134,
-      "silence_rate": 83.8,
-      "carnival_rate": 12.5,
-      "sentiment": 0.1,
+      "neutral": 136,
+      "silence_rate": 85.0,
+      "carnival_rate": 11.2,
+      "sentiment": 0.07,
       "source": "guba_curl",
       "sample_posts": [
         {
           "title": "涨停之后的揉搓线，明天涨停",
-          "click": 77,
+          "click": 80,
           "comment": 0,
           "time": "2026-07-08 13:35:54",
           "sentiment": 1
         },
         {
           "title": "盐湖和东方铁塔预告业绩了。都业绩大增。但股票却下跌。亚钾国际和藏格没有预告却大涨",
-          "click": 95,
+          "click": 100,
           "comment": 0,
           "time": "2026-07-03 10:57:10",
           "sentiment": 1
         },
         {
           "title": "2026年6月，新疆科研团队在橡胶草产业化上取得里程碑式突破，首次实现从“草”到",
-          "click": 69,
+          "click": 70,
           "comment": 0,
           "time": "2026-07-01 11:31:05",
           "sentiment": 1
         },
         {
           "title": "橡胶草科研突破，将投入大面积种植了",
-          "click": 59,
+          "click": 61,
           "comment": 0,
           "time": "2026-07-01 11:27:43",
           "sentiment": 1
         },
         {
           "title": "今天不跌了，没意思。继续跌停",
-          "click": 61,
+          "click": 62,
           "comment": 0,
           "time": "2026-06-18 09:48:11",
           "sentiment": -1
         }
       ],
       "social_backup": {
-        "count": 2,
-        "bullish": 1,
+        "count": 0,
+        "bullish": 0,
         "bearish": 0,
-        "neutral": 1,
-        "silence_rate": 50.0,
-        "carnival_rate": 50.0,
-        "sentiment": 0.5
+        "neutral": 0,
+        "silence_rate": 0,
+        "carnival_rate": 0,
+        "sentiment": 0
       },
       "data_source": "guba"
     },
@@ -96,58 +96,58 @@
     },
     "a_semi": {
       "count": 80,
-      "bullish": 11,
+      "bullish": 13,
       "bearish": 4,
-      "neutral": 65,
-      "silence_rate": 81.2,
-      "carnival_rate": 13.8,
-      "sentiment": 0.1,
+      "neutral": 63,
+      "silence_rate": 78.8,
+      "carnival_rate": 16.2,
+      "sentiment": 0.12,
       "source": "guba_curl",
       "sample_posts": [
         {
           "title": "巨轮智能，十年磨一剑的技术突围，打破日企垄断，如今国产重器打赢翻身仗。十年技术突破，拿下国内稀缺权威认证RV减速器",
-          "click": 274,
-          "comment": 4,
+          "click": 290,
+          "comment": 3,
           "time": "2026-07-29 18:54:21",
           "sentiment": 1
         },
         {
-          "title": "美股大涨，美股半导体板块爆涨，看来我们下周一半导体板块也将迎来爆涨啊",
-          "click": 24,
+          "title": "下周该跌了，连续反弹几天了",
+          "click": 82,
+          "comment": 8,
+          "time": "2026-08-07 16:41:00",
+          "sentiment": 1
+        },
+        {
+          "title": "AMD推出2纳米GPU利好哪些企业",
+          "click": 89,
           "comment": 0,
-          "time": "2026-08-08 20:29:33",
+          "time": "2026-08-09 17:29:27",
           "sentiment": 1
         },
         {
           "title": "未来的机器茅。巨轮智能公司xt减速器研发量产成功会冲击千亿市值……巨轮智能XT减速器量产成功将带来五大核心影响：1. 业绩爆发-",
-          "click": 230,
+          "click": 238,
           "comment": 1,
           "time": "2026-07-06 18:32:30",
           "sentiment": 1
         },
         {
-          "title": "电路板连续大涨，水军忽悠散户接盘，不要站岗，下周一早盘冲高就跑",
-          "click": 17,
-          "comment": 0,
-          "time": "2026-08-08 15:43:10",
-          "sentiment": 2
-        },
-        {
-          "title": "下周华尔街前瞻：通胀数据将考验创下历史新高的美股及美联储利率预期",
-          "click": 68,
-          "comment": 0,
-          "time": "2026-08-08 12:09:28",
+          "title": "从RTS指数走势，透视俄乌冲突下双方现实困境",
+          "click": 875,
+          "comment": 1,
+          "time": "2026-08-09 06:29:35",
           "sentiment": 1
         }
       ],
       "social_backup": {
         "count": 9,
         "bullish": 6,
-        "bearish": 1,
-        "neutral": 2,
-        "silence_rate": 22.2,
+        "bearish": 0,
+        "neutral": 3,
+        "silence_rate": 33.3,
         "carnival_rate": 66.7,
-        "sentiment": 0.56
+        "sentiment": 0.67
       },
       "data_source": "guba"
     },
@@ -198,23 +198,23 @@
         }
       ],
       "social_backup": {
-        "count": 1,
+        "count": 0,
         "bullish": 0,
-        "bearish": 1,
+        "bearish": 0,
         "neutral": 0,
-        "silence_rate": 0.0,
-        "carnival_rate": 0.0,
-        "sentiment": -1.0
+        "silence_rate": 0,
+        "carnival_rate": 0,
+        "sentiment": 0
       },
       "data_source": "guba"
     }
   },
   "summary": {
-    "total_social": 171,
+    "total_social": 172,
     "sources_ok": 6,
     "sources_total": 6,
     "fng": {
-      "value": 30,
+      "value": 31,
       "classification": "Fear"
     }
   },
@@ -222,10 +222,22 @@
     "gold": {
       "platforms": {
         "guba": {
-          "silence": 83.8,
-          "carnival": 12.5,
-          "sentiment": 0.1,
+          "silence": 85.0,
+          "carnival": 11.2,
+          "sentiment": 0.07,
           "count": 160
+        }
+      },
+      "level": "⚪ 数据不足",
+      "platform_count": 1
+    },
+    "a_semi": {
+      "platforms": {
+        "guba": {
+          "silence": 78.8,
+          "carnival": 16.2,
+          "sentiment": 0.12,
+          "count": 80
         },
         "weibo": {
           "silence": 100.0,
@@ -236,27 +248,15 @@
           "silence": 0.0,
           "count": 1,
           "sentiment": 1.0
-        }
-      },
-      "level": "🔴 分歧",
-      "platform_count": 3
-    },
-    "a_semi": {
-      "platforms": {
-        "guba": {
-          "silence": 81.2,
-          "carnival": 13.8,
-          "sentiment": 0.1,
-          "count": 80
         },
         "xueqiu": {
-          "silence": 22.2,
-          "count": 9,
-          "sentiment": 0.56
+          "silence": 28.6,
+          "count": 7,
+          "sentiment": 0.71
         }
       },
       "level": "🔴 分歧",
-      "platform_count": 2
+      "platform_count": 4
     },
     "us_semi": {
       "platforms": {
@@ -265,20 +265,15 @@
           "carnival": 5.0,
           "sentiment": 0.03,
           "count": 480
-        },
-        "weibo": {
-          "silence": 0.0,
-          "count": 1,
-          "sentiment": -1.0
         }
       },
-      "level": "🔴 分歧",
-      "platform_count": 2
+      "level": "⚪ 数据不足",
+      "platform_count": 1
     }
   },
   "wwi": {
-    "wwi": 0.183,
+    "wwi": 0.1814,
     "phase": "bear",
-    "block_height": 961640
+    "block_height": 961729
   }
 }

@@ -1,45 +1,80 @@
 {
-  "collected_at": "2026-08-09T20:45:04.289074+08:00",
+  "collected_at": "2026-08-10T00:45:39.313929+08:00",
   "sectors": {
     "gold": {
       "name": "黄金白银",
-      "latest_hour": 311,
-      "total_7d": 76467,
-      "hourly_avg": 452.5,
-      "anomaly": true,
-      "anomaly_direction": "low",
-      "anomaly_ratio": 0.56,
+      "latest_hour": 320,
+      "total_7d": 76117,
+      "hourly_avg": 450.4,
+      "anomaly": false,
+      "anomaly_direction": "normal",
+      "anomaly_ratio": 0.84,
       "emotion": null
     },
     "btc": {
       "name": "BTC",
-      "latest_hour": 439,
-      "total_7d": 98167,
-      "hourly_avg": 580.9,
+      "latest_hour": 338,
+      "total_7d": 98371,
+      "hourly_avg": 582.1,
       "anomaly": false,
       "anomaly_direction": "normal",
-      "anomaly_ratio": 0.85,
+      "anomaly_ratio": 0.81,
       "emotion": null
     },
     "a_semi": {
       "name": "A股半导体",
-      "latest_hour": 185,
-      "total_7d": 39359,
-      "hourly_avg": 232.9,
+      "latest_hour": 204,
+      "total_7d": 39694,
+      "hourly_avg": 234.9,
       "anomaly": false,
       "anomaly_direction": "normal",
-      "anomaly_ratio": 0.79,
+      "anomaly_ratio": 1.03,
       "emotion": null
     },
     "us_semi": {
       "name": "美股半导体",
-      "latest_hour": 100,
-      "total_7d": 34511,
-      "hourly_avg": 204.2,
+      "latest_hour": 52,
+      "total_7d": 34414,
+      "hourly_avg": 203.6,
       "anomaly": true,
       "anomaly_direction": "low",
-      "anomaly_ratio": 0.47,
-      "emotion": null
+      "anomaly_ratio": 0.2,
+      "emotion": {
+        "sentiment": "中性/调整",
+        "sample_count": 10,
+        "breakdown": {
+          "看涨": 1,
+          "看跌": 0,
+          "中性": 9
+        }
+      },
+      "sample_tweets": [
+        {
+          "text": "@dutyge 别说这个了，润人只要有点脑子的都不会回来，不管水电工泥瓦匠还是炒菜端盘子理仓库，在那能开奔驰宝马特斯拉雷克萨斯，最次弄台丰田本田。现在国内经济这样，失业率高企，你让他们回国干啥？回农村",
+          "sentiment": "中性",
+          "created_at": "2026-08-09T16:43:38.000Z"
+        },
+        {
+          "text": "☘腾达集团💆主页✈\n🐏5年诚信老商家，支持担保　同台、支持视频验货。\n#探探 🎖 #移动联通电信 😫\n#厅卡 🧯 #快手 🍜\n#银行卡五件套 🌛 #支付宝 💏\n#钉钉 🏹 #QQ号 📯\n#电销卡 💌 ",
+          "sentiment": "中性",
+          "created_at": "2026-08-09T16:40:42.000Z"
+        },
+        {
+          "text": "🧟🏬⬜开云体育百家乐/开云体育百家乐/乐鱼体育/开云体育/3D福彩/捕鱼达人/欧亚体育/扑克大战/电竞/英甲/bet365网址  点链接@FateneBH https://t.co/ucRUKO4UT",
+          "sentiment": "中性",
+          "created_at": "2026-08-09T16:40:35.000Z"
+        },
+        {
+          "text": "虽然现在谷歌，亚马逊，微软，Meta都有自己的芯片，但问题却在芯片得指的台积电造，内存得指的三巨头供。价格贵不说还不能保证能拿到货，这种风险实在太大。不如自己建工厂一了百了，省心多了。我就不明白这些大",
+          "sentiment": "中性",
+          "created_at": "2026-08-09T16:40:33.000Z"
+        },
+        {
+          "text": "印度早.泄伟.哥 超长延.时喷雾 助勃药 绿p果冻 蓝水晶 小蓝片 绿钻 超希 超必 #盐酸达泊西汀 https://t.co/rqMbOYKNeY",
+          "sentiment": "中性",
+          "created_at": "2026-08-09T16:39:19.000Z"
+        }
+      ]
     }
   }
 }
