@@ -1,45 +1,27 @@
 {
-  "collected_at": "2026-08-10T12:46:02.000564+08:00",
+  "collected_at": "2026-08-10T16:45:28.747399+08:00",
   "sectors": {
     "gold": {
       "name": "黄金白银",
-      "latest_hour": 335,
-      "total_7d": 74584,
-      "hourly_avg": 441.3,
+      "latest_hour": 369,
+      "total_7d": 74046,
+      "hourly_avg": 438.1,
       "anomaly": false,
       "anomaly_direction": "normal",
-      "anomaly_ratio": 0.75,
+      "anomaly_ratio": 0.82,
       "emotion": null
     },
     "btc": {
       "name": "BTC",
-      "latest_hour": 947,
-      "total_7d": 98365,
-      "hourly_avg": 582.0,
-      "anomaly": true,
-      "anomaly_direction": "high",
-      "anomaly_ratio": 1.78,
-      "emotion": null
+      "error": "HTTP Error 401: Unauthorized"
     },
     "a_semi": {
       "name": "A股半导体",
-      "latest_hour": 176,
-      "total_7d": 40062,
-      "hourly_avg": 237.1,
-      "anomaly": false,
-      "anomaly_direction": "normal",
-      "anomaly_ratio": 0.74,
-      "emotion": null
+      "error": "HTTP Error 401: Unauthorized"
     },
     "us_semi": {
       "name": "美股半导体",
-      "latest_hour": 70,
-      "total_7d": 34199,
-      "hourly_avg": 202.4,
-      "anomaly": true,
-      "anomaly_direction": "low",
-      "anomaly_ratio": 0.39,
-      "emotion": null
+      "error": "HTTP Error 401: Unauthorized"
     }
   }
 }
