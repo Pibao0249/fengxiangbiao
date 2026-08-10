@@ -1,79 +1,44 @@
 {
-  "collected_at": "2026-08-10T04:46:05.176800+08:00",
+  "collected_at": "2026-08-10T08:45:31.296691+08:00",
   "sectors": {
     "gold": {
       "name": "黄金白银",
-      "latest_hour": 144,
-      "total_7d": 75436,
-      "hourly_avg": 446.4,
-      "anomaly": false,
-      "anomaly_direction": "normal",
-      "anomaly_ratio": 0.7,
+      "latest_hour": 167,
+      "total_7d": 74925,
+      "hourly_avg": 443.3,
+      "anomaly": true,
+      "anomaly_direction": "low",
+      "anomaly_ratio": 0.62,
       "emotion": null
     },
     "btc": {
       "name": "BTC",
-      "latest_hour": 119,
-      "total_7d": 98262,
-      "hourly_avg": 581.4,
+      "latest_hour": 292,
+      "total_7d": 97860,
+      "hourly_avg": 579.1,
       "anomaly": false,
       "anomaly_direction": "normal",
-      "anomaly_ratio": 0.68,
+      "anomaly_ratio": 1.01,
       "emotion": null
     },
     "a_semi": {
       "name": "A股半导体",
-      "latest_hour": 120,
-      "total_7d": 39872,
-      "hourly_avg": 235.9,
-      "anomaly": true,
-      "anomaly_direction": "high",
-      "anomaly_ratio": 1.55,
-      "emotion": {
-        "sentiment": "中性/调整",
-        "sample_count": 10,
-        "breakdown": {
-          "看涨": 0,
-          "看跌": 1,
-          "中性": 9
-        }
-      },
-      "sample_tweets": [
-        {
-          "text": "@Polymarket 这些芯片质量很低劣，粗制滥造。它们的企业对待员工不友好，苹果不会使用这些人的产品的",
-          "sentiment": "中性",
-          "created_at": "2026-08-09T20:42:32.000Z"
-        },
-        {
-          "text": "心理建设\n\n除了避免外部伤害摧毁你的现实生活，当然还要避免外部偏见进入你的内心，摧毁你的自我评价。\n\n1. 不要把社会的偏见转化成对自己的否定\n\n我在之前的文章里已经反复强调了一个一个事实：LGBTQ",
-          "sentiment": "中性",
-          "created_at": "2026-08-09T20:40:55.000Z"
-        },
-        {
-          "text": "@qingyue820 30 亿美元融资更像基础设施信号，不是普通产品信号。Coatue、黑石和英伟达都在押算力会不会变成可卖的容量。",
-          "sentiment": "中性",
-          "created_at": "2026-08-09T20:36:28.000Z"
-        },
-        {
-          "text": "@latontagrande 欧洲尽管也是美帝霸权受害者，但同时也是在大多数情况下积极主动的帮凶，其从犯的本质是不变的。\n\n美帝韧性很强，半导体泡沫破灭或在未来一两年，希望如此。但覆灭之路还长。未来2",
-          "sentiment": "看跌",
-          "created_at": "2026-08-09T20:35:23.000Z"
-        },
-        {
-          "text": "bl 《欲望公路2》1-6集高清未删减版\n💦深夜精选合集🔞⬇️\nhttps://t.co/WKSF2KPbIe\n晚晴的阴道壁在他静止的插入中微微收缩着，像在包裹着他的鸡巴做无意识的按摩。他的拇指在她臀",
-          "sentiment": "中性",
-          "created_at": "2026-08-09T20:26:40.000Z"
-        }
-      ]
+      "latest_hour": 131,
+      "total_7d": 40117,
+      "hourly_avg": 237.4,
+      "anomaly": false,
+      "anomaly_direction": "normal",
+      "anomaly_ratio": 0.66,
+      "emotion": null
     },
     "us_semi": {
       "name": "美股半导体",
-      "latest_hour": 16,
-      "total_7d": 34371,
+      "latest_hour": 73,
+      "total_7d": 34369,
       "hourly_avg": 203.4,
       "anomaly": true,
       "anomaly_direction": "low",
-      "anomaly_ratio": 0.36,
+      "anomaly_ratio": 0.59,
       "emotion": null
     }
   }
