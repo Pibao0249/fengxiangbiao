@@ -1,15 +1,9 @@
 {
-  "collected_at": "2026-08-10T16:45:28.747399+08:00",
+  "collected_at": "2026-08-10T20:45:57.361854+08:00",
   "sectors": {
     "gold": {
       "name": "黄金白银",
-      "latest_hour": 369,
-      "total_7d": 74046,
-      "hourly_avg": 438.1,
-      "anomaly": false,
-      "anomaly_direction": "normal",
-      "anomaly_ratio": 0.82,
-      "emotion": null
+      "error": "HTTP Error 401: Unauthorized"
     },
     "btc": {
       "name": "BTC",
