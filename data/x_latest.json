@@ -1,44 +1,114 @@
 {
-  "collected_at": "2026-08-14T20:45:22.208039+08:00",
+  "collected_at": "2026-08-15T00:45:57.155065+08:00",
   "sectors": {
     "gold": {
       "name": "黄金白银",
-      "latest_hour": 230,
-      "total_7d": 65602,
-      "hourly_avg": 388.2,
+      "latest_hour": 200,
+      "total_7d": 63707,
+      "hourly_avg": 377.0,
       "anomaly": true,
       "anomaly_direction": "low",
-      "anomaly_ratio": 0.41,
-      "emotion": null
+      "anomaly_ratio": 0.58,
+      "emotion": {
+        "sentiment": "中性/调整",
+        "sample_count": 10,
+        "breakdown": {
+          "看涨": 3,
+          "看跌": 3,
+          "中性": 4
+        }
+      },
+      "sample_tweets": [
+        {
+          "text": "刚刚看到 @misaENFP 发推，说 @OKX 预言家 S2 8 月 17 日强势归来。\n\n我可太喜欢这个了，哈哈。\n\n前段时间世界杯那波大家也知道，我就爱这口。 不管是比分、胜负、冷门，还是临场变",
+          "sentiment": "看涨",
+          "created_at": "2026-08-14T16:45:49.000Z"
+        },
+        {
+          "text": "如果大家蜂拥而至只是为了白嫖一个熟悉的 EVM 壳子，却对底层真正的差异化结算护城河视而不见。那这套费劲巴拉搞出来的多层架构，到底会带来生态大爆发，还是会沦为极其沉重的运维包袱？这点，咱们只能等真金白",
+          "sentiment": "看涨",
+          "created_at": "2026-08-14T16:44:35.000Z"
+        },
+        {
+          "text": "黄金分红 只能内盘买",
+          "sentiment": "中性",
+          "created_at": "2026-08-14T16:43:54.000Z"
+        },
+        {
+          "text": "@qiu_benming 绝对会回到4000，美国打的就是黄金，但黄金它压不住……",
+          "sentiment": "中性",
+          "created_at": "2026-08-14T16:43:45.000Z"
+        },
+        {
+          "text": "$BTC背后的中东油钱还没走！\n\n阿布扎比主权资本继续持仓。\n\n7.64亿美元重仓现货ETF！\n\n大跌也没逼退这批长期资金。\n\n海湾巨鳄正在守住数字黄金！\n\n最新持仓数据显示，截至6月30日，Muba",
+          "sentiment": "看跌",
+          "created_at": "2026-08-14T16:43:43.000Z"
+        }
+      ]
     },
     "btc": {
       "name": "BTC",
-      "latest_hour": 356,
-      "total_7d": 63428,
-      "hourly_avg": 375.3,
+      "latest_hour": 291,
+      "total_7d": 63176,
+      "hourly_avg": 373.8,
       "anomaly": false,
       "anomaly_direction": "normal",
-      "anomaly_ratio": 0.76,
+      "anomaly_ratio": 0.71,
       "emotion": null
     },
     "a_semi": {
       "name": "A股半导体",
-      "latest_hour": 211,
-      "total_7d": 31783,
-      "hourly_avg": 188.1,
-      "anomaly": false,
-      "anomaly_direction": "normal",
-      "anomaly_ratio": 1.02,
-      "emotion": null
+      "latest_hour": 99,
+      "total_7d": 31554,
+      "hourly_avg": 186.7,
+      "anomaly": true,
+      "anomaly_direction": "low",
+      "anomaly_ratio": 0.61,
+      "emotion": {
+        "sentiment": "中性/调整",
+        "sample_count": 10,
+        "breakdown": {
+          "看涨": 0,
+          "看跌": 2,
+          "中性": 8
+        }
+      },
+      "sample_tweets": [
+        {
+          "text": "第一类：【能源主权 - 物理负熵之王】\n\n$URG (Uranium Energy Corp) / $DNN (Denison Mines):\n真相： 物理世界的“以太坊”。AI 算力的尽头是稳定电力",
+          "sentiment": "中性",
+          "created_at": "2026-08-14T16:45:14.000Z"
+        },
+        {
+          "text": "@fkscamlee 没玩半导体了，只拿着币圈空单",
+          "sentiment": "中性",
+          "created_at": "2026-08-14T16:44:48.000Z"
+        },
+        {
+          "text": "半导体反弹快结束了，追涨要带止损哦，被套天上可不好 https://t.co/cGKHBIjfx1",
+          "sentiment": "中性",
+          "created_at": "2026-08-14T16:43:38.000Z"
+        },
+        {
+          "text": "@moongunner2025 韩国口气是大了点，4连爆，美国芯片用完了吧？",
+          "sentiment": "看跌",
+          "created_at": "2026-08-14T16:43:30.000Z"
+        },
+        {
+          "text": "@liuyuxin89064 彻底烂尾，血本无归：指的是中国目前 13000 多亿美元的顺差，其中，亚投行和一带一路所涉及的国家和地区占据整个顺差总额的 60%~70%。\n芯片计划：中国已确认正在自主",
+          "sentiment": "看跌",
+          "created_at": "2026-08-14T16:41:32.000Z"
+        }
+      ]
     },
     "us_semi": {
       "name": "美股半导体",
-      "latest_hour": 78,
-      "total_7d": 12963,
-      "hourly_avg": 76.7,
+      "latest_hour": 43,
+      "total_7d": 12949,
+      "hourly_avg": 76.6,
       "anomaly": true,
       "anomaly_direction": "low",
-      "anomaly_ratio": 0.42,
+      "anomaly_ratio": 0.15,
       "emotion": null
     }
   }
