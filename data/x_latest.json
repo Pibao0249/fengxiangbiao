@@ -1,44 +1,79 @@
 {
-  "collected_at": "2026-08-14T08:45:43.819803+08:00",
+  "collected_at": "2026-08-14T12:45:17.778190+08:00",
   "sectors": {
     "gold": {
       "name": "黄金白银",
-      "latest_hour": 157,
+      "latest_hour": 333,
       "total_7d": 67203,
       "hourly_avg": 397.7,
       "anomaly": false,
       "anomaly_direction": "normal",
-      "anomaly_ratio": 0.68,
+      "anomaly_ratio": 0.76,
       "emotion": null
     },
     "btc": {
       "name": "BTC",
-      "latest_hour": 197,
-      "total_7d": 62768,
-      "hourly_avg": 371.4,
-      "anomaly": false,
-      "anomaly_direction": "normal",
-      "anomaly_ratio": 0.68,
-      "emotion": null
+      "latest_hour": 362,
+      "total_7d": 62836,
+      "hourly_avg": 371.8,
+      "anomaly": true,
+      "anomaly_direction": "low",
+      "anomaly_ratio": 0.6,
+      "emotion": {
+        "sentiment": "中性/调整",
+        "sample_count": 10,
+        "breakdown": {
+          "看涨": 2,
+          "看跌": 0,
+          "中性": 8
+        }
+      },
+      "sample_tweets": [
+        {
+          "text": "🦸🏿🌵🧜‍♂👃 现金网址/牛牛透视/365体育/皓月国际/火博体育/宏利娱乐/斗球体育/加密货币/鼎豪娱乐/开云体育 👉   https://t.co/X0c9litLyU  👈👈 https://t",
+          "sentiment": "中性",
+          "created_at": "2026-08-14T04:44:58.000Z"
+        },
+        {
+          "text": "@giantcutie666 这和加密货币有关系吗？？",
+          "sentiment": "中性",
+          "created_at": "2026-08-14T04:44:58.000Z"
+        },
+        {
+          "text": "炒币，要学会守株待兔，你才能暴富，你只需要埋伏一些优质币，比如比特币，以太坊，狗狗币，然后等待着爆发，等待一根月线大阳，或者季度线大阳，千万别看日线，周线，迷惑性太强！",
+          "sentiment": "看涨",
+          "created_at": "2026-08-14T04:43:27.000Z"
+        },
+        {
+          "text": "Web3基础设施修改版文章第3篇——https://t.co/fhyGVLzgSi （中英文版本）\n\nArc主网计划于2026年9月16日上线。\n\nArc是机构级稳定币基础设施的强力玩家，由顶级投资人",
+          "sentiment": "中性",
+          "created_at": "2026-08-14T04:43:17.000Z"
+        },
+        {
+          "text": "以太坊现状拆解：\n① 路线图刚大改，隐私和抗量子成核心\n② 质押量4170万枚创历史新高，占比达三分之一\n③ 价格从年内高点腰斩\n④ 网络安全性理论上因质押量提升而增强\n技术在进步，价格在挣扎，这就是",
+          "sentiment": "中性",
+          "created_at": "2026-08-14T04:42:52.000Z"
+        }
+      ]
     },
     "a_semi": {
       "name": "A股半导体",
-      "latest_hour": 165,
-      "total_7d": 32259,
-      "hourly_avg": 190.9,
+      "latest_hour": 162,
+      "total_7d": 32031,
+      "hourly_avg": 189.5,
       "anomaly": false,
       "anomaly_direction": "normal",
-      "anomaly_ratio": 0.96,
+      "anomaly_ratio": 0.81,
       "emotion": null
     },
     "us_semi": {
       "name": "美股半导体",
-      "latest_hour": 72,
-      "total_7d": 13220,
-      "hourly_avg": 78.2,
-      "anomaly": false,
-      "anomaly_direction": "normal",
-      "anomaly_ratio": 0.85,
+      "latest_hour": 58,
+      "total_7d": 13067,
+      "hourly_avg": 77.3,
+      "anomaly": true,
+      "anomaly_direction": "low",
+      "anomaly_ratio": 0.45,
       "emotion": null
     }
   }
