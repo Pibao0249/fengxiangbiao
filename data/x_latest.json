@@ -1,80 +1,45 @@
 {
-  "collected_at": "2026-08-14T04:45:12.434877+08:00",
+  "collected_at": "2026-08-14T08:45:43.819803+08:00",
   "sectors": {
     "gold": {
       "name": "黄金白银",
-      "latest_hour": 121,
-      "total_7d": 67166,
-      "hourly_avg": 397.4,
+      "latest_hour": 157,
+      "total_7d": 67203,
+      "hourly_avg": 397.7,
       "anomaly": false,
       "anomaly_direction": "normal",
-      "anomaly_ratio": 0.66,
+      "anomaly_ratio": 0.68,
       "emotion": null
     },
     "btc": {
       "name": "BTC",
-      "latest_hour": 194,
-      "total_7d": 100990,
-      "hourly_avg": 597.6,
+      "latest_hour": 197,
+      "total_7d": 62768,
+      "hourly_avg": 371.4,
       "anomaly": false,
       "anomaly_direction": "normal",
-      "anomaly_ratio": 1.14,
+      "anomaly_ratio": 0.68,
       "emotion": null
     },
     "a_semi": {
       "name": "A股半导体",
-      "latest_hour": 61,
-      "total_7d": 36802,
-      "hourly_avg": 217.8,
+      "latest_hour": 165,
+      "total_7d": 32259,
+      "hourly_avg": 190.9,
       "anomaly": false,
       "anomaly_direction": "normal",
-      "anomaly_ratio": 0.74,
+      "anomaly_ratio": 0.96,
       "emotion": null
     },
     "us_semi": {
       "name": "美股半导体",
-      "latest_hour": 20,
-      "total_7d": 16056,
-      "hourly_avg": 95.0,
-      "anomaly": true,
-      "anomaly_direction": "low",
-      "anomaly_ratio": 0.59,
-      "emotion": {
-        "sentiment": "中性/调整",
-        "sample_count": 10,
-        "breakdown": {
-          "看涨": 2,
-          "看跌": 1,
-          "中性": 7
-        }
-      },
-      "sample_tweets": [
-        {
-          "text": "🤖【量子位】刚刚！Ilya首个模型曝光了\n更进一步，他还在评论区表示，SSI当前版本已经准备就绪，团队正在把下一代版本的规模直接扩展 10倍。今年7月27日，英伟达与SSI宣布长期战略合作，同时投资S",
-          "sentiment": "中性",
-          "created_at": "2026-08-13T20:35:34.000Z"
-        },
-        {
-          "text": "🟡🇺🇸 Michael Burry 最新仓位披露显示，他开始对部分空头交易止损并回补：\n\n🔸 加码美光 $MU 空头\n🔸 减持卡特彼勒 $CAT 空头\n🔸 新建纳斯达克100 ETF $QQQ 空头\n",
-          "sentiment": "看跌",
-          "created_at": "2026-08-13T20:30:25.000Z"
-        },
-        {
-          "text": "↖🗽开云体育百家乐/开云体育百家乐/乐鱼体育/开云体育/欧宝体育/平台app/炸金花/博喜体育/RT电子/星际体育/电竞  点链接@FateneBH https://t.co/qb79wUuNfS",
-          "sentiment": "中性",
-          "created_at": "2026-08-13T20:29:33.000Z"
-        },
-        {
-          "text": "@KotlinerBTC 美股Mu/sk/sndk/wtc/stx存储已经3万亿左右了,再加上三星长江长鑫，已经超过4万亿了. 本质上都卖一个东西，你要庄家怎么接盘😂. 英伟达/苹果 市值5万亿，因为",
-          "sentiment": "中性",
-          "created_at": "2026-08-13T20:28:40.000Z"
-        },
-        {
-          "text": "美聯儲突發放鷹！ $NVDA 蝴蝶形態確立直奔 $245，狗莊瘋狂誘空！#BTC/#ETH/#XAU /#dxy #DJI 全品種關鍵點位終極拆解！\n$BTC $ETH $XAUt  $dxy $ym",
-          "sentiment": "中性",
-          "created_at": "2026-08-13T20:25:41.000Z"
-        }
-      ]
+      "latest_hour": 72,
+      "total_7d": 13220,
+      "hourly_avg": 78.2,
+      "anomaly": false,
+      "anomaly_direction": "normal",
+      "anomaly_ratio": 0.85,
+      "emotion": null
     }
   }
 }
