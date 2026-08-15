@@ -1,21 +1,21 @@
 {
-  "collected_at": "2026-08-15T20:45:44.882567+08:00",
+  "collected_at": "2026-08-16T00:45:14.983783+08:00",
   "sectors": {
     "gold": {
       "name": "黄金白银",
-      "error": "<urlopen error EOF occurred in violation of protocol (_ssl.c:1129)>"
+      "error": "<urlopen error [Errno 61] Connection refused>"
     },
     "btc": {
       "name": "BTC",
-      "error": "<urlopen error EOF occurred in violation of protocol (_ssl.c:1129)>"
+      "error": "<urlopen error [Errno 61] Connection refused>"
     },
     "a_semi": {
       "name": "A股半导体",
-      "error": "<urlopen error EOF occurred in violation of protocol (_ssl.c:1129)>"
+      "error": "<urlopen error [Errno 61] Connection refused>"
     },
     "us_semi": {
       "name": "美股半导体",
-      "error": "<urlopen error EOF occurred in violation of protocol (_ssl.c:1129)>"
+      "error": "<urlopen error [Errno 61] Connection refused>"
     }
   }
 }
