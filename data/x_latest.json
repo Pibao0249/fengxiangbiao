@@ -1,45 +1,21 @@
 {
-  "collected_at": "2026-08-15T04:45:27.911513+08:00",
+  "collected_at": "2026-08-15T08:46:01.192476+08:00",
   "sectors": {
     "gold": {
       "name": "黄金白银",
-      "latest_hour": 75,
-      "total_7d": 62904,
-      "hourly_avg": 372.2,
-      "anomaly": true,
-      "anomaly_direction": "low",
-      "anomaly_ratio": 0.43,
-      "emotion": null
+      "error": "<urlopen error EOF occurred in violation of protocol (_ssl.c:1129)>"
     },
     "btc": {
       "name": "BTC",
-      "latest_hour": 80,
-      "total_7d": 63011,
-      "hourly_avg": 372.8,
-      "anomaly": true,
-      "anomaly_direction": "low",
-      "anomaly_ratio": 0.47,
-      "emotion": null
+      "error": "<urlopen error EOF occurred in violation of protocol (_ssl.c:1129)>"
     },
     "a_semi": {
       "name": "A股半导体",
-      "latest_hour": 54,
-      "total_7d": 31501,
-      "hourly_avg": 186.4,
-      "anomaly": false,
-      "anomaly_direction": "normal",
-      "anomaly_ratio": 0.67,
-      "emotion": null
+      "error": "<urlopen error EOF occurred in violation of protocol (_ssl.c:1129)>"
     },
     "us_semi": {
       "name": "美股半导体",
-      "latest_hour": 16,
-      "total_7d": 12915,
-      "hourly_avg": 76.4,
-      "anomaly": true,
-      "anomaly_direction": "low",
-      "anomaly_ratio": 0.52,
-      "emotion": null
+      "error": "<urlopen error EOF occurred in violation of protocol (_ssl.c:1129)>"
     }
   }
 }
