@@ -1,21 +1,21 @@
 {
-  "collected_at": "2026-08-20T00:45:29.483449+08:00",
+  "collected_at": "2026-08-20T08:45:45.540104+08:00",
   "sectors": {
     "gold": {
       "name": "黄金白银",
-      "error": "<urlopen error [Errno 61] Connection refused>"
+      "error": "expected string or bytes-like object"
     },
     "btc": {
       "name": "BTC",
-      "error": "<urlopen error [Errno 61] Connection refused>"
+      "error": "expected string or bytes-like object"
     },
     "a_semi": {
       "name": "A股半导体",
-      "error": "<urlopen error [Errno 61] Connection refused>"
+      "error": "expected string or bytes-like object"
     },
     "us_semi": {
       "name": "美股半导体",
-      "error": "<urlopen error [Errno 61] Connection refused>"
+      "error": "expected string or bytes-like object"
     }
   }
 }
