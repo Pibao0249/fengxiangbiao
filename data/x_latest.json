@@ -1,21 +1,21 @@
 {
-  "collected_at": "2026-08-20T08:45:45.540104+08:00",
+  "collected_at": "2026-08-21T00:46:04.010684+08:00",
   "sectors": {
     "gold": {
       "name": "黄金白银",
-      "error": "expected string or bytes-like object"
+      "error": "HTTP Error 401: Unauthorized"
     },
     "btc": {
       "name": "BTC",
-      "error": "expected string or bytes-like object"
+      "error": "HTTP Error 401: Unauthorized"
     },
     "a_semi": {
       "name": "A股半导体",
-      "error": "expected string or bytes-like object"
+      "error": "HTTP Error 401: Unauthorized"
     },
     "us_semi": {
       "name": "美股半导体",
-      "error": "expected string or bytes-like object"
+      "error": "HTTP Error 401: Unauthorized"
     }
   }
 }

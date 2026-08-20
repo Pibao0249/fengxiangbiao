@@ -1,12 +1,12 @@
 {
-  "time": "2026-08-20T01:48:07.729898",
+  "time": "2026-08-20T21:36:45.202782",
   "sources": {
     "baidu": {
       "count": 51,
       "status": "ok"
     },
     "weibo": {
-      "count": 51,
+      "count": 50,
       "status": "ok"
     },
     "bilibili": {
@@ -15,7 +15,7 @@
     },
     "fng": {
       "status": "ok",
-      "value": 46
+      "value": 62
     },
     "xueqiu": {
       "status": "fail"
@@ -28,58 +28,58 @@
   "sectors": {
     "gold": {
       "count": 160,
-      "bullish": 19,
-      "bearish": 7,
-      "neutral": 134,
-      "silence_rate": 83.8,
-      "carnival_rate": 11.9,
-      "sentiment": 0.08,
+      "bullish": 24,
+      "bearish": 6,
+      "neutral": 130,
+      "silence_rate": 81.2,
+      "carnival_rate": 15.0,
+      "sentiment": 0.12,
       "source": "guba_curl",
       "sample_posts": [
         {
+          "title": "农产品，农化制品，受国家政策重点调控，大涨影响民生。基本没戏。",
+          "click": 21,
+          "comment": 0,
+          "time": "2026-08-20 10:43:38",
+          "sentiment": 1
+        },
+        {
           "title": "涨停之后的揉搓线，明天涨停",
-          "click": 99,
+          "click": 102,
           "comment": 0,
           "time": "2026-07-08 13:35:54",
           "sentiment": 1
         },
         {
           "title": "盐湖和东方铁塔预告业绩了。都业绩大增。但股票却下跌。亚钾国际和藏格没有预告却大涨",
-          "click": 118,
+          "click": 121,
           "comment": 0,
           "time": "2026-07-03 10:57:10",
           "sentiment": 1
         },
         {
           "title": "2026年6月，新疆科研团队在橡胶草产业化上取得里程碑式突破，首次实现从“草”到",
-          "click": 89,
+          "click": 92,
           "comment": 0,
           "time": "2026-07-01 11:31:05",
           "sentiment": 1
         },
         {
           "title": "橡胶草科研突破，将投入大面积种植了",
-          "click": 78,
+          "click": 79,
           "comment": 0,
           "time": "2026-07-01 11:27:43",
           "sentiment": 1
-        },
-        {
-          "title": "今天不跌了，没意思。继续跌停",
-          "click": 78,
-          "comment": 0,
-          "time": "2026-06-18 09:48:11",
-          "sentiment": -1
         }
       ],
       "social_backup": {
-        "count": 3,
-        "bullish": 2,
+        "count": 0,
+        "bullish": 0,
         "bearish": 0,
-        "neutral": 1,
-        "silence_rate": 33.3,
-        "carnival_rate": 66.7,
-        "sentiment": 0.67
+        "neutral": 0,
+        "silence_rate": 0,
+        "carnival_rate": 0,
+        "sentiment": 0
       },
       "data_source": "guba"
     },
@@ -95,58 +95,58 @@
     },
     "a_semi": {
       "count": 81,
-      "bullish": 7,
-      "bearish": 11,
-      "neutral": 63,
-      "silence_rate": 77.8,
-      "carnival_rate": 8.6,
-      "sentiment": -0.02,
+      "bullish": 14,
+      "bearish": 3,
+      "neutral": 64,
+      "silence_rate": 79.0,
+      "carnival_rate": 17.3,
+      "sentiment": 0.17,
       "source": "guba_curl",
       "sample_posts": [
         {
-          "title": "韭菜都吸来了，第二轮开杀，大C浪，顺势带下老登二次触底。",
-          "click": 32,
+          "title": "兄弟们，纵观a股5000家，我见过减持的，也见过跑路减持的，也见过融通减持",
+          "click": 35,
           "comment": 0,
-          "time": "2026-08-19 16:17:49",
+          "time": "2026-08-20 16:43:40",
           "sentiment": -1
         },
         {
-          "title": "服了，拉了半个月就拉了200点，一天跌完了。",
-          "click": 27,
+          "title": "尾盘拉涨停",
+          "click": 16,
           "comment": 0,
-          "time": "2026-08-19 14:45:44",
-          "sentiment": -1
-        },
-        {
-          "title": "血洗，上次大跌忘了吧！",
-          "click": 21,
-          "comment": 0,
-          "time": "2026-08-19 14:45:25",
-          "sentiment": -1
-        },
-        {
-          "title": "今天承压！能否挺住？即将突破60天线2980！最后一道压力时，外围塌了。",
-          "click": 1496,
-          "comment": 29,
-          "time": "2026-08-19 09:22:30",
+          "time": "2026-08-20 14:46:46",
           "sentiment": 1
         },
         {
-          "title": "求指数连续跌停一周",
-          "click": 19,
+          "title": "韩国的科技股大涨，而A股却大跌，到底是谁在做空市场，监管部门应该好好查查。",
+          "click": 27,
           "comment": 0,
-          "time": "2026-08-19 14:10:47",
+          "time": "2026-08-20 14:19:48",
+          "sentiment": 1
+        },
+        {
+          "title": "科技强国，同志们赶紧起来抄底啦",
+          "click": 16,
+          "comment": 0,
+          "time": "2026-08-20 14:13:01",
+          "sentiment": 1
+        },
+        {
+          "title": "每次拉升都是为了出货，老奶奶下楼梯",
+          "click": 14,
+          "comment": 0,
+          "time": "2026-08-20 14:07:27",
           "sentiment": -1
         }
       ],
       "social_backup": {
-        "count": 1,
-        "bullish": 0,
+        "count": 2,
+        "bullish": 1,
         "bearish": 0,
         "neutral": 1,
-        "silence_rate": 100.0,
-        "carnival_rate": 0.0,
-        "sentiment": 0.0
+        "silence_rate": 50.0,
+        "carnival_rate": 50.0,
+        "sentiment": 1.0
       },
       "data_source": "guba"
     },
@@ -176,7 +176,7 @@
         },
         {
           "title": "欧美股市大涨了！欧美股市大涨了！欧美股市大涨了！",
-          "click": 1267,
+          "click": 1268,
           "comment": 0,
           "time": "2019-10-15 23:12:32",
           "sentiment": 1
@@ -198,63 +198,53 @@
       ],
       "social_backup": {
         "count": 1,
-        "bullish": 1,
+        "bullish": 0,
         "bearish": 0,
-        "neutral": 0,
-        "silence_rate": 0.0,
-        "carnival_rate": 100.0,
-        "sentiment": 1.0
+        "neutral": 1,
+        "silence_rate": 100.0,
+        "carnival_rate": 0.0,
+        "sentiment": 0.0
       },
       "data_source": "guba"
     }
   },
   "summary": {
-    "total_social": 152,
+    "total_social": 151,
     "sources_ok": 5,
     "sources_total": 6,
     "fng": {
-      "value": 46,
-      "classification": "Fear"
+      "value": 62,
+      "classification": "Greed"
     }
   },
   "consensus": {
     "gold": {
       "platforms": {
         "guba": {
-          "silence": 83.8,
-          "carnival": 11.9,
-          "sentiment": 0.08,
+          "silence": 81.2,
+          "carnival": 15.0,
+          "sentiment": 0.12,
           "count": 160
-        },
-        "weibo": {
-          "silence": 50.0,
-          "count": 2,
-          "sentiment": 0.5
-        },
-        "baidu": {
-          "silence": 0.0,
-          "count": 1,
-          "sentiment": 1.0
         }
       },
-      "level": "🔴 分歧",
-      "platform_count": 3
+      "level": "⚪ 数据不足",
+      "platform_count": 1
     },
     "a_semi": {
       "platforms": {
         "guba": {
-          "silence": 77.8,
-          "carnival": 8.6,
-          "sentiment": -0.02,
+          "silence": 79.0,
+          "carnival": 17.3,
+          "sentiment": 0.17,
           "count": 81
         },
         "baidu": {
-          "silence": 100.0,
-          "count": 1,
-          "sentiment": 0.0
+          "silence": 50.0,
+          "count": 2,
+          "sentiment": 1.0
         }
       },
-      "level": "🤝 高共识·沉默",
+      "level": "🔴 分歧",
       "platform_count": 2
     },
     "us_semi": {
@@ -265,19 +255,19 @@
           "sentiment": 0.03,
           "count": 480
         },
-        "baidu": {
-          "silence": 0.0,
+        "weibo": {
+          "silence": 100.0,
           "count": 1,
-          "sentiment": 1.0
+          "sentiment": 0.0
         }
       },
-      "level": "🔴 分歧",
+      "level": "🤝 高共识·沉默",
       "platform_count": 2
     }
   },
   "wwi": {
-    "wwi": 0.1533,
+    "wwi": 0.1512,
     "phase": "bear",
-    "block_height": 963203
+    "block_height": 963314
   }
 }
