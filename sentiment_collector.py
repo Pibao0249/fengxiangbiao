@@ -13,8 +13,8 @@ TOPICS = {
     "AI_SEMI": "semiconductor+AI+chip+HBM+NVDA+MU+storage+memory",
 }
 
-os.environ["HTTP_PROXY"] = "http://127.0.0.1:7890"
-os.environ["HTTPS_PROXY"] = "http://127.0.0.1:7890"
+# 直连(快连TUN)
+
 
 def fetch_news(topic, query):
     """拉 Google News RSS"""

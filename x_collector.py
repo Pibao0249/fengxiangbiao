@@ -11,7 +11,7 @@ import json, os, sys, urllib.request, time
 from datetime import datetime, timezone, timedelta
 
 BEARER = "AAAAAAAAAAAAAAAAAAAAABj7%2BgEAAAAANbf7V687aLDxotqkIl5iOdn56Mg%3Dlvk90PcvcspHHfISvkdhB2hpB2cOLfajoPaKCSC1YL7sTY7mQ6"
-PROXY = "http://127.0.0.1:7890"
+PROXY = None  # 快连TUN直连,无需FlClash
 DATA_DIR = os.path.expanduser("~/.hermes/scripts/fengxiangbiao/data")
 HISTORY_FILE = os.path.join(DATA_DIR, "x_history.json")
 RESULT_FILE = os.path.join(DATA_DIR, "x_latest.json")
@@ -51,7 +51,10 @@ def api(url, retries=3):
     for attempt in range(retries):
         try:
             req = urllib.request.Request(url, headers={"Authorization": f"Bearer {BEARER}"})
-            proxy_handler = urllib.request.ProxyHandler({"https": PROXY, "http": PROXY})
+            # PROXY=None 时传空 dict，避免 Python<3.10 的 ProxyHandler 对 None 值崩溃
+            proxy_handler = urllib.request.ProxyHandler(
+                {k: v for k, v in {"https": PROXY, "http": PROXY}.items() if v}
+            )
             opener = urllib.request.build_opener(proxy_handler)
             with opener.open(req, timeout=30) as resp:
                 return json.loads(resp.read().decode())

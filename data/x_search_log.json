@@ -1,8 +1,5 @@
 {
-  "date": "2026-08-09",
-  "triggered": 2,
-  "sectors": [
-    "us_semi",
-    "us_semi"
-  ]
+  "date": "2026-08-24",
+  "triggered": 0,
+  "sectors": []
 }

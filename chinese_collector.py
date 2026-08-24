@@ -8,7 +8,7 @@ import json, re, urllib.request, ssl, sys, os
 from datetime import datetime, timezone, timedelta
 
 # 代理
-PROXY = "http://127.0.0.1:7890"
+PROXY = None  # 快连TUN直连,无需FlClash
 ssl_ctx = ssl.create_default_context()
 
 def fetch(url, headers=None, use_proxy=True, timeout=10):

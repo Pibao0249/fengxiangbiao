@@ -8,7 +8,7 @@ import json, re, urllib.request, ssl, sys, os, time
 from datetime import datetime
 
 ssl_ctx = ssl.create_default_context()
-PROXY = "http://127.0.0.1:7890"
+PROXY = None  # 快连TUN直连,无需FlClash
 DATA_DIR = os.path.expanduser('~/.hermes/scripts/fengxiangbiao/data')
 
 def fetch(url, headers=None, use_proxy=True, timeout=10):

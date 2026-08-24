@@ -9,7 +9,7 @@ import json, os, ssl, urllib.request
 from datetime import datetime
 
 DATA_DIR = os.path.expanduser('~/.hermes/scripts/fengxiangbiao/data')
-PROXY = "http://127.0.0.1:7890"
+PROXY = None  # 快连TUN直连,无需FlClash
 ssl_ctx = ssl.create_default_context()
 
 def fetch(url, use_proxy=False, headers=None, timeout=10):
@@ -49,8 +49,8 @@ def get_btc_price():
 def get_yahoo_prices():
     """通过yfinance代理获取关键标的价格和MA200"""
     import os
-    os.environ['HTTP_PROXY'] = 'http://127.0.0.1:7890'
-    os.environ['HTTPS_PROXY'] = 'http://127.0.0.1:7890'
+    # 直连(快连TUN)
+    
     result = {}
     try:
         import yfinance as yf
