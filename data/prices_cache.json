@@ -1,0 +1,47 @@
+{
+ "GOLD": {
+  "price": 4456.4,
+  "ma200": null,
+  "deviation": null
+ },
+ "SILVER": {
+  "price": 66.5,
+  "ma200": null,
+  "deviation": null
+ },
+ "NVDA": {
+  "price": 217.55,
+  "ma200": null,
+  "deviation": null
+ },
+ "AMD": {
+  "price": 465.58,
+  "ma200": null,
+  "deviation": null
+ },
+ "MU": {
+  "price": 932.86,
+  "ma200": null,
+  "deviation": null
+ },
+ "AVGO": {
+  "price": 368.79,
+  "ma200": null,
+  "deviation": null
+ },
+ "SMCI": {
+  "price": 37.08,
+  "ma200": null,
+  "deviation": null
+ },
+ "TSM": {
+  "price": 417.52,
+  "ma200": null,
+  "deviation": null
+ },
+ "SOX": {
+  "price": 11469.66,
+  "ma200": null,
+  "deviation": null
+ }
+}

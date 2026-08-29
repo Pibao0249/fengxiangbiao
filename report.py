@@ -47,15 +47,13 @@ def get_btc_price():
     return None
 
 def get_yahoo_prices():
-    """通过yfinance代理获取关键标的价格和MA200"""
+    """通过yfinance获取关键标的价格和MA200；yfinance被墙/限流时用备用源兜底"""
     import os
-    # 直连(快连TUN)
-    
     result = {}
     try:
         import yfinance as yf
         import pandas as pd
-        
+
         tickers = {
             # 美股半导体七龙头（含SK海力士）
             'NVDA': 'NVDA', 'AMD': 'AMD', 'MU': 'MU',
@@ -71,22 +69,76 @@ def get_yahoo_prices():
             'SPX': '^GSPC', 'VIX': '^VIX',
             'BTC': 'BTC-USD',
         }
-        
+
         for name, symbol in tickers.items():
+            for _attempt in range(3):  # yfinance 偶发失败，重试3次
+                try:
+                    import time; time.sleep(1.2)  # 防限流
+                    t = yf.Ticker(symbol)
+                    hist = t.history(period='1y')
+                    if len(hist) > 0:
+                        price = hist['Close'].iloc[-1]
+                        ma200 = hist['Close'].rolling(200).mean().iloc[-1] if len(hist) >= 200 else None
+                        if price is not None and not pd.isna(price):
+                            result[name] = {
+                                'price': round(float(price), 2),
+                                'ma200': round(float(ma200), 2) if ma200 and not pd.isna(ma200) else None,
+                                'deviation': round((price - ma200) / ma200 * 100, 1) if ma200 and not pd.isna(ma200) else None,
+                            }
+                            break
+                except Exception:
+                    pass
+    except Exception:
+        pass
+
+    # ── 备用数据源兜底（无 MA200，只有实时价）──
+    import json as _json
+
+    def _get_json(url, headers=None, timeout=12):
+        try:
+            req = urllib.request.Request(url)
+            if headers:
+                for k, v in headers.items():
+                    req.add_header(k, v)
+            with urllib.request.urlopen(req, timeout=timeout) as r:
+                return _json.loads(r.read().decode('utf-8', errors='ignore'))
+        except Exception:
+            return None
+
+    UA = {
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36',
+        'Accept': 'application/json',
+    }
+
+    def _set(name, price):
+        if name not in result and price:
             try:
-                import time; time.sleep(1.5)  # 防限流
-                t = yf.Ticker(symbol)
-                hist = t.history(period='1y')
-                if len(hist) > 0:
-                    price = hist['Close'].iloc[-1]
-                    ma200 = hist['Close'].rolling(200).mean().iloc[-1] if len(hist) >= 200 else None
-                    result[name] = {
-                        'price': round(float(price), 2),
-                        'ma200': round(float(ma200), 2) if ma200 and not pd.isna(ma200) else None,
-                        'deviation': round((price - ma200) / ma200 * 100, 1) if ma200 and not pd.isna(ma200) else None,
-                    }
-            except: pass
-    except: pass
+                result[name] = {'price': round(float(price), 2), 'ma200': None, 'deviation': None}
+            except Exception:
+                pass
+
+    # 贵金属: gold-api.com（免key）
+    for sym, key in (('XAU', 'GOLD'), ('XAG', 'SILVER')):
+        if key not in result:
+            d = _get_json('https://api.gold-api.com/price/%s' % sym)
+            if d and d.get('price'):
+                _set(key, d['price'])
+
+    # 美股/指数: Nasdaq API（免key）
+    nasdaq_map = {
+        'NVDA': ('NVDA', 'stocks'), 'AMD': ('AMD', 'stocks'), 'MU': ('MU', 'stocks'),
+        'AVGO': ('AVGO', 'stocks'), 'SMCI': ('SMCI', 'stocks'), 'TSM': ('TSM', 'stocks'),
+        'SOX': ('SOX', 'index'),
+    }
+    for key, (sym, cls) in nasdaq_map.items():
+        if key not in result:
+            d = _get_json('https://api.nasdaq.com/api/quote/%s/info?assetclass=%s' % (sym, cls), headers=UA)
+            if d:
+                pd_ = (d.get('data') or {}).get('primaryData') or {}
+                raw = (pd_.get('lastSalePrice') or '').replace('$', '').replace(',', '').strip()
+                if raw:
+                    _set(key, raw)
+
     return result
 
 # ═══════════════════════════════════════════
@@ -225,14 +277,14 @@ def build_html(data, prices, fng, consensus):
     
     # 价格数据
     btc_price = prices.get('BTC', {}).get('price') or get_btc_price() or 0
-    gold_price = prices.get('GOLD', {}).get('price', 0)
-    silver_price = prices.get('SILVER', {}).get('price', 0)
-    spx_price = prices.get('SPX', {}).get('price', 0)
-    vix = prices.get('VIX', {}).get('price', 0)
-    gold_ma200 = prices.get('GOLD', {}).get('ma200', 0)
-    gold_dev = prices.get('GOLD', {}).get('deviation', 0)
-    silver_ma200 = prices.get('SILVER', {}).get('ma200', 0)
-    silver_dev = prices.get('SILVER', {}).get('deviation', 0)
+    gold_price = prices.get('GOLD', {}).get('price') or 0
+    silver_price = prices.get('SILVER', {}).get('price') or 0
+    spx_price = prices.get('SPX', {}).get('price') or 0
+    vix = prices.get('VIX', {}).get('price') or 0
+    gold_ma200 = prices.get('GOLD', {}).get('ma200') or 0
+    gold_dev = prices.get('GOLD', {}).get('deviation') or 0
+    silver_ma200 = prices.get('SILVER', {}).get('ma200') or 0
+    silver_dev = prices.get('SILVER', {}).get('deviation') or 0
     btc_ma200 = prices.get('BTC', {}).get('ma200', 0) or 73200
     btc_dev = prices.get('BTC', {}).get('deviation', 0) or round((btc_price - btc_ma200) / btc_ma200 * 100, 1) if btc_price and btc_ma200 else 0
     
@@ -248,7 +300,7 @@ def build_html(data, prices, fng, consensus):
     a_semi_etf_price = a_semi_etf.get('price') or 0
     
     # SOX指数
-    sox_price = prices.get('SOX', {}).get('price', 0)
+    sox_price = prices.get('SOX', {}).get('price') or 0
     sox_dev = prices.get('SOX', {}).get('deviation')
     
     fng_val = fng.get('value', 50) if fng else 50
@@ -554,13 +606,13 @@ def build_html(data, prices, fng, consensus):
 <div class="header">
   <h1>🌪️ 疯向标</h1>
   <div class="sub">散户情绪天气预报 · 纯属娱乐不构成投资建议</div>
-  <div class="meta">📅 {now.strftime('%Y-%m-%d %a')} · {now.strftime('%H:%M')} CST · BTC ${btc_price:,.0f} · 金${gold_price:,.0f} · 银${silver_price:,.0f} · VIX {vix:.1f}</div>
+  <div class="meta">📅 {now.strftime('%Y-%m-%d %a')} · {now.strftime('%H:%M')} CST · BTC ${btc_price:,.0f} · 金${gold_price:,.0f} · 银${silver_price:,.0f} · VIX {f'{vix:.1f}' if vix else '—'}</div>
 </div>
 
 {guba_html}
 
 <div class="macro-bar">
-  <div class="macro-item"><div class="macro-val" style="color:{'#eab308' if vix < 25 else '#ef4444'}">🌡️ VIX {vix:.1f}</div><div class="macro-lbl">{'平静' if vix < 20 else '警惕' if vix < 30 else '恐慌'}</div></div>
+  <div class="macro-item"><div class="macro-val" style="color:{'#888' if not vix else '#eab308' if vix < 25 else '#ef4444'}">🌡️ VIX {f'{vix:.1f}' if vix else '—'}</div><div class="macro-lbl">{'数据待拉' if not vix else '平静' if vix < 20 else '警惕' if vix < 30 else '恐慌'}</div></div>
   <div class="macro-item"><div class="macro-val" style="color:#3b82f6">📉 CPI 3.5%↓</div><div class="macro-lbl">通胀降温</div></div>
   <div class="macro-item"><div class="macro-val" style="color:#f7931a">😱 F&G {fng_val}</div><div class="macro-lbl">{fng_class}</div></div>
   <div class="macro-item"><div class="macro-val" style="color:{far_color}">📢 关注度{far:.0f}%</div><div class="macro-lbl">{far_verdict}</div></div>
@@ -606,7 +658,36 @@ def main():
     
     print('获取实时价格...')
     prices = get_yahoo_prices()
-    if not prices.get('BTC'):
+
+    # —— 价格健壮性：NaN/None 清洗 + 缓存兜底（防 yfinance 偶发失败导致页面崩溃）——
+    import math as _math
+    cache_path = os.path.join(DATA_DIR, 'prices_cache.json')
+    cache = {}
+    if os.path.exists(cache_path):
+        try:
+            cache = json.load(open(cache_path)) or {}
+        except Exception:
+            cache = {}
+    for k in list(prices.keys()):
+        for fld in ('price', 'ma200', 'deviation'):
+            v = prices[k].get(fld)
+            try:
+                fv = float(v)
+                prices[k][fld] = fv if _math.isfinite(fv) else None
+            except (TypeError, ValueError):
+                prices[k][fld] = None
+    for k, v in cache.items():
+        if k not in prices or prices[k].get('price') is None:
+            prices.setdefault(k, {})
+            for fld in ('price', 'ma200', 'deviation'):
+                if prices[k].get(fld) is None and v.get(fld) is not None:
+                    prices[k][fld] = v[fld]
+    try:
+        json.dump(prices, open(cache_path, 'w'), ensure_ascii=False, indent=1)
+    except Exception:
+        pass
+
+    if not prices.get('BTC', {}).get('price'):
         btc = get_btc_price()
         if btc:
             prices['BTC'] = {'price': btc, 'ma200': 73200, 'deviation': round((btc - 73200) / 73200 * 100, 1)}
