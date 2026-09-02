@@ -1,21 +1,21 @@
 {
-  "collected_at": "2026-09-02T16:45:50.702069+08:00",
+  "collected_at": "2026-09-02T20:51:07.798918+08:00",
   "sectors": {
     "gold": {
       "name": "黄金白银",
-      "error": "HTTP Error 401: Unauthorized"
+      "error": "<urlopen error EOF occurred in violation of protocol (_ssl.c:1129)>"
     },
     "btc": {
       "name": "BTC",
-      "error": "HTTP Error 401: Unauthorized"
+      "error": "<urlopen error EOF occurred in violation of protocol (_ssl.c:1129)>"
     },
     "a_semi": {
       "name": "A股半导体",
-      "error": "HTTP Error 401: Unauthorized"
+      "error": "<urlopen error EOF occurred in violation of protocol (_ssl.c:1129)>"
     },
     "us_semi": {
       "name": "美股半导体",
-      "error": "HTTP Error 401: Unauthorized"
+      "error": "<urlopen error EOF occurred in violation of protocol (_ssl.c:1129)>"
     }
   }
 }
