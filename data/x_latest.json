@@ -1,9 +1,9 @@
 {
-  "collected_at": "2026-09-02T20:51:07.798918+08:00",
+  "collected_at": "2026-09-03T04:45:27.091859+08:00",
   "sectors": {
     "gold": {
       "name": "黄金白银",
-      "error": "<urlopen error EOF occurred in violation of protocol (_ssl.c:1129)>"
+      "error": "<urlopen error _ssl.c:1112: The handshake operation timed out>"
     },
     "btc": {
       "name": "BTC",
@@ -15,7 +15,7 @@
     },
     "us_semi": {
       "name": "美股半导体",
-      "error": "<urlopen error EOF occurred in violation of protocol (_ssl.c:1129)>"
+      "error": "<urlopen error _ssl.c:1112: The handshake operation timed out>"
     }
   }
 }
