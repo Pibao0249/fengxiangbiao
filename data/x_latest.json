@@ -1,21 +1,21 @@
 {
-  "collected_at": "2026-09-03T08:45:52.672346+08:00",
+  "collected_at": "2026-09-03T16:45:44.237729+08:00",
   "sectors": {
     "gold": {
       "name": "黄金白银",
-      "error": "<urlopen error _ssl.c:1112: The handshake operation timed out>"
+      "error": "curl exit=56 curl: (56) The requested URL returned error: 401\n"
     },
     "btc": {
       "name": "BTC",
-      "error": "<urlopen error EOF occurred in violation of protocol (_ssl.c:1129)>"
+      "error": "curl exit=56 curl: (56) The requested URL returned error: 401\n"
     },
     "a_semi": {
       "name": "A股半导体",
-      "error": "<urlopen error EOF occurred in violation of protocol (_ssl.c:1129)>"
+      "error": "curl exit=56 curl: (56) The requested URL returned error: 401\n"
     },
     "us_semi": {
       "name": "美股半导体",
-      "error": "<urlopen error _ssl.c:1112: The handshake operation timed out>"
+      "error": "curl exit=56 curl: (56) The requested URL returned error: 401\n"
     }
   }
 }
