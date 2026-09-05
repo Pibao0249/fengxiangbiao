@@ -1,9 +1,9 @@
 {
-  "collected_at": "2026-09-05T00:50:05.307169+08:00",
+  "collected_at": "2026-09-05T12:55:41.176056+08:00",
   "sectors": {
     "gold": {
       "name": "黄金白银",
-      "error": "curl exit=28 curl: (28) SSL connection timeout\n"
+      "error": "curl exit=56 curl: (56) The requested URL returned error: 401\n"
     },
     "btc": {
       "name": "BTC",
@@ -15,7 +15,7 @@
     },
     "us_semi": {
       "name": "美股半导体",
-      "error": "curl exit=56 curl: (56) The requested URL returned error: 401\n"
+      "error": "curl exit=28 curl: (28) SSL connection timeout\n"
     }
   }
 }
